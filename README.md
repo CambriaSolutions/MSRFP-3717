@@ -1,5 +1,5 @@
 # MSRFP-3717
-[Click here for our working prototype](https://adpqrfi-75001.herokuapp.com)
+[Click here for our working prototype](http://msrfp-3717.azurewebsites.net/)
 
 [Quick Start Guide](https://github.com/CambriaSolutions/MSRFP-3717/blob/master/artifacts/Quick%20Start%20Guide.pdf)
 
