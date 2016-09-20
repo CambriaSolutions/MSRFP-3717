@@ -10,7 +10,7 @@ Cambria builds custom-tailored solutions using ingenuity and a distinctly humani
 
 We created a user experience that was intuitive to the needs of actual foster parents and case workers. We started with discovery that included interviews, research, and conducted usability testing continuously with each iteration. With this collective knowledge, we developed personas to further define and personalize the prototype's core characteristics. 
 
-Our cross-functional team met face-to-face in conference rooms, had break out meetings, and collaborated daily to develop a prototype that exemplifies not only our technical and agile skills but the human-centered design principles. 
+Our cross-functional team met face-to-face in conference rooms, interviewed system users, had break out meetings, and collaborated daily to develop a prototype that exemplifies not only our technical and agile skills but the human-centered design principles. 
 
 We started developing our first user story within a couple of days. We learned a lot in the first sprint and never stopped learning, iterating, and adapting. We tested each core feature and made adjustments based on raised issues and feedback from our regular sprint retrospectives. From fixing bugs and issues to tweaking wireframes and visual design to adjusting the software stack, every aspect of each lifecycle was open to adjustments to ensure the prototype functioned and responded the way our users needed it to.   
 
