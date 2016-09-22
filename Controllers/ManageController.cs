@@ -1,29 +1,29 @@
-using System;
-using System.Collections.Generic;
+//using System;
+//using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using msrfp_3717.Models;
 using msrfp_3717.Models.ManageViewModels;
-using msrfp_3717.Services;
+using msrfp_3717.Services; 
+using Dnx.Identity.MongoDB;
 
 namespace msrfp_3717.Controllers
 {
     [Authorize]
     public class ManageController : Controller
     {
-        private readonly UserManager<ApplicationUser> _userManager;
-        private readonly SignInManager<ApplicationUser> _signInManager;
+        private readonly UserManager<MongoIdentityUser> _userManager;
+        private readonly SignInManager<MongoIdentityUser> _signInManager;
         private readonly IEmailSender _emailSender;
         private readonly ISmsSender _smsSender;
         private readonly ILogger _logger;
 
         public ManageController(
-            UserManager<ApplicationUser> userManager,
-            SignInManager<ApplicationUser> signInManager,
+            UserManager<MongoIdentityUser> userManager,
+            SignInManager<MongoIdentityUser> signInManager,
             IEmailSender emailSender,
             ISmsSender smsSender,
             ILoggerFactory loggerFactory)
@@ -350,7 +350,7 @@ namespace msrfp_3717.Controllers
             Error
         }
 
-        private Task<ApplicationUser> GetCurrentUserAsync()
+        private Task<MongoIdentityUser> GetCurrentUserAsync()
         {
             return _userManager.GetUserAsync(HttpContext.User);
         }

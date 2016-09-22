@@ -1,5 +1,5 @@
-using System;
-using System.Collections.Generic;
+//using System;
+//using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
@@ -11,21 +11,22 @@ using Microsoft.Extensions.Logging;
 using msrfp_3717.Models;
 using msrfp_3717.Models.AccountViewModels;
 using msrfp_3717.Services;
+using Dnx.Identity.MongoDB; 
 
 namespace msrfp_3717.Controllers
 {
     [Authorize]
     public class AccountController : Controller
     {
-        private readonly UserManager<ApplicationUser> _userManager;
-        private readonly SignInManager<ApplicationUser> _signInManager;
+        private readonly UserManager<MongoIdentityUser> _userManager;
+        private readonly SignInManager<MongoIdentityUser> _signInManager;
         private readonly IEmailSender _emailSender;
         private readonly ISmsSender _smsSender;
         private readonly ILogger _logger;
 
         public AccountController(
-            UserManager<ApplicationUser> userManager,
-            SignInManager<ApplicationUser> signInManager,
+            UserManager<MongoIdentityUser> userManager,
+            SignInManager<MongoIdentityUser> signInManager,
             IEmailSender emailSender,
             ISmsSender smsSender,
             ILoggerFactory loggerFactory)
@@ -105,7 +106,7 @@ namespace msrfp_3717.Controllers
             ViewData["ReturnUrl"] = returnUrl;
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var user = new MongoIdentityUser ( model.Email, model.Email );
                 var result = await _userManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
@@ -171,6 +172,9 @@ namespace msrfp_3717.Controllers
             var result = await _signInManager.ExternalLoginSignInAsync(info.LoginProvider, info.ProviderKey, isPersistent: false);
             if (result.Succeeded)
             {
+                // Update any authentication tokens if login succeeded
+                await _signInManager.UpdateExternalAuthenticationTokensAsync(info);
+
                 _logger.LogInformation(5, "User logged in with {Name} provider.", info.LoginProvider);
                 return RedirectToLocal(returnUrl);
             }
@@ -207,7 +211,7 @@ namespace msrfp_3717.Controllers
                 {
                     return View("ExternalLoginFailure");
                 }
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var user = new MongoIdentityUser(model.Email, model.Email);
                 var result = await _userManager.CreateAsync(user);
                 if (result.Succeeded)
                 {
@@ -216,6 +220,10 @@ namespace msrfp_3717.Controllers
                     {
                         await _signInManager.SignInAsync(user, isPersistent: false);
                         _logger.LogInformation(6, "User created an account using {Name} provider.", info.LoginProvider);
+
+                        // Update any authentication tokens as well
+                        await _signInManager.UpdateExternalAuthenticationTokensAsync(info);
+
                         return RedirectToLocal(returnUrl);
                     }
                 }
@@ -446,7 +454,7 @@ namespace msrfp_3717.Controllers
             }
         }
 
-        private Task<ApplicationUser> GetCurrentUserAsync()
+        private Task<MongoIdentityUser> GetCurrentUserAsync()
         {
             return _userManager.GetUserAsync(HttpContext.User);
         }

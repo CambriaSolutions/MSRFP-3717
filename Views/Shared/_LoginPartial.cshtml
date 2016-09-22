@@ -1,8 +1,9 @@
 @using Microsoft.AspNetCore.Identity
-@using msrfp_3717.Models
 
-@inject SignInManager<ApplicationUser> SignInManager
-@inject UserManager<ApplicationUser> UserManager
+@using Dnx.Identity.MongoDB
+
+@inject SignInManager<MongoIdentityUser> SignInManager
+@inject UserManager<MongoIdentityUser> UserManager
 
 @if (SignInManager.IsSignedIn(User))
 {
