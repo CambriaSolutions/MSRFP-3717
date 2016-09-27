@@ -15,6 +15,8 @@ namespace msrfp_3717.Data
         {
         }
 
+        public DbSet<Provider> Provider { get; set; }
+
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
