@@ -32,7 +32,7 @@ namespace msrfp_3717
 
             builder.AddEnvironmentVariables();
             Configuration = builder.Build();
-        }
+        } 
 
         public IConfigurationRoot Configuration { get; }
 
