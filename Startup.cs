@@ -17,12 +17,30 @@ namespace msrfp_3717
 {
     public class Startup
     {
+
+        public class MyDbContext : DbContext
+        {
+         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+        var connectionStringBuilder = new Microsoft.Data.Sqlite.SqliteConnectionStringBuilder { DataSource = "msrfp_3717.db" };
+        var connectionString = connectionStringBuilder.ToString();
+        var connection = new Microsoft.Data.Sqlite.SqliteConnection(connectionString);
+
+        optionsBuilder.UseSqlite(connection);
+        }
+    }
         public Startup(IHostingEnvironment env)
         {
             var builder = new ConfigurationBuilder()
                 .SetBasePath(env.ContentRootPath)
                 .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
                 .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true);
+
+            using (var db = new MyDbContext())
+            {
+                db.Database.EnsureCreated();
+                db.Database.Migrate();
+            }
 
             if (env.IsDevelopment())
             {
