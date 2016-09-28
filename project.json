@@ -95,7 +95,7 @@
     "precompile": [ "dotnet bundle" ],
     "prepublish": [ "bower install" ],
     "postpublish": [ "dotnet publish-iis --publish-folder %publish:OutputPath% --framework %publish:FullTargetFramework%" ],
-    "postpublish": [ "dotnet ef database restore" ]
+    "postpublish": [ "dotnet ef database update" ]
   },
 
   "tooling": {
