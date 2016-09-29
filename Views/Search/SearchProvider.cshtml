@@ -1,3 +1,4 @@
+@model Provider
 @{
     ViewData["Title"] = "Search Provider";
 }
@@ -29,14 +30,14 @@
             <div class="form-group">
               <label for="nameField" class="col-xs-2">Address</label>
               <div class="col-xs-10">
-                <input type="text" class="form-control" id="nameField" placeholder="Provider Name" />
+                <input type="text" class="form-control" id="txtName" placeholder="Provider Name" />
               </div>
             </div>
 
                <div class="form-group">
               <label for="phoneField" class="col-xs-2">City</label>
               <div class="col-xs-10">
-                <select class="form-control selcls" id="city">
+                <select class="form-control selcls" id="ddlCity">
 		<option value="">&lt; Select One &gt;</option>
 		<option value="ABBEVILLE">ABBEVILLE</option>
 		<option value="ABERDEEN">ABERDEEN</option>
@@ -529,7 +530,7 @@
             <div class="form-group">
               <label for="nameField" class="col-xs-2">Zip Code</label>
               <div class="col-xs-10">
-                <input type="text" class="form-control" id="nameField" placeholder="Zip Code" />
+                <input type="text" class="form-control" id="txtZip" placeholder="Zip Code" />
               </div>
             </div> 
           <!--
@@ -660,7 +661,8 @@
             </div> -->
             
             <div class="col-xs-10 col-xs-offset-2">
-              <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-default" id="btnSubmit">Submit</button>
+			 
                <button type="reset" class="btn btn-default">Reset</button>
             </div>
             
@@ -732,18 +734,24 @@ $(window).unbind('resize.myEvents').bind('resize.myEvents', function () {
 			
 </script>-->
 
-<script >
-    jQuery("#list2").jqGrid({
-      url:"search/getprovider",
+<script>
+ $('[id^=btnSubmit]').on('click', function (e) {
+	var name1 = $("#txtName").val();
+	var city1 =$("#ddlCity").val();
+	var zip1 =$("#txtZip").val();
 	
-	  
+alert(1);	
+
+ jQuery("#list2").jqGrid({
+      url:"search/getprovider?name="+name1 +"&city=" + city1 +"&zip=" + zip1,
+	//data: { name: name1, city: city1, zip : zip1},	  
     datatype: 'json',
-    colNames: ['Provider Name', 'Provider Address', 'County'	],
+    colNames: ['Provider Name', 'Phone Number', 'Physical ZipCode'	],
     colModel: [
        
 		  {name:'ProviderName',index:'ProviderName' ,width:'525'},
-   		{name:'ProviderAddress',index:'ProviderAddress', width:'600'},
-		   	{name:'County',index:'County', width:'600'}
+   		{name:'PhoneNumber',index:'PhoneNumber', width:'600'},
+		   	{name:'PhysicalZipCode',index:'PhysicalZipCode', width:'600'}
 
        
     ],
@@ -764,7 +772,13 @@ $(window).unbind('resize.myEvents').bind('resize.myEvents', function () {
         caption: 'Provider Search Result...',
 			autowidth: true,  // set 'true' here
                 shrinkToFit: true
-    }).navGrid(pager, { edit: false, add: false, del: false, refresh: true, search: true });
+    })
+	//.navGrid(pager, { edit: false, add: false, del: false, refresh: true, search: true });
+return false;
+ });
+
+
+   
 
 $(window).resize(function () {
             var outerwidth = $('#div1').width();
