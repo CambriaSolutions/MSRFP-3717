@@ -81,7 +81,7 @@ namespace msrfp_3717
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                    template: "{controller=Search}/{action=searchprovider}/{id?}");
             });
         }
     }

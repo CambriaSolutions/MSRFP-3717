@@ -24,6 +24,7 @@ textarea {
 }
 
 /* buttons and links extension to use brackets: [ click me ] */
+
 .btn-bracketed::before {
     display:inline-block;
     content: "[";
@@ -34,6 +35,8 @@ textarea {
     content: "]";
     padding-left: 0.5em;
 }
+
+
 
 /* Make .svg files in the carousel display properly in older browsers */
 .carousel-inner .item img[src$=".svg"]
