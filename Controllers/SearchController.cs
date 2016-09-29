@@ -42,12 +42,12 @@ namespace msrfp_3717.Controllers
         }
 
 [HttpGet]
-       public string GetProvider(string name, string city, string zip)
+       public string GetProvider(string location)
         {
      
           var prov = new List<Provider>() ;
              prov = (from provider in appDbctx.Provider
-                    where provider.ProviderName == name || provider.PhysicalCity == city || provider.PhysicalZipCode == zip
+                    where  provider.PhysicalCity == location || provider.PhysicalZipCode ==location
                   // where provider.PhysicalZipCode == zip
                     select provider).ToList();
       
