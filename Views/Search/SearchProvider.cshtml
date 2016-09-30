@@ -209,8 +209,9 @@ function initialize(locations) {
 //google.maps.event.addDomListener(window, "load", initialize);
 
 function geocodeAddress(locations, i) {
+
   var title = locations[i][0];
-  var address = locations[i][1];
+  var address = locations[i][0] + " " + locations[i][1];
   var url = locations[i][2];
  
   geocoder.geocode({
