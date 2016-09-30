@@ -41,6 +41,7 @@
 			 
                <button type="reset" class="btn btn-default">Reset</button>
             </div>
+
             
           </form>
         </div>
@@ -54,7 +55,27 @@
 
            </div>
 
-		    
+<br>
+			
+			 <br>
+			 <br>
+
+			 <div class="container">
+    <div class="OuterMostClass row">
+        <div class="outerClass col-xs-6">
+            <table id="list2">
+        </table><div id="pager2"></div>
+        </div>
+        </div>
+        <div class="outerClass2 col-xs-6">
+            <div id ="map"   style="width:750px;height:350px;">
+        </div>
+    </div> 
+</div>
+
+	
+
+</div>	    
 
 <script>
 	 var firstClick = true;
@@ -71,17 +92,18 @@
 
  jQuery("#list2").jqGrid({
       url:"search/getprovider?location="+enteredLocation,
-	//data: { name: name1, city: city1, zip : zip1},	  
+	//data: { name: name1, city: city1, zip : zip1},
+width: '600',
     datatype: 'json',
     colNames: ['Provider Name', 'Phone Number', 'City', 'Physical ZipCode', 'LicenseType', 'Rating'	],
     colModel: [
        
-		  {name:'ProviderName',index:'ProviderName' ,width:'525', align: 'center'},
-   		{name:'PhoneNumber',index:'PhoneNumber', width:'600', align: 'center'},
-		    	{name:'PhysicalCity',index:'PhysicalCity', width:'600',align: 'center'},
-		   	{name:'PhysicalZipCode',index:'PhysicalZipCode', width:'600', align: 'center'},
-			   	{name:'LicenseType',index:'LicenseType', width:'600', align: 'center'},				  
-					   {name:'QualityRating',index:'QualityRating', width:'600', align: 'center'}
+		  {name:'ProviderName',index:'ProviderName' ,width:'25', align: 'center'},
+   		{name:'PhoneNumber',index:'PhoneNumber', width:'25', align: 'center'},
+		    	{name:'PhysicalCity',index:'PhysicalCity', width:'25',align: 'center'},
+		   	{name:'PhysicalZipCode',index:'PhysicalZipCode', width:'25', align: 'center'},
+			   	{name:'LicenseType',index:'LicenseType', width:'25', align: 'center'},				  
+					   {name:'QualityRating',index:'QualityRating', width:'25', align: 'center'}
 
        
     ],
@@ -100,7 +122,7 @@
         sortorder: "asc",
         viewrecords: false,
         caption: 'Provider Search Result...',
-			autowidth: true,  // set 'true' here
+			autowidth: false,  // set 'true' here
                 shrinkToFit: true
     })
 	//.navGrid(pager, { edit: false, add: false, del: false, refresh: true, search: true });
@@ -120,4 +142,56 @@ $(window).unbind('resize.myEvents').bind('resize.myEvents', function () {
         var outerwidth = $('#div1').width();
         $('#datagrid').setGridWidth(outerwidth);
     });
-</script>
+
+
+
+
+
+
+$(document).ready(function () {
+    var map;
+    var elevator;
+    var myOptions = {
+        zoom: 10,
+        center: new google.maps.LatLng(38.575764, -121.478851),
+       mapTypeId: 'terrain'
+    };
+    map = new google.maps.Map($('#map')[0], myOptions);
+
+    var addresses = ['GranitePoint 95834', '840 still water road 95605', '1718 timbrelway rocklin 95765', 'CVS 95835', 'Cambria Solutions Sacramento'];
+
+    for (var x = 0; x < addresses.length; x++) {
+		var address = addresses[x];		
+        $.getJSON('http://maps.googleapis.com/maps/api/geocode/json?address='+addresses[x]+'&sensor=false', null, function (data) {
+			
+            var p = data.results[0].geometry.location
+		
+            var latlng = new google.maps.LatLng(p.lat, p.lng);
+		
+            new google.maps.Marker({
+                position: latlng,
+                map: map,
+				title: address
+				
+            });
+
+        });
+	
+    }
+
+	var circle = new google.maps.Circle({
+            center: new google.maps.LatLng(38.575764, -121.478851),
+            map: map,
+            radius: 10000,          // IN METERS.
+            fillColor: '#FF6600',
+            fillOpacity: 0.3,
+            strokeColor: "#FFF",
+            strokeWeight: 1        // DON'T SHOW CIRCLE BORDER.
+        });
+
+}); 
+   </script>
+
+
+
+   
