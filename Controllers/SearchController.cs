@@ -47,7 +47,7 @@ namespace msrfp_3717.Controllers
      
           var prov = new List<Provider>() ;
              prov = (from provider in appDbctx.Provider
-                    where  provider.PhysicalCity == location || provider.PhysicalZipCode ==location
+                    where   provider.PhysicalCity.ToUpper() == location.ToUpper() || provider.PhysicalZipCode ==location
                   // where provider.PhysicalZipCode == zip
                     select provider).ToList();
       
