@@ -13,46 +13,30 @@
  <link rel="stylesheet" href="~/css/bootstrap.css" />           
   <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
     </environment>
-
-
-    
- 
-
-<!--<link rel="stylesheet" type="text/css" media="screen" href="~/css/ui.jqgrid.css" />
+    <!--<link rel="stylesheet" type="text/css" media="screen" href="~/css/ui.jqgrid.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="~/css/ui.jqgrid-bootstrap.css" />
-     <link rel="stylesheet" type="text/css" media="screen" href="~/css/ui.jqgrid-bootstrap-ui.css" />-->
-
-     <link rel="stylesheet" type="text/css" href="http://www.trirand.com/blog/jqgrid/themes/redmond/jquery-ui-1.8.1.custom.css"/>
+    <link rel="stylesheet" type="text/css" media="screen" href="~/css/ui.jqgrid-bootstrap-ui.css" />-->
+    <link rel="stylesheet" type="text/css" href="http://www.trirand.com/blog/jqgrid/themes/redmond/jquery-ui-1.8.1.custom.css"/>
     <link rel="stylesheet" type="text/css" href="http://www.trirand.com/blog/jqgrid/themes/ui.jqgrid.css"/>
     <script type="text/javascript" src="http://www.trirand.com/blog/jqgrid/js/jquery.js"></script>
         <script type="text/javascript" src="http://www.trirand.com/blog/jqgrid/js/jquery-ui-1.8.1.custom.min.js"></script>
-
         <script type="text/javascript" src="http://www.trirand.com/blog/jqgrid/js/jquery.layout.js"></script>
         <script type="text/javascript" src="http://www.trirand.com/blog/jqgrid/js/i18n/grid.locale-en.js"></script>
         <script type="text/javascript" src="http://www.trirand.com/blog/jqgrid/js/ui.multiselect.js"></script>
         <script type="text/javascript" src="http://www.trirand.com/blog/jqgrid/js/jquery.jqGrid.min.js"></script>
         <script type="text/javascript" src="http://www.trirand.com/blog/jqgrid/js/jquery.tablednd.js"></script>
         <script type="text/javascript" src="http://www.trirand.com/blog/jqgrid/js/jquery.contextmenu.js"></script>
- 
-
 
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDJyn2zQztfJV02tDnsunsoFQ0b2qKJpOM"></script>
 	
 
-  <!--<script src="javascripts/jquery.js"></script>
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=YOUR-API-KEY"></script>
-<script type="text/javascript" src="javascripts/jquery.googlemap.js"></script>-->
 
 </head>
-
 <body>
    
 <div class="container">
-<img src="~/images/mdhs_logo.png" />
-<br>
-           
-<hr>
-  <nav class="navbar navbar-inverse" >
+<img src="~/images/mdhs_logo.png" /><p><p>     
+<nav class="navbar navbar-inverse" >
   <div class="container-fluid" >
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -85,20 +69,14 @@
   </div>
 </nav>
 </div>
-       
-       
-</body>
-      
 
-
- <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; 2016 - Cambria Solutions</p>
-        </footer>
-    </div>
-
-  
+ @RenderBody()
+ 
+ <div class="container">
+    <hr/>
+    <footer>
+        <p>&copy; 2016 - Cambria Solutions</p>
+    </footer>
+  </div>
 </body>
 </html>
