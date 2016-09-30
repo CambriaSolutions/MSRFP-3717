@@ -50,27 +50,29 @@
    </div>
 </div>
 
-<table id="list2">
-        </table><div id="pager2"></div>
+
 
            </div>
 
 <br>
 			
 			 <br>
-			 <br>
 
-			 <div class="container">
+
+
+<div class="container">
     <div class="OuterMostClass row">
-        <div class="outerClass col-xs-6">
+        <div class="outerClass col-xs-7">
             <table id="list2">
         </table><div id="pager2"></div>
         </div>
-        </div>
-        <div class="outerClass2 col-xs-6">
-            <div id ="map"   style="width:750px;height:350px;">
+        <div class="outerClass2 col-xs-5">
+           <div id="map_canvas" style="border: 2px solid #3872ac; width:650px;height:500px;" ></div>
         </div>
     </div> 
+</div>
+
+
 </div>
 
 	
@@ -93,15 +95,16 @@
  jQuery("#list2").jqGrid({
       url:"search/getprovider?location="+enteredLocation,
 	//data: { name: name1, city: city1, zip : zip1},
-width: '600',
+width : '600',
+height: '420',
     datatype: 'json',
     colNames: ['Provider Name', 'Phone Number', 'City', 'Physical ZipCode', 'LicenseType', 'Rating'	],
     colModel: [
        
 		  {name:'ProviderName',index:'ProviderName' ,width:'25', align: 'center'},
-   		{name:'PhoneNumber',index:'PhoneNumber', width:'25', align: 'center'},
+   		{name:'PhoneNumber',index:'PhoneNumber', width:'35', align: 'center'},
 		    	{name:'PhysicalCity',index:'PhysicalCity', width:'25',align: 'center'},
-		   	{name:'PhysicalZipCode',index:'PhysicalZipCode', width:'25', align: 'center'},
+		   	{name:'PhysicalZipCode',index:'PhysicalZipCode', width:'45', align: 'center'},
 			   	{name:'LicenseType',index:'LicenseType', width:'25', align: 'center'},				  
 					   {name:'QualityRating',index:'QualityRating', width:'25', align: 'center'}
 
@@ -148,49 +151,97 @@ $(window).unbind('resize.myEvents').bind('resize.myEvents', function () {
 
 
 
-$(document).ready(function () {
-    var map;
-    var elevator;
-    var myOptions = {
-        zoom: 10,
-        center: new google.maps.LatLng(38.575764, -121.478851),
-       mapTypeId: 'terrain'
-    };
-    map = new google.maps.Map($('#map')[0], myOptions);
+var locations = [
+  ['CVS Pharmacy', 'CVS 95835', 'http://www.google.com'],
+  ['840 still water road 95605', '840 still water road 95605', 'http://www.google.com'],
+  ['Cambria Solutions Sacramento <br> 20th Street Sacramento CA.', 'Cambria Solutions Sacramento', 'http://www.google.com'],
+  ['1718 timbrelway rocklin 95765', '1718 timbrelway rocklin 95765', 'http://www.google.com']
 
-    var addresses = ['GranitePoint 95834', '840 still water road 95605', '1718 timbrelway rocklin 95765', 'CVS 95835', 'Cambria Solutions Sacramento'];
+];
 
-    for (var x = 0; x < addresses.length; x++) {
-		var address = addresses[x];		
-        $.getJSON('http://maps.googleapis.com/maps/api/geocode/json?address='+addresses[x]+'&sensor=false', null, function (data) {
-			
-            var p = data.results[0].geometry.location
-		
-            var latlng = new google.maps.LatLng(p.lat, p.lng);
-		
-            new google.maps.Marker({
-                position: latlng,
-                map: map,
-				title: address
-				
-            });
+var geocoder;
+var map;
+var bounds = new google.maps.LatLngBounds();
 
-        });
-	
-    }
+function initialize() {
+  map = new google.maps.Map(
+    document.getElementById("map_canvas"), {
+      center: new google.maps.LatLng(37.4419, -122.1419),
+      zoom: 13,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    });
+  geocoder = new google.maps.Geocoder();
 
-	var circle = new google.maps.Circle({
-            center: new google.maps.LatLng(38.575764, -121.478851),
-            map: map,
-            radius: 10000,          // IN METERS.
-            fillColor: '#FF6600',
-            fillOpacity: 0.3,
-            strokeColor: "#FFF",
-            strokeWeight: 1        // DON'T SHOW CIRCLE BORDER.
-        });
+  for (i = 0; i < locations.length; i++) {
 
-}); 
+
+    geocodeAddress(locations, i);
+  }
+}
+google.maps.event.addDomListener(window, "load", initialize);
+
+function geocodeAddress(locations, i) {
+  var title = locations[i][0];
+  var address = locations[i][1];
+  var url = locations[i][2];
+ 
+  geocoder.geocode({
+      'address': locations[i][1]
+    },
+
+    function(results, status) {
+      if (status == google.maps.GeocoderStatus.OK) {
+        var marker = new google.maps.Marker({
+          icon: 'http://maps.google.com/mapfiles/ms/icons/blue.png',
+          map: map,
+          position: results[0].geometry.location,
+          title: title,
+          animation: google.maps.Animation.DROP,
+          address: address,
+          url: url
+        })
+        infoWindow(marker, map, title, address, url);
+        bounds.extend(marker.getPosition());
+        map.fitBounds(bounds);
+      } else {
+        alert("geocode of " + address + " failed:" + status);
+      }
+    });
+}
+
+function infoWindow(marker, map, title, address, url) {
+
+  google.maps.event.addListener(marker, 'click', function() {
+    var html = "<div><h3>" + title + "</h3><p>" + address + "<br></div><a target='_blank' href='" + url + "'>View location</a></p></div>";
+    iw = new google.maps.InfoWindow({
+      content: html,
+      maxWidth: 350
+    });
+    iw.open(map, marker);
+  });
+}
+
+function createMarker(results) {
+  var marker = new google.maps.Marker({
+    icon: 'http://maps.google.com/mapfiles/ms/icons/blue.png',
+    map: map,
+    position: results[0].geometry.location,
+    title: title,
+    animation: google.maps.Animation.DROP,
+    address: address,
+    url: url
+  })
+  bounds.extend(marker.getPosition());
+  map.fitBounds(bounds);
+  infoWindow(marker, map, title, address, url);
+  return marker;
+}
+
    </script>
+<br>
+
+
+
 
 
 
