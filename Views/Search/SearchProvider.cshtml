@@ -82,7 +82,28 @@
 <script>
 	 var firstClick = true;
         $(document).ready(function() {
+			
  $('[id^=btnSubmit]').on('click', function (e) {
+var enteredLocation = $("#txtName").val();
+var mapLocations ;
+	 $.ajax({ 
+                type: 'GET', 
+                 url: 'search/getprovider',
+                data: {location: enteredLocation},
+                dataType:'json',
+				async:false,
+                success: function (data) { 
+                mapLocations = data;      
+				         
+                },
+				 error: function (jqXHR, textStatus, errorThrown) {
+                  alert(jqXHR.status+",  " + jqXHR.statusText+",  "+textStatus+",  "+errorThrown);
+                }
+            });
+
+
+         
+//jqgrid load
 
 	  if (!firstClick) {
 		$('#list2').jqGrid('GridUnload'); 
@@ -101,11 +122,11 @@ height: '420',
     colNames: ['Provider Name', 'Phone Number', 'City', 'Physical ZipCode', 'LicenseType', 'Rating'	],
     colModel: [
        
-		  {name:'ProviderName',index:'ProviderName' ,width:'25', align: 'center'},
+		  {name:'ProviderName',index:'ProviderName' ,width:'55', align: 'center'},
    		{name:'PhoneNumber',index:'PhoneNumber', width:'35', align: 'center'},
-		    	{name:'PhysicalCity',index:'PhysicalCity', width:'25',align: 'center'},
+		    	{name:'PhysicalCity',index:'PhysicalCity', width:'35',align: 'center'},
 		   	{name:'PhysicalZipCode',index:'PhysicalZipCode', width:'45', align: 'center'},
-			   	{name:'LicenseType',index:'LicenseType', width:'25', align: 'center'},				  
+			   	{name:'LicenseType',index:'LicenseType', width:'35', align: 'center'},				  
 					   {name:'QualityRating',index:'QualityRating', width:'25', align: 'center'}
 
        
@@ -129,11 +150,16 @@ height: '420',
                 shrinkToFit: true
     })
 	//.navGrid(pager, { edit: false, add: false, del: false, refresh: true, search: true });
+
+	initialize( MakeLocations(mapLocations));
+
+
+
 return false;
  });
 
  });
-
+//jqgrid end
    
 
 $(window).resize(function () {
@@ -151,19 +177,21 @@ $(window).unbind('resize.myEvents').bind('resize.myEvents', function () {
 
 
 
-var locations = [
-  ['CVS Pharmacy', 'CVS 95835', 'http://www.google.com'],
-  ['840 still water road 95605', '840 still water road 95605', 'http://www.google.com'],
-  ['Cambria Solutions Sacramento <br> 20th Street Sacramento CA.', 'Cambria Solutions Sacramento', 'http://www.google.com'],
-  ['1718 timbrelway rocklin 95765', '1718 timbrelway rocklin 95765', 'http://www.google.com']
+// var locations = [
+//   ['CVS Pharmacy', 'CVS 95835', 'http://www.google.com'],
+//   ['840 still water road 95605', '840 still water road 95605', 'http://www.google.com'],
+//   ['Cambria Solutions Sacramento <br> 20th Street Sacramento CA.', 'Cambria Solutions Sacramento', 'http://www.google.com'],
+//   ['1718 timbrelway rocklin 95765', '1718 timbrelway rocklin 95765', 'http://www.google.com']
 
-];
+// ];
+
+
 
 var geocoder;
 var map;
 var bounds = new google.maps.LatLngBounds();
 
-function initialize() {
+function initialize(locations) {
   map = new google.maps.Map(
     document.getElementById("map_canvas"), {
       center: new google.maps.LatLng(37.4419, -122.1419),
@@ -178,7 +206,7 @@ function initialize() {
     geocodeAddress(locations, i);
   }
 }
-google.maps.event.addDomListener(window, "load", initialize);
+//google.maps.event.addDomListener(window, "load", initialize);
 
 function geocodeAddress(locations, i) {
   var title = locations[i][0];
@@ -237,8 +265,23 @@ function createMarker(results) {
   return marker;
 }
 
+function MakeLocations(loc)
+{
+
+// 	var IDs = [];
+
+// IDs.push([1, 2]);
+//  ['CVS Pharmacy', 'CVS 95835', 'http://www.google.com'],
+ 
+ var arr= new Array();
+$.each( loc, function(i, obj) {
+      arr.push( [obj.ProviderName, obj.PhysicalCity + " " +obj.PhysicalZipCode , obj.PhoneNumber])
+});
+return arr;
+}
+
    </script>
-<br>
+
 
 
 
