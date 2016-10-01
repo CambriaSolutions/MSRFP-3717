@@ -65,11 +65,15 @@
 <div class="container">
     <div class="OuterMostClass row">
         <div class="outerClass col-xs-7">
-            <table id="list2">
-        </table><div id="pager2"></div>
+            <!--<table id="list2">
+        </table><div id="pager2"></div>-->
+        <h3>Results..</h3>
+            <div id= "list" style="overflow:auto;"> </div>
         </div>
         <div class="outerClass2 col-xs-5">
-           <div id="map_canvas" style="border: 2px solid #3872ac; width:650px;height:500px;" ></div>
+        
+     
+           <div id="map_canvas" style=" width:100%;height:20%; border: 2px solid #3872ac; width:650px;height:500px;" ></div>
         </div>
     </div> 
 </div>
@@ -82,9 +86,40 @@
 </div>	    
 
 <script>
+
+
+		function getLocationCoordinate(address) {
+ 
+    var position = {};
+    $.ajax({
+        url : 'http://maps.google.com/maps/api/geocode/json',
+        type : 'GET',
+        data : {
+            address : address,
+            sensor : false
+        },
+        async : false,
+        success : function(result) {
+ 
+            try {
+                position.lat = result.results[0].geometry.location.lat;
+                position.lng = result.results[0].geometry.location.lng;
+            } catch(err) {
+                position = null;
+            }
+ 
+        }
+    });
+    return  position ;
+}
+
+
 	 var firstClick = true;
         $(document).ready(function() {
-			
+
+        
+    
+
  $('[id^=btnSubmit]').on('click', function (e) {
 var enteredLocation = $("#txtName").val();
 var mapLocations ;
@@ -214,6 +249,7 @@ function geocodeAddress(locations, i) {
 
   var title = locations[i][0];
   var address = locations[i][0] + " " + locations[i][1];
+  var address1 = locations[i][0] + "<br> " + locations[i][1];
   var url = locations[i][2];
  
   geocoder.geocode({
@@ -237,18 +273,41 @@ function geocodeAddress(locations, i) {
       } else {
         alert("geocode of " + address + " failed:" + status);
       }
+
+      	$("<div style='border-collapse: collapse;overflow-x:auto;border: 1px solid #3872ac; width:650px;height:50px;' > </div> <br>")
+						.html(address1)
+            .click(function(){
+             
+infoWindowOnItemClick(marker, map, title, address, url);
+
+						})
+						.appendTo("#list");
     });
+}
+
+function infoWindowOnItemClick(marker, map, title, address, url)
+{
+
+  var html = "<div><h3>" + title + "</h3><p>" + address + "<br></div><a target='_blank' href='" + url + "'>View location</a></p></div>";
+    iw = new google.maps.InfoWindow({
+      content: html,
+      maxWidth: 350
+    });
+        iw.open(map, marker);
 }
 
 function infoWindow(marker, map, title, address, url) {
 
   google.maps.event.addListener(marker, 'click', function() {
+   
     var html = "<div><h3>" + title + "</h3><p>" + address + "<br></div><a target='_blank' href='" + url + "'>View location</a></p></div>";
     iw = new google.maps.InfoWindow({
       content: html,
       maxWidth: 350
     });
+
     iw.open(map, marker);
+    
   });
 }
 
@@ -282,6 +341,47 @@ $.each( loc, function(i, obj) {
 });
 return arr;
 }
+
+function GetProviderFromWeb(lat,lng, radius)
+{
+  var providerResultFromWeb;
+
+ $.ajax({ 
+                type: 'GET', 
+                 url: 'https://www.googleapis.com/fusiontables/v2/query/?sql=SELECT%20PROVIDERNAME,LICENSETYPE,PROVIDERTYPEDESCRIPTION,QUALITYRATINGDESCRIPTION,PROVIDERCAPACITY,STREETADDRESS,PHYSICALCITY,PHYSICALZIPCODE,COUNTYNAME,PHONENUMBER,AVAILABILITY,SPECIALNEEDS%20FROM%201LJf1_wwE143AcOetenp8utlpTielLEDvWbbGw71A%20WHERE%20ST_INTERSECTS(LOCATIONWITHNAME,%20CIRCLE(LATLNG(' + lat + ',' + lng + '),' + radius + '))&key=AIzaSyAm9yWCV7JPCTHCJut8whOjARd7pwROFDQ',
+               // data: {location: enteredLocation},
+                dataType:'json',
+			        	async:false,
+                success: function (data) { 
+              providerResultFromWeb =data;     
+				         
+                },
+				 error: function (jqXHR, textStatus, errorThrown) {
+                  alert(jqXHR.status+",  " + jqXHR.statusText+",  "+textStatus+",  "+errorThrown);
+                }
+            });
+
+            return providerResultFromWeb;
+
+}
+
+function displayPoint(marker , latlng){
+         
+         
+					$("#message").hide();
+			
+					var moveEnd = google.maps.event.addListener(map, "moveend", function(){
+						var markerOffset = map.fromLatLngToDivPixel(latlng);
+						$("#message")
+							.fadeIn()
+							.css({ top:markerOffset.y, left:markerOffset.x });
+					
+						GEvent.removeListener(moveEnd);
+					});
+					map.panTo(latlng);
+				}
+		
+
 
    </script>
 
