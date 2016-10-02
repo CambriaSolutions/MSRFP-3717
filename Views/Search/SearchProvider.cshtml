@@ -66,9 +66,10 @@
         <div class="outerClass col-xs-7">
             <!--<table id="list2">
         </table><div id="pager2"></div>-->
-        <h3>Results..</h3>
+      <div id ="divresults">  <h3>Your results..</h3></div>  <br />
             <div id= "list" style="overflow:auto;"> </div>
         </div>
+       
         <div class="outerClass2 col-xs-5">
         
      
@@ -121,6 +122,11 @@
 
  $('[id^=btnSubmit]').on('click', function (e) {
 var enteredLocation = $("#txtName").val();
+
+$('#divresults').html('Results for ' + enteredLocation );
+
+
+
 var mapLocations ;
 	 $.ajax({ 
                 type: 'GET', 
