@@ -57,7 +57,68 @@
 
 <br>
 			
+<div class="container">
+
+<div class="accordion ">
+<h2 class="acc_trigger"><a href="#">Filter Options</a></h2>
+<div class="acc_container">
+<div class="block"> 
+  
+
+  <div class="form-group">
+    <label for="textbox">Input Details</label>
+    <input type="email" class="form-control" id="textboxinput"  placeholder="Text Details">
+  
+  </div>
+
+  <div class="form-group">
+    <label for="qualityselect">Quality</label>
+    <select class="form-control" id="qualityselect1">
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+    </select>
+  </div>
+
+  
+  <div class="form-group">
+    <label for="qualityselect">Special Services</label>
+    <select class="form-control" id="qualityselect1">
+      <option>Service 1</option>
+          <option>Service 2</option>
+              <option>Service 3</option>
+                  <option>Service 4</option>
+
+    
+    </select>
+  </div>
+
+     <div >
+            <button type="submit" class="btn btn-default" id="btnFilter">Filter</button>
+			 
+               
+            </div>
+  
+  </div>
+</div>
+
+  </div>
+</div>
+
+
+
 			 <br>
+
+
+<script>  
+    $('.expandContent').click(function(){
+        $('.showMe').toggle();
+    });
+</script>
+
+       <br>
 
 
 
@@ -66,7 +127,7 @@
         <div class="outerClass col-xs-7">
             <!--<table id="list2">
         </table><div id="pager2"></div>-->
-      <div id ="divresults">  <h3>Your results..</h3></div>  <br />
+     <h3> <div id ="divresults">  Your results..</div> </h3> <br />
             <div id= "list" style="overflow:auto;"> </div>
         </div>
        
@@ -117,6 +178,17 @@
 	 var firstClick = true;
         $(document).ready(function() {
 
+
+ var divs=$('.accordion>div').hide(); //Hide/close all containers
+
+    var h2s=$('.accordion>h2').click(function () {
+        h2s.not(this).removeClass('active')
+        $(this).toggleClass('active')
+        divs.not($(this).next()).slideUp()
+        $(this).next().slideToggle()
+        return false; //Prevent the browser jump to the link anchor
+
+    });
         
     
 
