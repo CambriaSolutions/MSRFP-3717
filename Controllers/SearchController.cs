@@ -53,6 +53,30 @@ namespace msrfp_3717.Controllers
       
             return JsonConvert.SerializeObject(prov);
         }
- }
- }
+
+        [HttpGet]
+       public string GetProvider(string location, string QualityRating)
+        {
+     
+
+var query = appDbctx.Provider.AsQueryable<Provider>();
+
+if (! String.IsNullOrEmpty(location)) {
+    query = from provider in query
+            where provider.PhysicalCity.ToUpper() == location.ToUpper() || provider.PhysicalZipCode ==location
+            select provider;
+}
+if (! String.IsNullOrEmpty(QualityRating)) {
+    query = from provider in query
+            where QualityRating == "Yes" ? provider.QualityRating > 0 : provider.QualityRating <0 
+            select provider;
+}
+
+// this will cause the query to execute get the materialized results
+var result = query.ToList();
+      
+            return JsonConvert.SerializeObject(result);
+        }
+ } 
+}
 
