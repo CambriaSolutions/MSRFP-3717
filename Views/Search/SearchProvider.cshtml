@@ -186,11 +186,8 @@
 
  $('[id^=btnSubmit]').on('click', function (e) {
 var enteredLocation = $("#txtName").val();
-
+$('#list').html("");
 $('#divresults').html('Results for ' + enteredLocation );
-
-
-
 var mapLocations ;
 	 $.ajax({ 
                 type: 'GET', 
