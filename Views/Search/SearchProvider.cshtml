@@ -62,39 +62,63 @@
 <div class="accordion ">
 <h2 class="acc_trigger"><a href="#">Filter Options</a></h2>
 <div class="acc_container">
-<div class="block"> 
+<div class="row"> 
   
-
-  <div class="form-group">
-    <label for="textbox">Input Details</label>
-    <input type="email" class="form-control" id="textboxinput"  placeholder="Text Details">
-  
-  </div>
-  
-  <div class="form-group">
-    <div id="hearts" class="starrr"></div>
-    You gave a rating of <span id="count">0</span> star(s)
-  </div>
-  
-  <div class="form-group">
-    <label for="qualityselect">Special Services</label>
-    <select class="form-control" id="qualityselect1">
-      <option>Service 1</option>
-          <option>Service 2</option>
-              <option>Service 3</option>
-                  <option>Service 4</option>
-
-    
+  <div class="col-md-2">
+    <label for="textbox">Distance</label>
+    <select class="form-control" id="radiusselect" name="radiusselect">
+      <option>5 Miles</option>
+      <option>10 Miles</option>
+      <option>15 Miles</option>
+      <option>20 Miles</option>
+      <option>25 Miles</option>
+      <option>50 Miles</option>
     </select>
   </div>
 
-     <div >
-            <button type="submit" class="btn btn-default" id="btnFilter">Filter</button>
-			 
-               
-            </div>
-  
+  <div class="col-md-2">
+    <label for="qualityselect">Quality Rating</label>
+    <select class="form-control" id="qualityselect" name="qualityselect">
+      <option>Not Rated</option>
+      <option>Rated</option>
+    </select>
   </div>
+
+  <div class="col-md-3">
+    <label for="textbox">Provider Type</label>
+    <label for="provtypeselect">Quality Rating</label>
+    <select class="form-control" id="provtypeselect" name="provtypeselect">
+      <option>Center</option>
+      <option>Group Home</option>
+      <option>Non-Relative In-Home</option>
+      <option>Non-Relative Out-of-Home</option>
+      <option>Relative In-Home</option>
+      <option>Relative Out-of-Home</option>
+      <option>Slot Contractor</option>
+    </select>
+  </div>
+
+  <div class="col-md-2">
+    <label for="optavailability">Availability</label>
+      <div class="radio">
+        <input type="radio" name="optavailability" value="Yes">Yes
+      </div>
+      <div class="radio">
+        <input type="radio" name="optavailability" value="No">No
+      </div>
+  </div>
+
+  <div class="col-md-3">
+    <label for="optspecialneed">Special Needs</label>
+      <div class="radio">
+        <label><input type="radio" name="optspecialneed" value="Yes">Yes</label>
+      </div>
+      <div class="radio">
+        <label><input type="radio" name="optspecialneed" value="No">No</label>
+      </div>
+  </div>
+  </div>
+
 </div>
 
   </div>
@@ -169,6 +193,11 @@
 
 
 	 var firstClick = true;
+   var radius = null;
+   var qualityrating = null;
+   var providertype = null;
+   var availability = null;
+   var specialneeds = null;
         $(document).ready(function() {
 
  var divs=$('.accordion>div').hide(); //Hide/close all containers
@@ -179,9 +208,32 @@
         divs.not($(this).next()).slideUp()
         $(this).next().slideToggle()
         return false; //Prevent the browser jump to the link anchor
-
     });
         
+   $('#radiusselect').change( function() {
+    radius = $('#radiusselect option:selected').text();
+    alert(radius);
+    });
+
+   $('#qualityselect').change( function() {
+    qualityrating = $('#qualityselect option:selected').text();
+    alert(qualityrating);
+    });
+
+   $('#provtypeselect').change( function() {
+    providertype = $('#provtypeselect option:selected').text();
+    alert(providertype);
+    });
+
+   $(':radio[name = optavailability]').change( function() {
+    availability = $(':radio[name = optavailability]:checked').val();
+    alert(availability);
+    });
+
+   $(':radio[name = optspecialneed]').change( function() {
+    specialneeds = $(':radio[name = optspecialneed]:checked').val();
+    alert(specialneeds);
+    });
     
 
  $('[id^=btnSubmit]').on('click', function (e) {
