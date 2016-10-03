@@ -211,51 +211,51 @@ var mapLocations ;
          
 //jqgrid load
 
-	  if (!firstClick) {
-		$('#list2').jqGrid('GridUnload'); 
+// 	  if (!firstClick) {
+// 		$('#list2').jqGrid('GridUnload'); 
                     
-	  }
-	var enteredLocation = $("#txtName").val();
+// 	  }
+// 	var enteredLocation = $("#txtName").val();
 
- firstClick = false;
+//  firstClick = false;
 
- jQuery("#list2").jqGrid({
-      url:"search/getprovider?location="+enteredLocation,
-	//data: { name: name1, city: city1, zip : zip1},
-width : '600',
-height: '420',
-    datatype: 'json',
-    colNames: ['Provider Name', 'Phone Number', 'City', 'Physical ZipCode', 'LicenseType', 'Rating'	],
-    colModel: [
+//  jQuery("#list2").jqGrid({
+//       url:"search/getprovider?location="+enteredLocation,
+// 	//data: { name: name1, city: city1, zip : zip1},
+// width : '600',
+// height: '420',
+//     datatype: 'json',
+//     colNames: ['Provider Name', 'Phone Number', 'City', 'Physical ZipCode', 'LicenseType', 'Rating'	],
+//     colModel: [
        
-		  {name:'ProviderName',index:'ProviderName' ,width:'55', align: 'center'},
-   		{name:'PhoneNumber',index:'PhoneNumber', width:'35', align: 'center'},
-		    	{name:'PhysicalCity',index:'PhysicalCity', width:'35',align: 'center'},
-		   	{name:'PhysicalZipCode',index:'PhysicalZipCode', width:'45', align: 'center'},
-			   	{name:'LicenseType',index:'LicenseType', width:'35', align: 'center'},				  
-					   {name:'QualityRating',index:'QualityRating', width:'25', align: 'center'}
+// 		  {name:'ProviderName',index:'ProviderName' ,width:'55', align: 'center'},
+//    		{name:'PhoneNumber',index:'PhoneNumber', width:'35', align: 'center'},
+// 		    	{name:'PhysicalCity',index:'PhysicalCity', width:'35',align: 'center'},
+// 		   	{name:'PhysicalZipCode',index:'PhysicalZipCode', width:'45', align: 'center'},
+// 			   	{name:'LicenseType',index:'LicenseType', width:'35', align: 'center'},				  
+// 					   {name:'QualityRating',index:'QualityRating', width:'25', align: 'center'}
 
        
-    ],
-     jsonReader: {
-            repeatitems: false,
-            root: function(obj) { return obj; },
-            page: function(obj) { return 1; },
-            total: function(obj) { return 1; },
-            records: function(obj) { return obj.length; }
-        },
-        loadonce: false,
-        pager: jQuery('#pager2'),
-        rowNum: 10,
-        rowList: [5, 10, 20, 50],
-        sortname: 'ProviderName',
-        sortorder: "asc",
-        viewrecords: false,
-        caption: 'Provider Search Result...',
-			autowidth: false,  // set 'true' here
-                shrinkToFit: true
-    })
-	//.navGrid(pager, { edit: false, add: false, del: false, refresh: true, search: true });
+//     ],
+//      jsonReader: {
+//             repeatitems: false,
+//             root: function(obj) { return obj; },
+//             page: function(obj) { return 1; },
+//             total: function(obj) { return 1; },
+//             records: function(obj) { return obj.length; }
+//         },
+//         loadonce: false,
+//         pager: jQuery('#pager2'),
+//         rowNum: 10,
+//         rowList: [5, 10, 20, 50],
+//         sortname: 'ProviderName',
+//         sortorder: "asc",
+//         viewrecords: false,
+//         caption: 'Provider Search Result...',
+// 			autowidth: false,  // set 'true' here
+//                 shrinkToFit: true
+//     })
+// 	//.navGrid(pager, { edit: false, add: false, del: false, refresh: true, search: true });
 
 
  	var arr = [];
@@ -288,15 +288,15 @@ return false;
 //jqgrid end
    
 
-$(window).resize(function () {
-            var outerwidth = $('#div1').width();
-            $('#datagrid').setGridWidth(outerwidth); // setGridWidth method sets a new width to the grid dynamically
-});
+// $(window).resize(function () {
+//             var outerwidth = $('#div1').width();
+//             $('#datagrid').setGridWidth(outerwidth); // setGridWidth method sets a new width to the grid dynamically
+// });
 
-$(window).unbind('resize.myEvents').bind('resize.myEvents', function () {
-        var outerwidth = $('#div1').width();
-        $('#datagrid').setGridWidth(outerwidth);
-    });
+// $(window).unbind('resize.myEvents').bind('resize.myEvents', function () {
+//         var outerwidth = $('#div1').width();
+//         $('#datagrid').setGridWidth(outerwidth);
+//     });
 
 
 
