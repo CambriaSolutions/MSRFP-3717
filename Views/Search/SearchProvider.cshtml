@@ -258,9 +258,12 @@ var mapLocations ;
  	var arr = [];
    var radiusinMiles = 5;
   var radius = radiusinMiles * 1609.34
-  
+  var latlng = getLocationCoordinate( $("#txtName").val());
+  var lat = latlng.lat;
+ var  lng = latlng.lng;
 
-var url = 'https://www.googleapis.com/fusiontables/v2/query/?sql=SELECT%20PROVIDERNAME,LICENSETYPE,PROVIDERTYPEDESCRIPTION,QUALITYRATINGDESCRIPTION,PROVIDERCAPACITY,STREETADDRESS,PHYSICALCITY,PHYSICALZIPCODE,COUNTYNAME,PHONENUMBER,AVAILABILITY,SPECIALNEEDS%20FROM%201LJf1_wwE143AcOetenp8utlpTielLEDvWbbGw71A%20WHERE%20ST_INTERSECTS(LOCATIONWITHOUTNAME,%20CIRCLE(LATLNG(33.545407493605,-89.1451107044215),' +radius + '))&key=AIzaSyAm9yWCV7JPCTHCJut8whOjARd7pwROFDQ'
+
+var url = 'https://www.googleapis.com/fusiontables/v2/query/?sql=SELECT%20PROVIDERNAME,LICENSETYPE,PROVIDERTYPEDESCRIPTION,QUALITYRATINGDESCRIPTION,PROVIDERCAPACITY,STREETADDRESS,PHYSICALCITY,PHYSICALZIPCODE,COUNTYNAME,PHONENUMBER,AVAILABILITY,SPECIALNEEDS%20FROM%201LJf1_wwE143AcOetenp8utlpTielLEDvWbbGw71A%20WHERE%20ST_INTERSECTS(LOCATIONWITHOUTNAME,%20CIRCLE(LATLNG(' + lat +',' + lng + '),' +radius + '))&key=AIzaSyAm9yWCV7JPCTHCJut8whOjARd7pwROFDQ'
  
 $.ajax(url).done(function (results) {
   new_rows = results.rows.map(function(row) { 
@@ -284,30 +287,6 @@ return false;
  });
 //jqgrid end
    
-
-// $(window).resize(function () {
-//             var outerwidth = $('#div1').width();
-//             $('#datagrid').setGridWidth(outerwidth); // setGridWidth method sets a new width to the grid dynamically
-// });
-
-// $(window).unbind('resize.myEvents').bind('resize.myEvents', function () {
-//         var outerwidth = $('#div1').width();
-//         $('#datagrid').setGridWidth(outerwidth);
-//     });
-
-
-
-
-
-
-// var locations = [
-//   ['CVS Pharmacy', 'CVS 95835', 'http://www.google.com'],
-//   ['840 still water road 95605', '840 still water road 95605', 'http://www.google.com'],
-//   ['Cambria Solutions Sacramento <br> 20th Street Sacramento CA.', 'Cambria Solutions Sacramento', 'http://www.google.com'],
-//   ['1718 timbrelway rocklin 95765', '1718 timbrelway rocklin 95765', 'http://www.google.com']
-
-// ];
-
 
 
 var geocoder;
@@ -366,7 +345,7 @@ function geocodeAddress(locations, i) {
       	$("<div style='border-collapse: collapse;overflow-x:auto;border: 1px solid #3872ac; width:650px;height:105px;' > </div> <br>")
 						.html(address1)
             .click(function(){
-             
+           
 infoWindowOnItemClick(marker, map, title, address, url);
 
 						})
@@ -377,7 +356,7 @@ infoWindowOnItemClick(marker, map, title, address, url);
 function infoWindowOnItemClick(marker, map, title, address, url)
 {
 
-  var html = "<div><h3>" + title + "</h3><p>" + address + "<br></div><a target='_blank' href='" + url + "'>View location</a></p></div>";
+  var html = "<div id ='divinfo'><h3>" + title + "</h3><p>" + address + "<br></div><a target='_blank' href='" + url + "'>View location</a></p></div>";
     iw = new google.maps.InfoWindow({
       content: html,
       maxWidth: 350
@@ -399,74 +378,6 @@ function infoWindow(marker, map, title, address, url) {
     
   });
 }
-
-function createMarker(results) {
-  var marker = new google.maps.Marker({
-    icon: 'http://maps.google.com/mapfiles/ms/icons/blue.png',
-    map: map,
-    position: results[0].geometry.location,
-    title: title,
-    animation: google.maps.Animation.DROP,
-    address: address,
-    url: url
-  })
-  bounds.extend(marker.getPosition());
-  map.fitBounds(bounds);
-  infoWindow(marker, map, title, address, url);
-  return marker;
-}
-
-function MakeLocations(loc)
-{
-
-  var lat,lng, radius;
-   lat = 32.3547;
-    lng = -89.3985;
-    radius = 1000;
-
-// 	var IDs = [];
-
-// IDs.push([1, 2]);
-//  ['CVS Pharmacy', 'CVS 95835', 'http://www.google.com'],
-var arr= new Array();
-
-var url = 'https://www.googleapis.com/fusiontables/v2/query/?sql=SELECT%20PROVIDERNAME,LICENSETYPE,PROVIDERTYPEDESCRIPTION,QUALITYRATINGDESCRIPTION,PROVIDERCAPACITY,STREETADDRESS,PHYSICALCITY,PHYSICALZIPCODE,COUNTYNAME,PHONENUMBER,AVAILABILITY,SPECIALNEEDS%20FROM%201LJf1_wwE143AcOetenp8utlpTielLEDvWbbGw71A%20WHERE%20ST_INTERSECTS(LOCATIONWITHNAME,%20CIRCLE(LATLNG(33.545407493605,-90.1451107044215),10000))&key=AIzaSyAm9yWCV7JPCTHCJut8whOjARd7pwROFDQ'
-
-$.ajax(url).done(function (results) {
-  new_rows = results.rows.map(function(row) { 
-    var data = {};
-    for (i = 0; i  < row.length; ++i) {
-      data[results.columns[i]] = row[i];
-      arr.push([ data[results.columns[i]]])
-    }
-   
-  })
-
- return arr;
-})
-
-
-
-}
-
-
-
-function displayPoint(marker , latlng){
-         
-         
-					$("#message").hide();
-			
-					var moveEnd = google.maps.event.addListener(map, "moveend", function(){
-						var markerOffset = map.fromLatLngToDivPixel(latlng);
-						$("#message")
-							.fadeIn()
-							.css({ top:markerOffset.y, left:markerOffset.x });
-					
-						GEvent.removeListener(moveEnd);
-					});
-					map.panTo(latlng);
-				}
-		
 
 
    </script>
