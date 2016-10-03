@@ -171,7 +171,6 @@
 	 var firstClick = true;
         $(document).ready(function() {
 
-
  var divs=$('.accordion>div').hide(); //Hide/close all containers
 
     var h2s=$('.accordion>h2').click(function () {
@@ -258,7 +257,27 @@ height: '420',
     })
 	//.navGrid(pager, { edit: false, add: false, del: false, refresh: true, search: true });
 
-	initialize( MakeLocations(mapLocations));
+
+ 	var arr = [];
+   var radiusinMiles = 5;
+  var radius = radiusinMiles * 1609.34
+  
+
+var url = 'https://www.googleapis.com/fusiontables/v2/query/?sql=SELECT%20PROVIDERNAME,LICENSETYPE,PROVIDERTYPEDESCRIPTION,QUALITYRATINGDESCRIPTION,PROVIDERCAPACITY,STREETADDRESS,PHYSICALCITY,PHYSICALZIPCODE,COUNTYNAME,PHONENUMBER,AVAILABILITY,SPECIALNEEDS%20FROM%201LJf1_wwE143AcOetenp8utlpTielLEDvWbbGw71A%20WHERE%20ST_INTERSECTS(LOCATIONWITHOUTNAME,%20CIRCLE(LATLNG(33.545407493605,-89.1451107044215),' +radius + '))&key=AIzaSyAm9yWCV7JPCTHCJut8whOjARd7pwROFDQ'
+ 
+$.ajax(url).done(function (results) {
+  new_rows = results.rows.map(function(row) { 
+arr.push([row[0],row[1],row[2],row[3],row[4],row[5],row[6],row[7],row[8],row[9],row[10],row[11]]);
+ 
+   
+  }) 
+
+  initialize(arr);
+    })
+
+
+
+	//initialize( MakeLocations(mapLocations));
 
 
 
@@ -299,9 +318,10 @@ var map;
 var bounds = new google.maps.LatLngBounds();
 
 function initialize(locations) {
+
   map = new google.maps.Map(
     document.getElementById("map_canvas"), {
-      center: new google.maps.LatLng(37.4419, -122.1419),
+      center: new google.maps.LatLng(32.4419, -89.1419),
       zoom: 13,
       mapTypeId: google.maps.MapTypeId.ROADMAP
     });
@@ -318,12 +338,14 @@ function initialize(locations) {
 function geocodeAddress(locations, i) {
 
   var title = locations[i][0];
-  var address = locations[i][0] + " " + locations[i][1];
-  var address1 = locations[i][0] + "<br> " + locations[i][1];
+  var address = locations[i][6] + " " + locations[i][7];
+  var address1 = "<b>Name of the Provider:</b> " + locations[i][0] + "<br> " + "<b>Address: </b>" + locations[i][5] + " " + locations[i][6] + " " + locations[i][7] + "<br> " + "<b>Phone: </b>" + locations[i][9] + "<br> " + "<b>Licenced: </b>" + locations[i][1] + "   " + "<b>Quality Rating: </b>" + locations[i][4]  + "<br> " + "<b>Special Services: </b>" + locations[i][11] + "   " + "<b>Availability: <b>" + locations[i][10];
   var url = locations[i][2];
+
+
  
   geocoder.geocode({
-      'address': locations[i][1]
+      'address': locations[i][6] + " " + locations[i][7]
     },
 
     function(results, status) {
@@ -344,7 +366,7 @@ function geocodeAddress(locations, i) {
         alert("geocode of " + address + " failed:" + status);
       }
 
-      	$("<div style='border-collapse: collapse;overflow-x:auto;border: 1px solid #3872ac; width:650px;height:50px;' > </div> <br>")
+      	$("<div style='border-collapse: collapse;overflow-x:auto;border: 1px solid #3872ac; width:650px;height:105px;' > </div> <br>")
 						.html(address1)
             .click(function(){
              
@@ -400,40 +422,37 @@ function createMarker(results) {
 function MakeLocations(loc)
 {
 
+  var lat,lng, radius;
+   lat = 32.3547;
+    lng = -89.3985;
+    radius = 1000;
+
 // 	var IDs = [];
 
 // IDs.push([1, 2]);
 //  ['CVS Pharmacy', 'CVS 95835', 'http://www.google.com'],
- 
- var arr= new Array();
-$.each( loc, function(i, obj) {
-      arr.push( [obj.ProviderName, obj.PhysicalCity + " " +obj.PhysicalZipCode , obj.PhoneNumber])
-});
-return arr;
-}
+var arr= new Array();
 
-function GetProviderFromWeb(lat,lng, radius)
-{
-  var providerResultFromWeb;
+var url = 'https://www.googleapis.com/fusiontables/v2/query/?sql=SELECT%20PROVIDERNAME,LICENSETYPE,PROVIDERTYPEDESCRIPTION,QUALITYRATINGDESCRIPTION,PROVIDERCAPACITY,STREETADDRESS,PHYSICALCITY,PHYSICALZIPCODE,COUNTYNAME,PHONENUMBER,AVAILABILITY,SPECIALNEEDS%20FROM%201LJf1_wwE143AcOetenp8utlpTielLEDvWbbGw71A%20WHERE%20ST_INTERSECTS(LOCATIONWITHNAME,%20CIRCLE(LATLNG(33.545407493605,-90.1451107044215),10000))&key=AIzaSyAm9yWCV7JPCTHCJut8whOjARd7pwROFDQ'
 
- $.ajax({ 
-                type: 'GET', 
-                 url: 'https://www.googleapis.com/fusiontables/v2/query/?sql=SELECT%20PROVIDERNAME,LICENSETYPE,PROVIDERTYPEDESCRIPTION,QUALITYRATINGDESCRIPTION,PROVIDERCAPACITY,STREETADDRESS,PHYSICALCITY,PHYSICALZIPCODE,COUNTYNAME,PHONENUMBER,AVAILABILITY,SPECIALNEEDS%20FROM%201LJf1_wwE143AcOetenp8utlpTielLEDvWbbGw71A%20WHERE%20ST_INTERSECTS(LOCATIONWITHNAME,%20CIRCLE(LATLNG(' + lat + ',' + lng + '),' + radius + '))&key=AIzaSyAm9yWCV7JPCTHCJut8whOjARd7pwROFDQ',
-               // data: {location: enteredLocation},
-                dataType:'json',
-			        	async:false,
-                success: function (data) { 
-              providerResultFromWeb =data;     
-				         
-                },
-				 error: function (jqXHR, textStatus, errorThrown) {
-                  alert(jqXHR.status+",  " + jqXHR.statusText+",  "+textStatus+",  "+errorThrown);
-                }
-            });
+$.ajax(url).done(function (results) {
+  new_rows = results.rows.map(function(row) { 
+    var data = {};
+    for (i = 0; i  < row.length; ++i) {
+      data[results.columns[i]] = row[i];
+      arr.push([ data[results.columns[i]]])
+    }
+   
+  })
 
-            return providerResultFromWeb;
+ return arr;
+})
+
+
 
 }
+
+
 
 function displayPoint(marker , latlng){
          
