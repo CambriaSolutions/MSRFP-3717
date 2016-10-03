@@ -41,18 +41,18 @@ namespace msrfp_3717.Controllers
              return View();
         }
 
-[HttpGet]
-       public string GetProvider(string location)
-        {
+// [HttpGet]
+//        public string GetProvider(string location)
+//         {
      
-          var prov = new List<Provider>() ;
-             prov = (from provider in appDbctx.Provider
-                    where   provider.PhysicalCity.ToUpper() == location.ToUpper() || provider.PhysicalZipCode ==location
-                  // where provider.PhysicalZipCode == zip
-                    select provider).ToList();
+//           var prov = new List<Provider>() ;
+//              prov = (from provider in appDbctx.Provider
+//                     where   provider.PhysicalCity.ToUpper() == location.ToUpper() || provider.PhysicalZipCode ==location
+//                   // where provider.PhysicalZipCode == zip
+//                     select provider).ToList();
       
-            return JsonConvert.SerializeObject(prov);
-        }
+//             return JsonConvert.SerializeObject(prov);
+//         }
 
         [HttpGet]
        public string GetProvider(string location, string QualityRating)
