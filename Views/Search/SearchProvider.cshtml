@@ -215,7 +215,9 @@
  });
 
  $('[id^=btnSubmit]').on('click', function (e) {
+   
 LoadMapsByFilters();
+
 return false;
  });
 
@@ -248,7 +250,7 @@ return false;
          }
      });
 
-     var url = 'https://www.googleapis.com/fusiontables/v2/query/?sql=SELECT%20PROVIDERNAME,LICENSETYPE,PROVIDERTYPEDESCRIPTION,QUALITYRATINGDESCRIPTION,PROVIDERCAPACITY,STREETADDRESS,PHYSICALCITY,PHYSICALZIPCODE,COUNTYNAME,PHONENUMBER,AVAILABILITY,SPECIALNEEDS%20FROM%201LJf1_wwE143AcOetenp8utlpTielLEDvWbbGw71A%20WHERE%20ST_INTERSECTS(LOCATIONWITHOUTNAME,%20CIRCLE(LATLNG(' + lat + ',' + lng + '),' + radius + '))'
+     var url = 'https://www.googleapis.com/fusiontables/v2/query/?sql=SELECT%20PROVIDERNAME,LICENSETYPE,PROVIDERTYPEDESCRIPTION,QUALITYRATING,PROVIDERCAPACITY,STREETADDRESS,PHYSICALCITY,PHYSICALZIPCODE,COUNTYNAME,PHONENUMBER,AVAILABILITY,SPECIALNEEDS%20FROM%201LJf1_wwE143AcOetenp8utlpTielLEDvWbbGw71A%20WHERE%20ST_INTERSECTS(LOCATIONWITHOUTNAME,%20CIRCLE(LATLNG(' + lat + ',' + lng + '),' + radius + '))'
 
 
      urlappend = (providertype != null) ? url + 'and PROVIDERTYPE=' + providertype : "";
@@ -258,7 +260,7 @@ return false;
      urlappend = (specialneeds != null) ? urlappend + 'and SPECIALNEEDS=' + specialneeds : "";
 
      urlappend = (urlappend != null) ? url + '&key=AIzaSyAm9yWCV7JPCTHCJut8whOjARd7pwROFDQ' : "";
-
+alert(urlappend);
      $.ajax({
          type: 'GET',
          url: urlappend,
@@ -308,9 +310,22 @@ function initialize(locations) {
 
 function geocodeAddress(locations, i) {
 
+var img = 'Not Rated';
+if(locations[i][3] == 1)
+img = "<img src='../images/star1.png'>";
+if(locations[i][3] == 2)
+img = "<img src='../images/star2.png'>";
+if(locations[i][3] == 3)
+img = "<img src='../images/star3png'>";
+if(locations[i][3] == 4)
+img = "<img src='../images/star4.png'>";
+if(locations[i][3] == 5)
+img = "<img src='../images/star5.png'>";
+
     var title = locations[i][0];
     var address = locations[i][5] + " " + locations[i][6] + " " + locations[i][7];
-    var address1 = "<b>Name of the Provider:</b> " + locations[i][0] + "<br> " + "<b>Address: </b>" + locations[i][5] + " " + locations[i][6] + " " + locations[i][7] + "<br> " + "<b>Phone: </b>" + locations[i][9] + "<br> " + "<b>Licenced: </b>" + locations[i][1] + "   " + "<b>Quality Rating: </b>" + locations[i][4] + "<br> " + "<b>Special Services: </b>" + locations[i][11] + "   " + "<b>Availability: <b>" + locations[i][10];
+    var address1 = "<b>Name of the Provider:</b> " + locations[i][0] + "<br> " + "<b>Address: </b>" + locations[i][5] + " " + locations[i][6] + " " + locations[i][7] + "<br> " + "<b>Phone: </b>" + locations[i][9] + "<br> " + "<b>Licenced: </b>" + locations[i][1] 
+    + "   " + "<b>Quality Rating: </b>" + img +"  <br> " + "<b>Special Needs: </b>" + locations[i][11] + "   " + "<b>Availability: <b>" + locations[i][10];
     var url = locations[i][2];
     geocoder.geocode({
         'address': locations[i][5] + " " + locations[i][6] + " " + locations[i][7]
@@ -370,6 +385,8 @@ function infoWindow(marker, map, title, address, url) {
 
     });
 }
+
+
 
 
 </script>
