@@ -21,122 +21,97 @@
 </div>
 <div class="container">
     <div class="panel panel-primary">
-
         <div class="panel-heading"><h3>Search Child Care Provider</h3></div>
         <div class="panel-body">
-
             <div class="container">
-
                 <!-- Horizonatal Form -->
                 <div class="row">
                     <div class="col-xs-9">
                         <form class="form-horizontal">
                             <div class="form-group">
-
-                                <div class="ccol-xs-10 col-xs-offset-5">
-                                    <input type="text" class="form-control" id="txtName" placeholder="City or Zip Code" />
+                                <div class="ccol-xs-10 col-xs-offset-6">
+                                <input type="text" class="form-control" id="txtName" placeholder="City or Zip Code" />
+                                <button type="submit" class="btn btn-default" id="btnSubmit">Submit</button>
+                                <button type="reset" class="btn btn-default">Reset</button>
+                                <a class="btn btn-default" data-toggle="collapse" href="#FilterBox" aria-expanded="false" aria-controls="collapseExample">Filters</a>
+                                </div>
                                 </div>
                             </div>
-
-
-
-                            <div class="col-xs-offset-6">
-                                <button type="submit" class="btn btn-default" id="btnSubmit">Submit</button>
-
-                                <button type="reset" class="btn btn-default">Reset</button>
-                            </div>
-
-
                         </form>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-</div>
-<br />
-<div class="container">
-
-    <div class="accordion ">
-        <h2 class="acc_trigger"><a href="#">Filter Options</a></h2>
-        <div class="acc_container">
-            <div class="row">
-
-                <div class="col-md-2">
-                  <label for="textbox">Distance</label>
-                  <select class="form-control" id="radiusselect" name="radiusselect">
-                    <option value="5">Select your option</option>
-                    <option value="5">5 Miles</option>
-                    <option value="10">10 Miles</option>
-                    <option value="15">15 Miles</option>
-                    <option value="20">20 Miles</option>
-                    <option value="25">25 Miles</option>
-                    <option value="50">50 Miles</option>
-                  </select>
-                </div>
-
-                <div class="col-md-2">
-                  <label for="qualityselect">Quality Rating</label>
-                  <select class="form-control" id="qualityselect" name="qualityselect">
-                    <option value="-1">Select your option</option>
-                    <option value="0">ALL</option>
-                    <option value="1">Rated</option>
-                  </select>
-                </div>
-
-                <div class="col-md-3">
-                  <label for="provtypeselect">Provider Type</label>
-                  <select class="form-control" id="provtypeselect" name="provtypeselect">
-                    <option value="-1">Select your option</option>
-                    <option value="4">Center</option>
-                    <option value="3">Group Home</option>
-                    <option value="5">Non-Relative In-Home</option>
-                    <option value="7">Non-Relative Out-of-Home</option>
-                    <option value="6">Relative In-Home</option>
-                    <option value="8">Relative Out-of-Home</option>
-                    <option value="2">Slot Contractor</option>
-                  </select>
-                </div>
-
-                <div class="col-md-2">
-                  <label for="optavailability">Availability</label>
-                    <div class="radio">
-                      <input type="radio" name="optavailability" value="YES">Yes
+        <div class="collapse" id="FilterBox">
+            <div class="acc_container">
+                <div class="row">
+                    <div class="col-md-3">
+                    <label for="textbox">Distance</label>
+                    <select class="form-control" id="radiusselect" name="radiusselect">
+                        <option value="5">Select your option</option>
+                        <option value="5">5 Miles</option>
+                        <option value="10">10 Miles</option>
+                        <option value="15">15 Miles</option>
+                        <option value="20">20 Miles</option>
+                        <option value="25">25 Miles</option>
+                        <option value="50">50 Miles</option>
+                    </select>
                     </div>
-                    <div class="radio">
-                      <input type="radio" name="optavailability" value="NO">No
+                    <div class="col-md-2">
+                    <label for="qualityselect">Quality Rating</label>
+                    <select class="form-control" id="qualityselect" name="qualityselect">
+                        <option value="-1">Select your option</option>
+                        <option value="0">ALL</option>
+                        <option value="1">Rated</option>
+                    </select>
                     </div>
-                </div>
-
-                <div class="col-md-3">
-                  <label for="optspecialneed">Special Needs</label>
-                    <div class="radio">
-                      <label><input type="radio" name="optspecialneed" value="YES">Yes</label>
+                    <div class="col-md-3">
+                    <label for="provtypeselect">Provider Type</label>
+                    <select class="form-control" id="provtypeselect" name="provtypeselect">
+                        <option value="-1">Select your option</option>
+                        <option value="4">Center</option>
+                        <option value="3">Group Home</option>
+                        <option value="5">Non-Relative In-Home</option>
+                        <option value="7">Non-Relative Out-of-Home</option>
+                        <option value="6">Relative In-Home</option>
+                        <option value="8">Relative Out-of-Home</option>
+                        <option value="2">Slot Contractor</option>
+                    </select>
                     </div>
-                    <div class="radio">
-                      <label><input type="radio" name="optspecialneed" value="NO">No</label>
+                    <div class="col-md-2">
+                    <label for="optavailability">Availability</label>
+                        <div class="radio">
+                        <input type="radio" name="optavailability" value="YES">Yes
+                        </div>
+                        <div class="radio">
+                        <input type="radio" name="optavailability" value="NO">No
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                    <label for="optspecialneed">Special Needs</label>
+                        <div class="radio">
+                        <label><input type="radio" name="optspecialneed" value="YES">Yes</label>
+                        </div>
+                        <div class="radio">
+                        <label><input type="radio" name="optspecialneed" value="NO">No</label>
+                        </div>
                     </div>
                 </div>
             </div>
-
         </div>
-
     </div>
 </div>
-<br />
-<br />
+<div class="container">
+
+</div>
 <div class="container">
     <div class="OuterMostClass row">
         <div class="outerClass col-xs-7">
             <!--<table id="list2">
             </table><div id="pager2"></div>-->
-            <h3> <div id="divresults">  Your results..</div> </h3> <br />
+            <h3> <div id="divresults">Your results..</div> </h3> <br />
             <div id="list" style="overflow:auto;"> </div>
         </div>
-
         <div class="outerClass2 col-xs-5">
-
-
             <div id="map_canvas" style=" width:100%;height:20%;=width:100%;height:20%; border=border 2px=2px solid=solid #3872ac;=#3872ac; width:650px;height:500px;"=width:650px;height:500px;"></div>
         </div>
     </div>
