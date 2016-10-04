@@ -33,7 +33,7 @@
                                     <div class="col-md-3">
                                     <input type="text" class="form-control" id="txtName" placeholder="City or Zip Code" />
                                     </div>
-                                    <div class="col-md-5">&nbsp;</div>
+                                    <div class="col-md-5" id="namerror">&nbsp;</div>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-4">&nbsp;</div>
@@ -125,6 +125,20 @@
         $('.showMe').toggle();
     });
 
+    function validateinput(){
+        var $messageDiv = $('#namerror'); // get the reference of the div
+        if ($("#txtName").val() == '')
+        {
+            $messageDiv.show().html('<span style="color:red;">*Please enter the search criteria</span>');
+            return false;
+        }
+        else
+        {
+            $messageDiv.hide();
+            return true;
+        }
+    }
+
     function getLocationCoordinate(address) {
 
         var position = {};
@@ -212,6 +226,9 @@ return false;
  });
 
  function LoadMapsByFilters() {
+
+   if (!validateinput()) { return false;}
+
    var inputradius = null;
    var qualityrating = "";
    var providertype = "";
