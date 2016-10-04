@@ -339,6 +339,10 @@ function geocodeAddress(locations, i) {
     var address = locations[i][5] + " " + locations[i][6] + " " + locations[i][7];
     var address1 = "<b>Name of the Provider:</b> " + locations[i][0] + "<br> " + "<b>Address: </b>" + locations[i][5] + " " + locations[i][6] + " " + locations[i][7] + "<br> " + "<b>Phone: </b>" + locations[i][9] + "<br> " + "<b>Licenced: </b>" + locations[i][1] + "   " + "<b>Quality Rating: </b>" + img + "<br> " + "<b>Special Needs: </b>" + locations[i][11] + "   " + "<b>Availability: <b>" + locations[i][10];
     var url = locations[i][2];
+  
+
+    address1 = address1 + ' <br><a href="mailto:?subject=Child Care Provider&body=' +address1+ '">Send Email</a></li>'
+    
     geocoder.geocode({
         'address': locations[i][5] + " " + locations[i][6] + " " + locations[i][7]
     },
