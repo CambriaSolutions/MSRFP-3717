@@ -63,56 +63,58 @@
             <div class="row">
 
                 <div class="col-md-2">
-                    <label for="textbox">Distance</label>
-                    <select class="form-control" id="radiusselect" name="radiusselect">
-                        <option>5 Miles</option>
-                        <option>10 Miles</option>
-                        <option>15 Miles</option>
-                        <option>20 Miles</option>
-                        <option>25 Miles</option>
-                        <option>50 Miles</option>
-                    </select>
+                  <label for="textbox">Distance</label>
+                  <select class="form-control" id="radiusselect" name="radiusselect">
+                    <option value="5">Select your option</option>
+                    <option value="5">5 Miles</option>
+                    <option value="10">10 Miles</option>
+                    <option value="15">15 Miles</option>
+                    <option value="20">20 Miles</option>
+                    <option value="25">25 Miles</option>
+                    <option value="50">50 Miles</option>
+                  </select>
                 </div>
 
                 <div class="col-md-2">
-                    <label for="qualityselect">Quality Rating</label>
-                    <select class="form-control" id="qualityselect" name="qualityselect">
-                        <option>Not Rated</option>
-                        <option>Rated</option>
-                    </select>
+                  <label for="qualityselect">Quality Rating</label>
+                  <select class="form-control" id="qualityselect" name="qualityselect">
+                    <option value="-1">Select your option</option>
+                    <option value="0">ALL</option>
+                    <option value="1">Rated</option>
+                  </select>
                 </div>
 
                 <div class="col-md-3">
-                    <label for="textbox">Provider Type</label>
-                    <label for="provtypeselect">Quality Rating</label>
-                    <select class="form-control" id="provtypeselect" name="provtypeselect">
-                        <option>Center</option>
-                        <option>Group Home</option>
-                        <option>Non-Relative In-Home</option>
-                        <option>Non-Relative Out-of-Home</option>
-                        <option>Relative In-Home</option>
-                        <option>Relative Out-of-Home</option>
-                        <option>Slot Contractor</option>
-                    </select>
+                  <label for="provtypeselect">Provider Type</label>
+                  <select class="form-control" id="provtypeselect" name="provtypeselect">
+                    <option value="-1">Select your option</option>
+                    <option value="4">Center</option>
+                    <option value="3">Group Home</option>
+                    <option value="5">Non-Relative In-Home</option>
+                    <option value="7">Non-Relative Out-of-Home</option>
+                    <option value="6">Relative In-Home</option>
+                    <option value="8">Relative Out-of-Home</option>
+                    <option value="2">Slot Contractor</option>
+                  </select>
                 </div>
 
                 <div class="col-md-2">
-                    <label for="optavailability">Availability</label>
+                  <label for="optavailability">Availability</label>
                     <div class="radio">
-                        <input type="radio" name="optavailability" value="Yes" />Yes
+                      <input type="radio" name="optavailability" value="YES">Yes
                     </div>
                     <div class="radio">
-                        <input type="radio" name="optavailability" value="No" />No
+                      <input type="radio" name="optavailability" value="NO">No
                     </div>
                 </div>
 
                 <div class="col-md-3">
-                    <label for="optspecialneed">Special Needs</label>
+                  <label for="optspecialneed">Special Needs</label>
                     <div class="radio">
-                        <label><input type="radio" name="optspecialneed" value="Yes" />Yes</label>
+                      <label><input type="radio" name="optspecialneed" value="YES">Yes</label>
                     </div>
                     <div class="radio">
-                        <label><input type="radio" name="optspecialneed" value="No" />No</label>
+                      <label><input type="radio" name="optspecialneed" value="NO">No</label>
                     </div>
                 </div>
             </div>
@@ -188,28 +190,39 @@
     });
 
    $('#radiusselect').change( function() {
-    inputradius = $('#radiusselect option:selected').text();
-    alert(inputradius);
+    inputradius = $('#radiusselect').val();
+    LoadMapsByFilters();
+    return false;
+
+    //alert(inputradius);
     });
 
    $('#qualityselect').change( function() {
-    qualityrating = $('#qualityselect option:selected').text();
-    alert(qualityrating);
+    qualityrating = $('#qualityselect').val();
+    LoadMapsByFilters();
+    return false;
+    //alert(qualityrating);
     });
 
    $('#provtypeselect').change( function() {
-    providertype = $('#provtypeselect option:selected').text();
-    alert(providertype);
+    providertype = $('#provtypeselect').val();
+    LoadMapsByFilters();
+    return false;
+    //alert(providertype);
     });
 
    $(':radio[name = optavailability]').change( function() {
     availability = $(':radio[name = optavailability]:checked').val();
-    alert(availability);
+    LoadMapsByFilters();
+    return false;
+    //alert(availability);
     });
 
    $(':radio[name = optspecialneed]').change( function() {
     specialneeds = $(':radio[name = optspecialneed]:checked').val();
-    alert(specialneeds);
+    LoadMapsByFilters();
+    return false;
+    //alert(specialneeds);
     });
 
  });
@@ -220,9 +233,29 @@ return false;
  });
 
  function LoadMapsByFilters() {
+   var inputradius = null;
+   var qualityrating = "";
+   var providertype = "";
+   var availability = null;
+   var specialneeds = null;
+inputradius = $('#radiusselect').val();
+qualityrating = $('#qualityselect').val();
+providertype = $('#provtypeselect').val();
+availability = $(':radio[name = optavailability]:checked').val();
+specialneeds = $(':radio[name = optspecialneed]:checked').val();
+
+console.log('inputradius:' + inputradius + 'qualityrating:'+  qualityrating + 'providertype:' + providertype + "availability:" + availability +  "specialneeds:" + specialneeds);
+
      var enteredLocation = $("#txtName").val();
      var arr = [];
-     var radiusinMiles = 5;
+     var radiusinMiles=5 ;
+     console.log(radiusinMiles);
+     console.log(inputradius);
+      if(inputradius!=5)
+      radiusinMiles = inputradius
+      else 
+      radiusinMiles = 5;
+     console.log(radiusinMiles);
      var radius = radiusinMiles * 1609.34
      var latlng = getLocationCoordinate($("#txtName").val());
      var lat = latlng.lat;
@@ -251,17 +284,18 @@ return false;
      var url = 'https://www.googleapis.com/fusiontables/v2/query/?sql=SELECT%20PROVIDERNAME,LICENSETYPE,PROVIDERTYPEDESCRIPTION,QUALITYRATINGDESCRIPTION,PROVIDERCAPACITY,STREETADDRESS,PHYSICALCITY,PHYSICALZIPCODE,COUNTYNAME,PHONENUMBER,AVAILABILITY,SPECIALNEEDS%20FROM%201LJf1_wwE143AcOetenp8utlpTielLEDvWbbGw71A%20WHERE%20ST_INTERSECTS(LOCATIONWITHOUTNAME,%20CIRCLE(LATLNG(' + lat + ',' + lng + '),' + radius + '))'
 
 
-     urlappend = (providertype != null) ? url + 'and PROVIDERTYPE=' + providertype : "";
-     urlappend = (qualityrating != null || qualityrating == 1) ? urlappend + 'and qualityrating>0' : "";
+     url = providertype !="-1"? url + 'and PROVIDERTYPE=' + providertype +" ": url;
+     url = (qualityrating ==0 || qualityrating == "-1") ? url: url +  'and QUALITYRATING>0 ';
 
-     urlappend = (availability != null) ? urlappend + 'and AVAILABILITY=' + availability : "";
-     urlappend = (specialneeds != null) ? urlappend + 'and SPECIALNEEDS=' + specialneeds : "";
+     url = (availability != null) ? url + "and AVAILABILITY='" + availability + "' " : url;
+     url = (specialneeds != null) ? url + "and SPECIALNEEDS='" + specialneeds + "'": url;
 
-     urlappend = (urlappend != null) ? url + '&key=AIzaSyAm9yWCV7JPCTHCJut8whOjARd7pwROFDQ' : "";
+     url = (url != null) ? url + '&key=AIzaSyAm9yWCV7JPCTHCJut8whOjARd7pwROFDQ' : "";
 
+console.log(url);
      $.ajax({
          type: 'GET',
-         url: urlappend,
+         url: url,
          data: { location: enteredLocation },
          dataType: 'json',
          async: false,
