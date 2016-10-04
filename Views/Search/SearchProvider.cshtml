@@ -120,7 +120,7 @@
 
 
     <div class="col col-md-6">
-    <div id="map_canvas" style=" width:100%;height:20%;=width:100%;height:20%; border=border 2px=2px solid=solid #3872ac;=#3872ac; width:650px;height:500px;"=width:650px;height:500px;"></div>
+         <div id="map_canvas" style="width:auto;height:500px;"></div>
   </div>
 </div>
 
@@ -368,8 +368,9 @@ function geocodeAddress(locations, i) {
           } else {
               alert("geocode of " + address + " failed:" + status);
           }
+   
 
-          $("<div style='border-collapse: collapse;overflow-x:auto;border: 1px solid #3872ac; width:650px;height:105px;' > </div> <br>")
+          $('<a class="list-group-item"><br>')
                           .html(address1)
               .click(function () {
 
