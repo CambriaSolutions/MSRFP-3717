@@ -359,7 +359,7 @@ function geocodeAddress(locations, i) {
     var url = locations[i][2];
   
 
-    address1 = address1 + ' <a href="mailto:?subject=Child Care Provider&body=' +address1+ '"><img src="../images/Mail-icon.png" /></a></li>'
+    address1 = address1 + ' <a href="mailto:?subject=Child Care Provider&body=<b>Add your Notes</b><br><br>' +address1+ '"><img src="../images/Mail-icon.png" /></a></li>'
     
     geocoder.geocode({
         'address': locations[i][5] + " " + locations[i][6] + " " + locations[i][7]
