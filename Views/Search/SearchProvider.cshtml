@@ -193,7 +193,7 @@
 
 
 	 var firstClick = true;
-   var radius = null;
+   var inputradius = null;
    var qualityrating = null;
    var providertype = null;
    var availability = null;
@@ -211,8 +211,8 @@
     });
         
    $('#radiusselect').change( function() {
-    radius = $('#radiusselect option:selected').text();
-    alert(radius);
+    inputradius = $('#radiusselect option:selected').text();
+    alert(inputradius);
     });
 
    $('#qualityselect').change( function() {
@@ -315,9 +315,22 @@ var mapLocations ;
  var  lng = latlng.lng;
 
 
-var url = 'https://www.googleapis.com/fusiontables/v2/query/?sql=SELECT%20PROVIDERNAME,LICENSETYPE,PROVIDERTYPEDESCRIPTION,QUALITYRATINGDESCRIPTION,PROVIDERCAPACITY,STREETADDRESS,PHYSICALCITY,PHYSICALZIPCODE,COUNTYNAME,PHONENUMBER,AVAILABILITY,SPECIALNEEDS%20FROM%201LJf1_wwE143AcOetenp8utlpTielLEDvWbbGw71A%20WHERE%20ST_INTERSECTS(LOCATIONWITHOUTNAME,%20CIRCLE(LATLNG(' + lat +',' + lng + '),' +radius + '))&key=AIzaSyAm9yWCV7JPCTHCJut8whOjARd7pwROFDQ'
+var url = 'https://www.googleapis.com/fusiontables/v2/query/?sql=SELECT%20PROVIDERNAME,LICENSETYPE,PROVIDERTYPEDESCRIPTION,QUALITYRATINGDESCRIPTION,PROVIDERCAPACITY,STREETADDRESS,PHYSICALCITY,PHYSICALZIPCODE,COUNTYNAME,PHONENUMBER,AVAILABILITY,SPECIALNEEDS%20FROM%201LJf1_wwE143AcOetenp8utlpTielLEDvWbbGw71A%20WHERE%20ST_INTERSECTS(LOCATIONWITHOUTNAME,%20CIRCLE(LATLNG(' + lat +',' + lng + '),' + radius  + '))'
  
-$.ajax(url).done(function (results) {
+ var urlappend ;
+console.log(url);
+
+
+urlappend = (providertype!=null) ? url + 'and PROVIDERTYPE=' + providertype : "";
+urlappend = (qualityrating!=null || qualityrating==1) ? urlappend + 'and qualityrating>0': "";
+
+urlappend = (availability!=null) ? urlappend + 'and AVAILABILITY=' + availability : "";
+urlappend = (specialneeds!=null) ? urlappend + 'and SPECIALNEEDS=' + specialneeds : "";
+
+urlappend = (urlappend!=null) ? url + '&key=AIzaSyAm9yWCV7JPCTHCJut8whOjARd7pwROFDQ' : "";
+
+
+$.ajax(urlappend).done(function (results) {
   new_rows = results.rows.map(function(row) { 
 arr.push([row[0],row[1],row[2],row[3],row[4],row[5],row[6],row[7],row[8],row[9],row[10],row[11]]);
  
