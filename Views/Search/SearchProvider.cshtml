@@ -103,6 +103,7 @@
 <div class="container">
 
 </div>
+
 <div class="container">
     <div class="OuterMostClass row">
         <div class="outerClass col-xs-7">
@@ -241,7 +242,7 @@ console.log('inputradius:' + inputradius + 'qualityrating:'+  qualityrating + 'p
      $('#list').html("");
      $('#divresults').html('Results for ' + enteredLocation);
      var mapLocations;
-     $.ajax({
+    /* $.ajax({
          type: 'GET',
          url: 'search/getprovider',
          data: { location: enteredLocation },
@@ -254,7 +255,7 @@ console.log('inputradius:' + inputradius + 'qualityrating:'+  qualityrating + 'p
          error: function (jqXHR, textStatus, errorThrown) {
              alert(jqXHR.status + ",  " + jqXHR.statusText + ",  " + textStatus + ",  " + errorThrown);
          }
-     });
+     });*/
 
      var url = 'https://www.googleapis.com/fusiontables/v2/query/?sql=SELECT%20PROVIDERNAME,LICENSETYPE,PROVIDERTYPEDESCRIPTION,QUALITYRATING,PROVIDERCAPACITY,STREETADDRESS,PHYSICALCITY,PHYSICALZIPCODE,COUNTYNAME,PHONENUMBER,AVAILABILITY,SPECIALNEEDS%20FROM%201LJf1_wwE143AcOetenp8utlpTielLEDvWbbGw71A%20WHERE%20ST_INTERSECTS(LOCATIONWITHOUTNAME,%20CIRCLE(LATLNG(' + lat + ',' + lng + '),' + radius + '))'
 
