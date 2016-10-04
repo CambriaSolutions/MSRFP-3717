@@ -375,30 +375,38 @@ function geocodeAddress(locations, i) {
 }
 
 function infoWindowOnItemClick(marker, map, title, address, url) {
-
+    closeInfoWindows();
     var html = "<div ><h3>" + title + "</h3><p>" + address + "<br></div><a target='_blank' href='" + url + "'>View location</a></p></div>";
     iw = new google.maps.InfoWindow({
         content: html,
         maxWidth: 350
     });
+    InfoWindows.push(iw);
     iw.open(map, marker);
 }
 
 function infoWindow(marker, map, title, address, url) {
 
     google.maps.event.addListener(marker, 'click', function () {
-
+        closeInfoWindows();
         var html = "<div id ='divinfo'><h3>" + title + "</h3><p>" + address + "<br></div><a target='_blank' href='" + url + "'>View location</a></p></div>";
         iw = new google.maps.InfoWindow({
             content: html,
             maxWidth: 350
         });
-
+        InfoWindows.push(iw);
         iw.open(map, marker);
 
     });
 }
 
+var InfoWindows = [];
 
+
+function closeInfoWindows() {
+        for (i = 0; i < InfoWindows.length; i++) {
+            InfoWindows[i].close();
+        }
+}
 </script>
 
