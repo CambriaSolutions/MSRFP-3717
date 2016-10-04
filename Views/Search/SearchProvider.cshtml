@@ -5,13 +5,13 @@
 
 <div class="container">
     <div class="OuterMostClass row">
-        <div class="OuterMostClass col-xs-6">
+        <div class="OuterMostClass col-md-6">
             <div class="jumbotron">
                 <h2>Subsidized Childcare</h2>
                 <p>If you are a parent or a social worker or looking for subsidizing day care facilities search below</p>
             </div>
         </div>
-        <div class="OuterMostClass col-xs-6">
+        <div class="OuterMostClass col-md-6">
             <div class="jumbotron">
                 <h2>All Childcare Facilities</h2>
                 <p>If you are a parent or a social worker or looking for all day care facilities click <a href="http://msdh.ms.gov/msdhsite/_static/30,332,183,438.html">here</a>.<br /></p>
@@ -25,20 +25,27 @@
         <div class="panel-body">
             <div class="container">
                 <!-- Horizonatal Form -->
-                <div class="row">
-                    <div class="col-xs-9">
+                    <div class="col-md-12">
                         <form class="form-horizontal">
                             <div class="form-group">
-                                <div class="ccol-xs-10 col-xs-offset-6">
-                                <input type="text" class="form-control" id="txtName" placeholder="City or Zip Code" />
-                                <button type="submit" class="btn btn-default" id="btnSubmit">Submit</button>
-                                <button type="reset" class="btn btn-default">Reset</button>
-                                <a class="btn btn-default" data-toggle="collapse" href="#FilterBox" aria-expanded="false" aria-controls="collapseExample">Filters</a>
+                                <div class="row">
+                                    <div class="col-md-4">&nbsp;</div>
+                                    <div class="col-md-3">
+                                    <input type="text" class="form-control" id="txtName" placeholder="City or Zip Code" />
+                                    </div>
+                                    <div class="col-md-5">&nbsp;</div>
                                 </div>
+                                <div class="row">
+                                    <div class="col-md-4">&nbsp;</div>
+                                    <div class="col-md-3">
+                                    <button type="submit" class="btn btn-default" id="btnSubmit" >Submit</button>
+                                    <button type="reset" class="btn btn-default ">Reset</button>
+                                    <a class="btn btn-default" data-toggle="collapse" href="#FilterBox" aria-expanded="false" aria-controls="collapseExample">Filters</a>
+                                </div>
+                                <div class="col-md-5">&nbsp;</div>
                                 </div>
                             </div>
                         </form>
-                    </div>
                 </div>
             </div>
         <div class="collapse" id="FilterBox">
@@ -103,7 +110,7 @@
 <div class="container">
 
 <div class="row">
-  <div class="col col-lg-6 col-md-6">
+  <div class="col col-md-6">
     <div id="results-list" class="list-group">
        <h1> <div id="divresults">Your results..</div> </h1> <br />
             <div id="list" class:"list-group> </div>
@@ -112,7 +119,7 @@
   </div>
 
 
-    <div class="col col-lg-6 col-md-6">
+    <div class="col col-md-6">
     <div id="map_canvas" style=" width:100%;height:20%;=width:100%;height:20%; border=border 2px=2px solid=solid #3872ac;=#3872ac; width:650px;height:500px;"=width:650px;height:500px;"></div>
   </div>
 </div>
