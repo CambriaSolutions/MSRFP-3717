@@ -1994,9 +1994,9 @@ select[multiple].input-lg {
 }
 .btn {
   display: inline-block;
-  padding: 12px 18px;
+  padding: 5px 8px;
   margin-bottom: 0;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: normal;
   line-height: 1.42857143;
   text-align: center;
@@ -4371,7 +4371,7 @@ a.list-group-item.active > .badge,
   margin-bottom: 15px;
   color: inherit;
   background-color: #eee;
-  min-height: 200px;
+  min-height: 100px;
 }
 .jumbotron h1,
 .jumbotron .h1 {
@@ -4379,7 +4379,7 @@ a.list-group-item.active > .badge,
 }
 .jumbotron p {
   margin-bottom: 15px;
-  font-size: 18px;
+  font-size: 14px;
   font-weight: 200;
 }
 .container .jumbotron {
@@ -4390,8 +4390,8 @@ a.list-group-item.active > .badge,
 }
 @media screen and (min-width: 768px) {
   .jumbotron {
-    padding-top: 48px;
-    padding-bottom: 48px;
+    padding-top: 1px;
+    padding-bottom: 1px;
   }
   .container .jumbotron {
     padding-right: 20px;
@@ -4768,7 +4768,7 @@ a.list-group-item-danger.active:focus {
   padding: 15px;
 }
 .panel-heading {
-  padding: 10px 15px;
+  padding: 1px 15px;
   border-bottom: 1px solid transparent;
   border-top-left-radius: 0px;
   border-top-right-radius: 0px;
@@ -4779,7 +4779,7 @@ a.list-group-item-danger.active:focus {
 .panel-title {
   margin-top: 0;
   margin-bottom: 0;
-  font-size: 16px;
+  font-size: 1px;
   color: inherit;
 }
 .panel-title > a {
@@ -5171,7 +5171,7 @@ button.close {
 }
 .modal-footer .btn + .btn {
   margin-bottom: 0;
-  margin-left: 5px;
+  margin-left: 5px;  
 }
 .modal-footer .btn-group .btn + .btn {
   margin-left: -1px;
