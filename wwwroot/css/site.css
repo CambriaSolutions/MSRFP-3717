@@ -55,3 +55,21 @@ textarea {
     display: none
   }
 }
+#results-map {
+    height: 500px;
+}
+
+#results-list {
+    height: 500px;
+	width:auto;
+    overflow-y: auto;
+}
+
+address {
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.form-control-feedback {
+    display: none;
+}
