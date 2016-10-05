@@ -60,8 +60,8 @@
                     <div class="row">
                         <div class="col-md-3">
                             <label for="textbox">Distance in Miles</label>
-                              <input id="radiusselect" type="range" name="range" min="1" max="100" value="50" onchange="range.value=value">
-                               <output id="range">50</output>
+                              <input id="radiusselect" type="range" name="range" min="1" max="100" value="15" onchange="range.value=value">
+                               <output id="range">15</output>
                         </div>
                         <div class="col-md-2">
                             <label for="qualityselect">Quality Rating</label>
@@ -247,13 +247,13 @@ specialneeds = $(':radio[name = optspecialneed]:checked').val();
 
      var enteredLocation = $("#txtName").val();
      var arr = [];
-     var radiusinMiles=5 ;
+     var radiusinMiles=15 ;
      console.log(radiusinMiles);
      console.log(inputradius);
-      if(inputradius!=5)
+      if(inputradius!=15)
       radiusinMiles = inputradius
       else
-      radiusinMiles = 5;
+      radiusinMiles = 15;
      console.log(radiusinMiles);
      var radius = radiusinMiles * 1609.34
      var latlng = getLocationCoordinate($("#txtName").val());
