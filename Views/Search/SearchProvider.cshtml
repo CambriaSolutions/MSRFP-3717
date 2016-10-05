@@ -59,9 +59,9 @@
                 <div class="acc_container">
                     <div class="row">
                         <div class="col-md-3">
-                            <label for="textbox">Distance in Miles</label>
-                              <input id="radiusselect" type="range" name="range" min="1" max="100" value="15" onchange="range.value=value">
-                               <output id="range">15</output>
+                            <label for="textbox">Nearest # of facilities</label>
+                              <input id="radiusselect" type="range" name="range" min="1" max="50" value="10" onchange="range.value=value">
+                               <output id="range">10</output>
                         </div>
                         <div class="col-md-2">
                             <label for="qualityselect">Quality Rating</label>
@@ -172,7 +172,7 @@
     }
 
 	 var firstClick = true;
-   var inputradius = null;
+   var facilitycount = null;
    var qualityrating = null;
    var providertype = null;
    var availability = null;
@@ -190,7 +190,7 @@
     });
 
    $('#radiusselect').change( function() {
-    inputradius = $('#radiusselect').val();
+    facilitycount = $('#radiusselect').val();
     LoadMapsByFilters();
     return false;
 
@@ -234,12 +234,12 @@ return false;
 
  function LoadMapsByFilters() {
      if (!validateinput()) { return false;}
-   var inputradius = null;
+   var facilitycount = null;
    var qualityrating = "";
    var providertype = "";
    var availability = null;
    var specialneeds = null;
-inputradius = $('#radiusselect').val();
+facilitycount = $('#radiusselect').val();
 qualityrating = $('#qualityselect').val();
 providertype = $('#provtypeselect').val();
 availability = $(':radio[name = optavailability]:checked').val();
@@ -249,13 +249,13 @@ specialneeds = $(':radio[name = optspecialneed]:checked').val();
      var enteredLocation = $("#txtName").val();
      var arr = [];
      var radiusinMiles=15 ;
-     console.log(radiusinMiles);
-     console.log(inputradius);
-      if(inputradius!=15)
-      radiusinMiles = inputradius
-      else
-      radiusinMiles = 15;
-     console.log(radiusinMiles);
+    //  console.log(radiusinMiles);
+    //  console.log(facilitycount);
+    //   if(facilitycount!=10)
+    //   radiusinMiles = facilitycount
+    //   else
+    //   radiusinMiles = 15;
+    //  console.log(radiusinMiles);
      var radius = radiusinMiles * 1609.34
      var latlng = getLocationCoordinate($("#txtName").val());
      var lat = latlng.lat;
@@ -272,7 +272,8 @@ specialneeds = $(':radio[name = optspecialneed]:checked').val();
            $('#divresults').html('<h5>'+'0 Results for ' + enteredLocation + '</h5>');
                  $('#lnkFilters').hide();
 
-     var url = 'https://www.googleapis.com/fusiontables/v2/query/?sql=SELECT%20PROVIDERNAME,LICENSETYPE,PROVIDERTYPEDESCRIPTION,QUALITYRATING,PROVIDERCAPACITY,STREETADDRESS,PHYSICALCITY,PHYSICALZIPCODE,COUNTYNAME,PHONENUMBER,AVAILABILITY,SPECIALNEEDS,LOCATIONLATITUDE,LOCATIONLONGITUDE%20FROM%201LJf1_wwE143AcOetenp8utlpTielLEDvWbbGw71A%20WHERE%20ST_INTERSECTS(LOCATIONWITHOUTNAME,%20CIRCLE(LATLNG(' + lat + ',' + lng + '),' + radius + '))'
+     var url = 'https://www.googleapis.com/fusiontables/v2/query/?sql=SELECT%20PROVIDERNAME,LICENSETYPE,PROVIDERTYPEDESCRIPTION,QUALITYRATING,PROVIDERCAPACITY,STREETADDRESS,PHYSICALCITY,PHYSICALZIPCODE,COUNTYNAME,PHONENUMBER,AVAILABILITY,SPECIALNEEDS,LOCATIONLATITUDE,LOCATIONLONGITUDE%20FROM%201LJf1_wwE143AcOetenp8utlpTielLEDvWbbGw71A%20ORDER%20BY%20ST_DISTANCE(LOCATIONWITHOUTNAME,LATLNG(' + lat + ',' + lng + '))%20LIMIT%20' + facilitycount 
+    // WHERE%20ST_INTERSECTS(LOCATIONWITHOUTNAME,%20CIRCLE(LATLNG(' + lat + ',' + lng + '),' + radius + '))'
 
 
      url = providertype !="-1"? url + 'and PROVIDERTYPE=' + providertype +" ": url;
