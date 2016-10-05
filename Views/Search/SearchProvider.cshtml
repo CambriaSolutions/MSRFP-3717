@@ -14,7 +14,7 @@
         <div class="OuterMostClass col-md-6">
             <div class="jumbotron">
                 <h3>All Childcare Facilities</h3>
-                <p>If you are a parent or a social worker or looking for all day care facilities click <a href="http://msdh.ms.gov/msdhsite/_static/30,332,183,438.html">here</a>.<br /><br></p>
+                <p>If you are a parent or a social worker or looking for all day care facilities click <br><a href="http://msdh.ms.gov/msdhsite/_static/30,332,183,438.html">here</a>.</p>
             </div>
         </div>
     </div>
@@ -159,8 +159,11 @@
             success: function (result) {
 
                 try {
+                    if (result.results[0])
+                    {                       
                     position.lat = result.results[0].geometry.location.lat;
                     position.lng = result.results[0].geometry.location.lng;
+                    }
                 } catch (err) {
                     position = null;
                 }
@@ -268,7 +271,7 @@ specialneeds = $(':radio[name = optspecialneed]:checked').val();
        $('#list').html("");
         $('#map_canvas').html("");
           $('#divresults').html("");
-            $('#divresults').html('<h4>'+'0 Results for ' + enteredLocation + '</h4>');
+           $('#divresults').html('<h5>'+'0 Results for ' + enteredLocation + '</h5>');
                  $('#lnkFilters').hide();
 
      var url = 'https://www.googleapis.com/fusiontables/v2/query/?sql=SELECT%20PROVIDERNAME,LICENSETYPE,PROVIDERTYPEDESCRIPTION,QUALITYRATING,PROVIDERCAPACITY,STREETADDRESS,PHYSICALCITY,PHYSICALZIPCODE,COUNTYNAME,PHONENUMBER,AVAILABILITY,SPECIALNEEDS%20FROM%201LJf1_wwE143AcOetenp8utlpTielLEDvWbbGw71A%20WHERE%20ST_INTERSECTS(LOCATIONWITHOUTNAME,%20CIRCLE(LATLNG(' + lat + ',' + lng + '),' + radius + '))'
@@ -290,13 +293,21 @@ specialneeds = $(':radio[name = optspecialneed]:checked').val();
          dataType: 'json',
          async: false,
          success: function (data) {
+           
              mapresults = data;
 
          },
          error: function (jqXHR, textStatus, errorThrown) {
-             alert(jqXHR.status + ",  " + jqXHR.statusText + ",  " + textStatus + ",  " + errorThrown);
+            // alert(jqXHR.status + ",  " + jqXHR.statusText + ",  " + textStatus + ",  " + errorThrown);
          }
      });
+
+
+//returning false if no results found
+ if(!mapresults || !mapresults.rows)
+    {     
+        return false;
+    }
 
      new_rows = mapresults.rows.map(function (row) {
 
