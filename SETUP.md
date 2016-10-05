@@ -1,8 +1,8 @@
 Cambria Solutions MSDHS Prototype
 ===============================
 
-A Microsoft Open Source [NETCORE](https://www.microsoft.com/net/core/platform).NET CORE App.  Built using a lightweight [Yeoman](http://yeoman.io/)Yeoman scaffolding framework
-leveraging the power of [Bower](https://bower.io/)Bower.
+A Microsoft Open Source [NETCORE](https://www.microsoft.com/net/core/platform) App.  Built using a lightweight [Yeoman](http://yeoman.io/) scaffolding framework
+leveraging the power of [Bower](https://bower.io/).
 
 Quickstart
 ----------
@@ -17,7 +17,7 @@ If NOT using Azure or running locally, manually clone the repository:
 git clone https://github.com/CambriaSolutions/MSRFP-3717
 
 Install the .NET CORE library SDK based on your deployment platform (iOS/Linux/Docker)
-[virtualenvwrapper](https://www.microsoft.com/net/core#windows):
+[.NET Core](https://www.microsoft.com/net/core#windows):
 
 Then run the following commands to bootstrap your environment with Python 3 and
 all development requirements.
@@ -27,7 +27,7 @@ all development requirements.
     dotnet run
 
 The server will start and be accessible on the localhost environment on port 5000
-[Localhost](http://localhost:5000)http://localhost:500
+[Your Localhost](http://localhost:5000) http://localhost:500
 
 Running Tests
 -------------
@@ -41,4 +41,4 @@ After committing your changes, simply push them to Github and Mocha will re-run 
 successful:
 
     git commit -m "Some new changes"
-    git push origin master
+    git push origin head:master
