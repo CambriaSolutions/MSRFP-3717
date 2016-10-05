@@ -105,11 +105,9 @@
                     </div>
                 </div>
             </div>
-
-            <div class="row">
-                <div class="col-md-10">&nbsp;</div>
-                <div id="divresults"></div>  <br />
-            </div>
+              
+                <div class="badge" id="divresults"></div> 
+            
         </div>
     </div>
     <div class="row">
@@ -274,7 +272,7 @@ specialneeds = $(':radio[name = optspecialneed]:checked').val();
            $('#divresults').html('<h5>'+'0 Results for ' + enteredLocation + '</h5>');
                  $('#lnkFilters').hide();
 
-     var url = 'https://www.googleapis.com/fusiontables/v2/query/?sql=SELECT%20PROVIDERNAME,LICENSETYPE,PROVIDERTYPEDESCRIPTION,QUALITYRATING,PROVIDERCAPACITY,STREETADDRESS,PHYSICALCITY,PHYSICALZIPCODE,COUNTYNAME,PHONENUMBER,AVAILABILITY,SPECIALNEEDS%20FROM%201LJf1_wwE143AcOetenp8utlpTielLEDvWbbGw71A%20WHERE%20ST_INTERSECTS(LOCATIONWITHOUTNAME,%20CIRCLE(LATLNG(' + lat + ',' + lng + '),' + radius + '))'
+     var url = 'https://www.googleapis.com/fusiontables/v2/query/?sql=SELECT%20PROVIDERNAME,LICENSETYPE,PROVIDERTYPEDESCRIPTION,QUALITYRATING,PROVIDERCAPACITY,STREETADDRESS,PHYSICALCITY,PHYSICALZIPCODE,COUNTYNAME,PHONENUMBER,AVAILABILITY,SPECIALNEEDS,LOCATIONLATITUDE,LOCATIONLONGITUDE%20FROM%201LJf1_wwE143AcOetenp8utlpTielLEDvWbbGw71A%20WHERE%20ST_INTERSECTS(LOCATIONWITHOUTNAME,%20CIRCLE(LATLNG(' + lat + ',' + lng + '),' + radius + '))'
 
 
      url = providertype !="-1"? url + 'and PROVIDERTYPE=' + providertype +" ": url;
@@ -283,7 +281,7 @@ specialneeds = $(':radio[name = optspecialneed]:checked').val();
      url = (availability != null) ? url + "and AVAILABILITY='" + availability + "' " : url;
      url = (specialneeds != null) ? url + "and SPECIALNEEDS='" + specialneeds + "'": url;
 
-     url = (url != null) ? url + '&key=AIzaSyAm9yWCV7JPCTHCJut8whOjARd7pwROFDQ' : "";
+     url = (url != null) ? url + '&key=AIzaSyAJDVkvbS5v9hknmJeJx_hVnAeIj3jjpM0' : "";
 
 
      $.ajax({
@@ -311,7 +309,7 @@ specialneeds = $(':radio[name = optspecialneed]:checked').val();
 
      new_rows = mapresults.rows.map(function (row) {
 
-         arr.push([row[0], row[1], row[2], row[3], row[4], row[5], row[6], row[7], row[8], row[9], row[10], row[11]]);
+         arr.push([row[0], row[1], row[2], row[3], row[4], row[5], row[6], row[7], row[8], row[9], row[10], row[11],row[12],row[13]]);
 
      })
 
@@ -382,16 +380,18 @@ function geocodeAddress(locations, i) {
     
 
     address1 = address1 + ' <a href="mailto:?subject=Child Care Provider&body=Add your Notes here....%0A%0A' +EmailAddress+ '"><img src="../images/Mail-icon.png" /></a></li>'
-    geocoder.geocode({
-        'address': locations[i][5] + " " + locations[i][6] + " " + locations[i][7]
-    },
+var markerlat = parseFloat(locations[i][12]);
+var markerlng = parseFloat(locations[i][13]);
 
-      function (results, status) {
-          if (status == google.maps.GeocoderStatus.OK) {
+
+            //(32.8551326, -90.4056468)
+        
               var marker = new google.maps.Marker({
                   icon: 'http://maps.google.com/mapfiles/ms/icons/blue.png',
                   map: map,
-                  position: results[0].geometry.location,
+               
+                position: {lat:markerlat, lng: markerlng}, 
+
                   title: title,
                   animation: google.maps.Animation.DROP,
                   address: address,
@@ -400,9 +400,7 @@ function geocodeAddress(locations, i) {
               infoWindow(marker, map, title, address, url);
               bounds.extend(marker.getPosition());
               map.fitBounds(bounds);
-          } else {
-             // alert("geocode of " + address + " failed:" + status);
-          }
+         
 
 
           $('<a class="list-group-item"><br>')
@@ -414,7 +412,7 @@ function geocodeAddress(locations, i) {
 
               })
                           .appendTo("#list");
-      });
+     
 }
 
 function infoWindowOnItemClick(marker, map, title, address, url) {
