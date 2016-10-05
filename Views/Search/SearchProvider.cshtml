@@ -36,21 +36,22 @@
                                 <div class="col-md-1">
                                     <button type="submit" class="btn btn-default" id="btnSubmit">Search</button>
                                 </div>
-                           
-                                    <div class="col-md-5"> <a id="lnkFilters" style="display:none;" data-toggle="collapse" href="#FilterBox" aria-expanded="false" aria-controls="collapseExample">More Options</a>
-                                    </div>
-                                     
-                             
-                               
+
+                                <div class="col-md-5">
+                                    <a id="lnkFilters" style="display:none;" data-toggle="collapse" href="#FilterBox" aria-expanded="false" aria-controls="collapseExample">More Options</a>
+                                </div>
+
+
+
                             </div>
 
-                             <div class="row">
+                            <div class="row">
                                 <div class="col-md-4">&nbsp;</div>
-                           
-                             
+
+
                                 <div class="col-md-8" id="namerror">&nbsp;</div>
                             </div>
-                       
+
                         </div>
                     </form>
                 </div>
@@ -60,8 +61,8 @@
                     <div class="row">
                         <div class="col-md-3">
                             <label for="textbox">Nearest # of facilities</label>
-                              <input id="radiusselect" type="range" name="range" min="1" max="50" value="10" onchange="range.value=value">
-                               <output id="range">10</output>
+                            <input id="radiusselect" type="range" name="range" min="1" max="50" value="10" onchange="range.value=value">
+                            <output id="range">10</output>
                         </div>
                         <div class="col-md-2">
                             <label for="qualityselect">Quality Rating</label>
@@ -105,9 +106,9 @@
                     </div>
                 </div>
             </div>
-              
-                <div class="badge" id="divresults"></div> 
-            
+
+            <div class="badge" id="divresults"></div>
+
         </div>
     </div>
     <div class="row">
@@ -129,47 +130,44 @@
         $('.showMe').toggle();
     });
 
-     function validateinput(){
-         var $messageDiv = $('#namerror'); // get the reference of the div
-         if ($("#txtName").val() == '')
-         {
-             $messageDiv.show().html('<span style="color:red;">*Please enter the search criteria</span>');
-             return false;
-         }
-         else
-         {
-             $messageDiv.hide();
-             return true;
-         }
-     }
-
-    function getLocationCoordinate(address) {
-
-        var position = {};
-        $.ajax({
-            url: 'http://maps.google.com/maps/api/geocode/json',
-            type: 'GET',
-            data: {
-                address: address,
-                sensor: false
-            },
-            async: false,
-            success: function (result) {
-
-                try {
-                    if (result.results[0])
-                    {                       
-                    position.lat = result.results[0].geometry.location.lat;
-                    position.lng = result.results[0].geometry.location.lng;
-                    }
-                } catch (err) {
-                    position = null;
-                }
-
-            }
-        });
-        return position;
+    function validateinput() {
+        var $messageDiv = $('#namerror'); // get the reference of the div
+        if ($("#txtName").val() == '') {
+            $messageDiv.show().html('<span style="color:red;">*Please enter the search criteria</span>');
+            return false;
+        }
+        else {
+            $messageDiv.hide();
+            return true;
+        }
     }
+
+     function getLocationCoordinate(address) {
+
+         var position = {};
+         $.ajax({
+             url: 'http://maps.google.com/maps/api/geocode/json',
+             type: 'GET',
+             data: {
+                 address: address,
+                 sensor: false
+             },
+             async: false,
+             success: function (result) {
+
+                 try {
+                     if (result.results[0]) {
+                         position.lat = result.results[0].geometry.location.lat;
+                         position.lng = result.results[0].geometry.location.lng;
+                     }
+                 } catch (err) {
+                     position = null;
+                 }
+
+             }
+         });
+         return position;
+     }
 
 	 var firstClick = true;
    var facilitycount = null;
@@ -233,29 +231,29 @@ return false;
  });
 
  function LoadMapsByFilters() {
-     if (!validateinput()) { return false;}
-   var facilitycount = null;
-   var qualityrating = "";
-   var providertype = "";
-   var availability = null;
-   var specialneeds = null;
-facilitycount = $('#radiusselect').val();
-qualityrating = $('#qualityselect').val();
-providertype = $('#provtypeselect').val();
-availability = $(':radio[name = optavailability]:checked').val();
-specialneeds = $(':radio[name = optspecialneed]:checked').val();
+     if (!validateinput()) { return false; }
+     var facilitycount = null;
+     var qualityrating = "";
+     var providertype = "";
+     var availability = null;
+     var specialneeds = null;
+     facilitycount = $('#radiusselect').val();
+     qualityrating = $('#qualityselect').val();
+     providertype = $('#provtypeselect').val();
+     availability = $(':radio[name = optavailability]:checked').val();
+     specialneeds = $(':radio[name = optspecialneed]:checked').val();
 
 
      var enteredLocation = $("#txtName").val();
      var arr = [];
-     var radiusinMiles=15 ;
-    //  console.log(radiusinMiles);
-    //  console.log(facilitycount);
-    //   if(facilitycount!=10)
-    //   radiusinMiles = facilitycount
-    //   else
-    //   radiusinMiles = 15;
-    //  console.log(radiusinMiles);
+     var radiusinMiles = 15;
+     //  console.log(radiusinMiles);
+     //  console.log(facilitycount);
+     //   if(facilitycount!=10)
+     //   radiusinMiles = facilitycount
+     //   else
+     //   radiusinMiles = 15;
+     //  console.log(radiusinMiles);
      var radius = radiusinMiles * 1609.34
      var latlng = getLocationCoordinate($("#txtName").val());
      var lat = latlng.lat;
@@ -265,22 +263,22 @@ specialneeds = $(':radio[name = optspecialneed]:checked').val();
 
      var mapLocations;
 
-//defaults
-       $('#list').html("");
-        $('#map_canvas').html("");
-          $('#divresults').html("");
-           $('#divresults').html('<h5>'+'0 Results for ' + enteredLocation + '</h5>');
-                 $('#lnkFilters').hide();
+     //defaults
+     $('#list').html("");
+     $('#map_canvas').html("");
+     $('#divresults').html("");
+     $('#divresults').html('<h5>' + '0 Results for ' + enteredLocation + '</h5>');
+     $('#lnkFilters').hide();
 
-     var url = 'https://www.googleapis.com/fusiontables/v2/query/?sql=SELECT%20PROVIDERNAME,LICENSETYPE,PROVIDERTYPEDESCRIPTION,QUALITYRATING,PROVIDERCAPACITY,STREETADDRESS,PHYSICALCITY,PHYSICALZIPCODE,COUNTYNAME,PHONENUMBER,AVAILABILITY,SPECIALNEEDS,LOCATIONLATITUDE,LOCATIONLONGITUDE%20FROM%201LJf1_wwE143AcOetenp8utlpTielLEDvWbbGw71A%20ORDER%20BY%20ST_DISTANCE(LOCATIONWITHOUTNAME,LATLNG(' + lat + ',' + lng + '))%20LIMIT%20' + facilitycount 
-    // WHERE%20ST_INTERSECTS(LOCATIONWITHOUTNAME,%20CIRCLE(LATLNG(' + lat + ',' + lng + '),' + radius + '))'
+     var url = 'https://www.googleapis.com/fusiontables/v2/query/?sql=SELECT%20PROVIDERNAME,LICENSETYPE,PROVIDERTYPEDESCRIPTION,QUALITYRATING,PROVIDERCAPACITY,STREETADDRESS,PHYSICALCITY,PHYSICALZIPCODE,COUNTYNAME,PHONENUMBER,AVAILABILITY,SPECIALNEEDS,LOCATIONLATITUDE,LOCATIONLONGITUDE%20FROM%201LJf1_wwE143AcOetenp8utlpTielLEDvWbbGw71A%20ORDER%20BY%20ST_DISTANCE(LOCATIONWITHOUTNAME,LATLNG(' + lat + ',' + lng + '))%20LIMIT%20' + facilitycount
+     // WHERE%20ST_INTERSECTS(LOCATIONWITHOUTNAME,%20CIRCLE(LATLNG(' + lat + ',' + lng + '),' + radius + '))'
 
 
-     url = providertype !="-1"? url + 'and PROVIDERTYPE=' + providertype +" ": url;
-     url = (qualityrating ==0 || qualityrating == "-1") ? url: url +  'and QUALITYRATING>0 ';
+     url = providertype != "-1" ? url + 'and PROVIDERTYPE=' + providertype + " " : url;
+     url = (qualityrating == 0 || qualityrating == "-1") ? url : url + 'and QUALITYRATING>0 ';
 
      url = (availability != null) ? url + "and AVAILABILITY='" + availability + "' " : url;
-     url = (specialneeds != null) ? url + "and SPECIALNEEDS='" + specialneeds + "'": url;
+     url = (specialneeds != null) ? url + "and SPECIALNEEDS='" + specialneeds + "'" : url;
 
      url = (url != null) ? url + '&key=AIzaSyAJDVkvbS5v9hknmJeJx_hVnAeIj3jjpM0' : "";
 
@@ -292,40 +290,40 @@ specialneeds = $(':radio[name = optspecialneed]:checked').val();
          dataType: 'json',
          async: false,
          success: function (data) {
-           
+
              mapresults = data;
 
          },
          error: function (jqXHR, textStatus, errorThrown) {
-            // alert(jqXHR.status + ",  " + jqXHR.statusText + ",  " + textStatus + ",  " + errorThrown);
+             // alert(jqXHR.status + ",  " + jqXHR.statusText + ",  " + textStatus + ",  " + errorThrown);
          }
      });
 
 
-//returning false if no results found
- if(!mapresults || !mapresults.rows)
-    {     
-        return false;
-    }
+
+     //returning false if no results found
+     if (!mapresults || !mapresults.rows) {
+         return false;
+     }
 
      new_rows = mapresults.rows.map(function (row) {
 
-         arr.push([row[0], row[1], row[2], row[3], row[4], row[5], row[6], row[7], row[8], row[9], row[10], row[11],row[12],row[13]]);
+         arr.push([row[0], row[1], row[2], row[3], row[4], row[5], row[6], row[7], row[8], row[9], row[10], row[11], row[12], row[13]]);
 
      })
 
-if(arr.length > 0)
-{
+     if (arr.length > 0) {
          $('#lnkFilters').show();
-          $('#divresults').html('<h5>'+ arr.length + ' Results for ' + enteredLocation + '</h5>');
+         $('#divresults').html('<h5>' + arr.length + ' Results for ' + enteredLocation + '</h5>');
 
-}
-else
-{
-     $('#lnkFilters').hide();
-  $('#divresults').html('<h5>'+'0 Results for ' + enteredLocation + '</h5>');
 
-}
+
+     }
+     else {
+         $('#lnkFilters').hide();
+         $('#divresults').html('<h5>' + '0 Results for ' + enteredLocation + '</h5>');
+
+     }
      initialize(arr);
 
  }
@@ -342,6 +340,17 @@ function initialize(locations) {
           zoom: 13,
           mapTypeId: google.maps.MapTypeId.ROADMAP
       });
+    var latlng = getLocationCoordinate($("#txtName").val());
+    var lat = latlng.lat;
+    var lng = latlng.lng;
+    //marking the source address
+    var marker = new google.maps.Marker({
+        icon: 'http://maps.google.com/mapfiles/ms/icons/red.png',
+        map: map,
+        position: { lat: lat, lng: lng },
+        animation: google.maps.Animation.DROP
+
+    })
     geocoder = new google.maps.Geocoder();
 
     for (i = 0; i < locations.length; i++) {
@@ -357,70 +366,70 @@ function geocodeAddress(locations, i) {
     var img = "Not Rated";
 
     if (locations[i][3] == 1)
-    img = "<img src='../images/Star1.png' />"
-      if (locations[i][3] == 2)
-  img = "<img src='../images/Star2.png' />"
-      if (locations[i][3] == 3)
-    img = "<img src='../images/Star3.png' />"
-      if (locations[i][3] == 4)
-     img = "<img src='../images/Star4.png' />"
-      if (locations[i][3] == 5)
-      img = "<img src='../images/Star5.png' />"
+        img = "<img src='../images/Star1.png' />"
+    if (locations[i][3] == 2)
+        img = "<img src='../images/Star2.png' />"
+    if (locations[i][3] == 3)
+        img = "<img src='../images/Star3.png' />"
+    if (locations[i][3] == 4)
+        img = "<img src='../images/Star4.png' />"
+    if (locations[i][3] == 5)
+        img = "<img src='../images/Star5.png' />"
 
 
     var title = locations[i][0];
     var address = locations[i][5] + " " + locations[i][6] + " " + locations[i][7];
-   
+
     var address1 = "<b>Name of the Provider:</b> " + locations[i][0] + "<br> " + "<b>Address: </b>" + locations[i][5] + " " + locations[i][6] + " " + locations[i][7] + "<br> " +
-    "<b>Phone: </b> <a href=tel:'" + locations[i][9] + "'>" + locations[i][9] +"</a>" + "<br> " + "<b>Licenced: </b>" + locations[i][1] + "   " + "<b>Quality Rating: </b>" + img + "<br> " + "<b>Special Needs: </b>" + locations[i][11] + "   " + "<b>Availability: <b>" + locations[i][10];
-     		      
+    "<b>Phone: </b> <a href=tel:'" + locations[i][9] + "'>" + locations[i][9] + "</a>" + "<br> " + "<b>Licenced: </b>" + locations[i][1] + "   " + "<b>Quality Rating: </b>" + img + "<br> " + "<b>Special Needs: </b>" + locations[i][11] + "   " + "<b>Availability: <b>" + locations[i][10];
+
     var url = locations[i][2];
 
-    var EmailAddress =  "Name of the Provider: " + locations[i][0] + "%0A" + "Address: " + locations[i][5] + " " + locations[i][6] + " " + locations[i][7] + "%0A" +
-    "Phone:" + locations[i][9] +  "%0A" + "Licenced:" + locations[i][1] + "%0A" + "Quality Rating:" + locations[i][3] + "%0A" + "Special Needs: " + locations[i][11] + "%0A" + "Availability:" + locations[i][10];
-     	
-    
-
-    address1 = address1 + ' <a href="mailto:?subject=Child Care Provider&body=Add your Notes here....%0A%0A' +EmailAddress+ '"><img src="../images/Mail-icon.png" /></a></li>'
-var markerlat = parseFloat(locations[i][12]);
-var markerlng = parseFloat(locations[i][13]);
+    var EmailAddress = "Name of the Provider: " + locations[i][0] + "%0A" + "Address: " + locations[i][5] + " " + locations[i][6] + " " + locations[i][7] + "%0A" +
+    "Phone:" + locations[i][9] + "%0A" + "Licenced:" + locations[i][1] + "%0A" + "Quality Rating:" + locations[i][3] + "%0A" + "Special Needs: " + locations[i][11] + "%0A" + "Availability:" + locations[i][10];
 
 
-            //(32.8551326, -90.4056468)
-        
-              var marker = new google.maps.Marker({
-                  icon: 'http://maps.google.com/mapfiles/ms/icons/blue.png',
-                  map: map,
-               
-                position: {lat:markerlat, lng: markerlng}, 
 
-                  title: title,
-                  animation: google.maps.Animation.DROP,
-                  address: address,
-                  url: url
-              })
-              infoWindow(marker, map, title, address, url);
-              bounds.extend(marker.getPosition());
-              map.fitBounds(bounds);
-         
+    address1 = address1 + ' <a href="mailto:?subject=Child Care Provider&body=Add your Notes here....%0A%0A' + EmailAddress + '"><img src="../images/Mail-icon.png" /></a></li>'
+    var markerlat = parseFloat(locations[i][12]);
+    var markerlng = parseFloat(locations[i][13]);
 
 
-          $('<a class="list-group-item"><br>')
-                          .html(address1)
-              .click(function () {
+    //(32.8551326, -90.4056468)
+
+    var marker = new google.maps.Marker({
+        icon: 'http://maps.google.com/mapfiles/ms/icons/blue.png',
+        map: map,
+
+        position: { lat: markerlat, lng: markerlng },
+
+        title: title,
+        animation: google.maps.Animation.DROP,
+        address: address,
+        url: url
+    })
+    infoWindow(marker, map, title, address, url);
+    bounds.extend(marker.getPosition());
+    map.fitBounds(bounds);
 
 
-                  infoWindowOnItemClick(marker, map, title, address, url);
 
-              })
-                          .appendTo("#list");
-     
+    $('<a class="list-group-item"><br>')
+                    .html(address1)
+        .click(function () {
+
+
+            infoWindowOnItemClick(marker, map, title, address, url);
+
+        })
+                    .appendTo("#list");
+
 }
 
 function infoWindowOnItemClick(marker, map, title, address, url) {
     closeInfoWindows();
-     var html = "<div ><h3>" + title + "</h3><p>" + address + "<br></div><a target='_blank' href='https://www.google.com/maps/place/"+ title +"," +  address + "'>View location</a></p></div>";
-     iw = new google.maps.InfoWindow({
+    var html = "<div ><h3>" + title + "</h3><p>" + address + "<br></div><a target='_blank' href='https://www.google.com/maps/place/" + title + "," + address + "'>View location</a></p></div>";
+    iw = new google.maps.InfoWindow({
         content: html,
         maxWidth: 350
     });
@@ -444,9 +453,9 @@ function infoWindow(marker, map, title, address, url) {
 }
 var InfoWindows = [];
 function closeInfoWindows() {
-        for (i = 0; i < InfoWindows.length; i++) {
-            InfoWindows[i].close();
-        }
+    for (i = 0; i < InfoWindows.length; i++) {
+        InfoWindows[i].close();
+    }
 }
 </script>
 
