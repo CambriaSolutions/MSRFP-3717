@@ -159,8 +159,11 @@
             success: function (result) {
 
                 try {
+                    if (result.results[0])
+                    {                       
                     position.lat = result.results[0].geometry.location.lat;
                     position.lng = result.results[0].geometry.location.lng;
+                    }
                 } catch (err) {
                     position = null;
                 }
@@ -295,13 +298,13 @@ specialneeds = $(':radio[name = optspecialneed]:checked').val();
 
          },
          error: function (jqXHR, textStatus, errorThrown) {
-             alert(jqXHR.status + ",  " + jqXHR.statusText + ",  " + textStatus + ",  " + errorThrown);
+            // alert(jqXHR.status + ",  " + jqXHR.statusText + ",  " + textStatus + ",  " + errorThrown);
          }
      });
 
 
 //returning false if no results found
- if(!mapresults.rows)
+ if(!mapresults || !mapresults.rows)
     {     
         return false;
     }
