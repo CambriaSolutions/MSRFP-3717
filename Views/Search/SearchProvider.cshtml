@@ -270,18 +270,18 @@ return false;
      $('#divresults').html('<h5>' + '0 Results for ' + enteredLocation + '</h5>');
      $('#lnkFilters').hide();
 
-     var url = 'https://www.googleapis.com/fusiontables/v2/query/?sql=SELECT%20PROVIDERNAME,LICENSETYPE,PROVIDERTYPEDESCRIPTION,QUALITYRATING,PROVIDERCAPACITY,STREETADDRESS,PHYSICALCITY,PHYSICALZIPCODE,COUNTYNAME,PHONENUMBER,AVAILABILITY,SPECIALNEEDS,LOCATIONLATITUDE,LOCATIONLONGITUDE%20FROM%201LJf1_wwE143AcOetenp8utlpTielLEDvWbbGw71A%20ORDER%20BY%20ST_DISTANCE(LOCATIONWITHOUTNAME,LATLNG(' + lat + ',' + lng + '))%20LIMIT%20' + facilitycount
+   var url = 'https://www.googleapis.com/fusiontables/v2/query/?sql=SELECT%20PROVIDERNAME,LICENSETYPE,PROVIDERTYPEDESCRIPTION,QUALITYRATING,PROVIDERCAPACITY,STREETADDRESS,PHYSICALCITY,PHYSICALZIPCODE,COUNTYNAME,PHONENUMBER,AVAILABILITY,SPECIALNEEDS,LOCATIONLATITUDE,LOCATIONLONGITUDE%20FROM%201LJf1_wwE143AcOetenp8utlpTielLEDvWbbGw71A%20WHERE%20PROVIDERTYPE%20>0%20'
      // WHERE%20ST_INTERSECTS(LOCATIONWITHOUTNAME,%20CIRCLE(LATLNG(' + lat + ',' + lng + '),' + radius + '))'
+    var urlorderby = '%20ORDER%20BY%20ST_DISTANCE(LOCATIONWITHOUTNAME,LATLNG(' + lat + ',' + lng + '))%20LIMIT%20' + facilitycount
 
 
      url = providertype != "-1" ? url + 'and PROVIDERTYPE=' + providertype + " " : url;
      url = (qualityrating == 0 || qualityrating == "-1") ? url : url + 'and QUALITYRATING>0 ';
 
      url = (availability != null) ? url + "and AVAILABILITY='" + availability + "' " : url;
-     url = (specialneeds != null) ? url + "and SPECIALNEEDS='" + specialneeds + "'" : url;
-
-     url = (url != null) ? url + '&key=AIzaSyAJDVkvbS5v9hknmJeJx_hVnAeIj3jjpM0' : "";
-
+     url = (specialneeds != null) ? url + "and SPECIALNEEDS='" + specialneeds + "'" : url;  
+     url = url + urlorderby;
+        url = (url != null) ? url + '&key=AIzaSyAJDVkvbS5v9hknmJeJx_hVnAeIj3jjpM0' : "";
 
      $.ajax({
          type: 'GET',
