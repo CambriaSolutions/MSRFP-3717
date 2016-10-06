@@ -38,7 +38,7 @@
                                 </div>
 
                                 <div class="col-md-5">
-                                    <a id="lnkFilters" style="display:none;" data-toggle="collapse" href="#FilterBox" aria-expanded="false" aria-controls="collapseExample">More Options</a>
+                                    <a id="lnkFilters"  style="display:none;" onclick="ToggleDiv()" href="javascript:void(0);" >More Options</a>
                                 </div>
 
 
@@ -126,9 +126,23 @@
 </div>
 
 <script>
-    $('.expandContent').click(function () {
-        $('.showMe').toggle();
-    });
+   
+
+
+    function ToggleDiv() {
+   var isVisible = $('#FilterBox').is(':visible');
+       
+       if(isVisible == true)
+       {
+            $("#FilterBox").hide();
+       }
+       else
+       {
+            $("#FilterBox").show();
+       }
+   
+   
+}
 
     function resetfilters()
     {
@@ -136,8 +150,8 @@
         $('#provtypeselect').prop('selectedIndex',0);
         $('input[name="optavailability"]').prop('checked', false);
         $('input[name="optspecialneed"]').prop('checked', false);
-        $('#radiusselect').val(10);
-        $('#range').val(10);
+        $('#radiusselect').val(10);      
+         $('#spnrange').html(10);
     }
 
     function validateinput() {
@@ -237,6 +251,7 @@
  });
 
  $('[id^=btnSubmit]').on('click', function (e) {
+      $("#FilterBox").show();
 resetfilters();
 LoadMapsByFilters();
 return false;
