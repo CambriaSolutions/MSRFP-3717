@@ -130,6 +130,16 @@
         $('.showMe').toggle();
     });
 
+    function resetfilters()
+    {
+        $('#qualityselect').prop('selectedIndex',0);
+        $('#provtypeselect').prop('selectedIndex',0);
+        $('input[name="optavailability"]').prop('checked', false);
+        $('input[name="optspecialneed"]').prop('checked', false);
+        $('#radiusselect').val(10);
+        $('#range').val(10);
+    }
+
     function validateinput() {
         var $messageDiv = $('#namerror'); // get the reference of the div
         if ($("#txtName").val() == '') {
@@ -226,6 +236,7 @@
  });
 
  $('[id^=btnSubmit]').on('click', function (e) {
+resetfilters();
 LoadMapsByFilters();
 return false;
  });
