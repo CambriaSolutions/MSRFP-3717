@@ -87,20 +87,14 @@
                         </div>
                         <div class="col-md-2">
                             <label for="optavailability">Availability</label>
-                            <div class="radio">
-                                <input type="radio" name="optavailability" value="YES">Yes
-                            </div>
-                            <div class="radio">
-                                <input type="radio" name="optavailability" value="NO">No
+                            <div class="checkbox">
+                                <input type="checkbox" id="optavailability">
                             </div>
                         </div>
                         <div class="col-md-2">
                             <label for="optspecialneed">Special Needs</label>
-                            <div class="radio">
-                                <label><input type="radio" name="optspecialneed" value="YES">Yes</label>
-                            </div>
-                            <div class="radio">
-                                <label><input type="radio" name="optspecialneed" value="NO">No</label>
+                            <div class="checkbox">
+                                <input type="checkbox" id="optspecialneed">
                             </div>
                         </div>
                     </div>
@@ -148,8 +142,8 @@
     {
         $('#qualityselect').prop('selectedIndex',0);
         $('#provtypeselect').prop('selectedIndex',0);
-        $('input[name="optavailability"]').prop('checked', false);
-        $('input[name="optspecialneed"]').prop('checked', false);
+        $('#optavailability').attr('checked', false);
+        $('#optspecialneed').attr('checked', false);
         $('#radiusselect').val(10);      
          $('#spnrange').html(10);
     }
@@ -221,31 +215,23 @@
     });
 
    $('#qualityselect').change( function() {
-    qualityrating = $('#qualityselect').val();
     LoadMapsByFilters();
     return false;
-    //alert(qualityrating);
     });
 
    $('#provtypeselect').change( function() {
-    providertype = $('#provtypeselect').val();
     LoadMapsByFilters();
     return false;
-    //alert(providertype);
     });
 
-   $(':radio[name = optavailability]').change( function() {
-    availability = $(':radio[name = optavailability]:checked').val();
+    $('#optavailability').change( function() {
     LoadMapsByFilters();
     return false;
-    //alert(availability);
     });
 
-   $(':radio[name = optspecialneed]').change( function() {
-    specialneeds = $(':radio[name = optspecialneed]:checked').val();
+    $('#optspecialneed').change( function() {
     LoadMapsByFilters();
     return false;
-    //alert(specialneeds);
     });
 
  });
@@ -267,8 +253,8 @@ return false;
      facilitycount = $('#radiusselect').val();
      qualityrating = $('#qualityselect').val();
      providertype = $('#provtypeselect').val();
-     availability = $(':radio[name = optavailability]:checked').val();
-     specialneeds = $(':radio[name = optspecialneed]:checked').val();
+     availability = $("#optavailability").is(':checked') ? "YES" : null;
+     specialneeds = $("#optspecialneed").is(':checked') ? "YES" : null;
 
 
      var enteredLocation = $("#txtName").val();
