@@ -24,6 +24,11 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="~/js/site.min.js"></script>
+      <script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL,includedLanguages: 'en,es,vi'}, 'google_translate_element');
+}
+</script><script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
     <link rel="stylesheet" href="~/css/rangeSlider.css" />
 </head>
 <body>
@@ -46,6 +51,7 @@
       <ul class="nav navbar-nav navbar-left">
         <li><a href="~/search/SearchProvider"><span class="glyphicon glyphicon-search"></span>&nbsp;Search</a></li>
         <li><a href="~/home/About"><span class="glyphicon glyphicon-question-sign"></span>&nbsp;About</a></li>
+        <li><a  id="google_translate_element"></a></li>
       </ul>
     </div>
   </div>
