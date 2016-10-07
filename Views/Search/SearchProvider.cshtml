@@ -29,15 +29,15 @@
                     <form class="form-horizontal">
                         <div class="form-group">
                             <div class="row">
-                                <div class="col-md-4">&nbsp;</div>
-                                <div class="col-md-3">
+                                <div class="col-md-3">&nbsp;</div>
+                                <div class="col-md-5">
                                     <input type="text" class="form-control " id="txtName" placeholder="Address or City or Zip Code . . ." />
                                 </div>
                                 <div class="col-md-1">
                                     <button type="submit" class="btn btn-default" id="btnSubmit">Search</button>
                                 </div>
 
-                                <div class="col-md-4">
+                                <div class="col-md-3">
                                     <a id="lnkFilters"  style="display:none;" onclick="ToggleDiv()" href="javascript:void(0);" >More Options</a>
                                 </div>
 
@@ -284,6 +284,7 @@ return false;
      $('#lnkFilters').hide();
 
    var url = 'https://www.googleapis.com/fusiontables/v2/query/?sql=SELECT%20PROVIDERNAME,LICENSETYPE,PROVIDERTYPEDESCRIPTION,QUALITYRATING,PROVIDERCAPACITY,STREETADDRESS,PHYSICALCITY,PHYSICALZIPCODE,COUNTYNAME,PHONENUMBER,AVAILABILITY,SPECIALNEEDS,LOCATIONLATITUDE,LOCATIONLONGITUDE%20FROM%201LJf1_wwE143AcOetenp8utlpTielLEDvWbbGw71A%20WHERE%20PROVIDERTYPE%20>0%20'
+
      // WHERE%20ST_INTERSECTS(LOCATIONWITHOUTNAME,%20CIRCLE(LATLNG(' + lat + ',' + lng + '),' + radius + '))'
     var urlorderby = '%20ORDER%20BY%20ST_DISTANCE(LOCATIONWITHOUTNAME,LATLNG(' + lat + ',' + lng + '))%20LIMIT%20' + facilitycount
 
