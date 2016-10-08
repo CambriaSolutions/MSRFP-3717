@@ -568,7 +568,7 @@ a.bg-danger:hover {
   padding-left: 20px;
   margin: 0px;
   background: url("../images/cover.jpg") no-repeat top center;
-  background-size: 100% auto;
+  background-size: 160% auto;
 }
 ul,
 ol {
