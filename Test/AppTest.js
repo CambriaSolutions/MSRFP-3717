@@ -10,7 +10,7 @@ describe('Apptest', function(){
     });
     
     describe('LoadMapsByFilters_WithResultsSet_withZipcodeonly', function(){
-        it('Test Condition 1. Should return search results with any zip code(38632)', function(){
+        it('Test Condition 1. Should return search results with a zip code(38632)', function(){
             // Call the exported function from the module
             var arr  = [];
 			arr = myCode.LoadMapsByFilters(38632,10,'-1','-1',null,null);
@@ -19,10 +19,10 @@ describe('Apptest', function(){
     });
 
     describe('LoadMapsByFilters_WithNoResultsSet_withvalidfilters', function(){
-        it('Test condition 2. Should NOT return search results with a specific zip code(38632) and rating(1)/provider type(5)filter combination', function(){
+        it('Test condition 2. Should NOT return search results with a zip code(38632) ,rating(1-Rated) and provider type(6-Relative In-Home)filter combination', function(){
             // Call the exported function from the module
             var arr  = [];
-			arr = myCode.LoadMapsByFilters(38632,10,'1','5',null,null);
+			arr = myCode.LoadMapsByFilters(38632,10,'1','6',null,null);
             assert.equal(arr.length, 0);
         });
     });
