@@ -36,42 +36,11 @@
         }
     };
 
-     function getLocationCoordinate(address) {
-
-         var position = {};
-         $.ajax({
-             url: 'http://maps.google.com/maps/api/geocode/json',
-             type: 'GET',
-             data: {
-                 address: address,
-                 sensor: false
-             },
-             async: false,
-             success: function (result) {
-
-                 try {
-                     if (result.results[0]) {
-                         position.lat = result.results[0].geometry.location.lat;
-                         position.lng = result.results[0].geometry.location.lng;
-                     }
-                 } catch (err) {
-                     position = null;
-                 }
-
-             }
-         });
-         return position;
-     };
 
 	 var firstClick = true;
-   var facilitycount = null;
-   var qualityrating = null;
-   var providertype = null;
-   var availability = null;
-   var specialneeds = null;
-        $(document).ready(function() {
+    $(document).ready(function() {
 
- var divs=$('.accordion>div').hide(); //Hide/close all containers
+    var divs=$('.accordion>div').hide(); //Hide/close all containers
 
     var h2s=$('.accordion>h2').click(function () {
         h2s.not(this).removeClass('active')
@@ -84,73 +53,53 @@
    $('#radiusselect').change( function() {
     facilitycount = $('#radiusselect').val();
     $('#spnrange').html(facilitycount);
-    LoadMapsByFilters($("#txtName").val());
+    //LoadMapsByFilters($("#txtName").val());
+    SearchProviders();
     return false;
-
     //alert(inputradius);
     });
 
    $('#qualityselect').change( function() {
-    LoadMapsByFilters($("#txtName").val());
+    //LoadMapsByFilters($("#txtName").val());
+    SearchProviders();
     return false;
     });
 
    $('#provtypeselect').change( function() {
-    LoadMapsByFilters($("#txtName").val());
+    //LoadMapsByFilters($("#txtName").val());
+    SearchProviders();
     return false;
     });
 
     $('#optavailability').change( function() {
-    LoadMapsByFilters($("#txtName").val());
+    //LoadMapsByFilters($("#txtName").val());
+    SearchProviders();
     return false;
     });
 
     $('#optspecialneed').change( function() {
-    LoadMapsByFilters($("#txtName").val());
+    //LoadMapsByFilters($("#txtName").val());
+    SearchProviders();
     return false;
     });
 
  });
 
  $('[id^=btnSubmit]').on('click', function (e) {
-      $("#FilterBox").show();
-resetfilters();
-LoadMapsByFilters($("#txtName").val());
-return false;
+    resetfilters();
+    SearchProviders();
+    return false;
  });
 
- function LoadMapsByFilters(enteredLocation) {
-     if (!validateinput()) { return false; }
-     var facilitycount = null;
-     var qualityrating = "";
-     var providertype = "";
-     var availability = null;
-     var specialneeds = null;
-     facilitycount = $('#radiusselect').val();
-     qualityrating = $('#qualityselect').val();
-     providertype = $('#provtypeselect').val();
-     availability = $("#optavailability").is(':checked') ? "YES" : null;
-     specialneeds = $("#optspecialneed").is(':checked') ? "YES" : null;
+ function SearchProviders(){
+    var enteredLocation = $("#txtName").val();
+    var facilitycount = $('#radiusselect').val();
+    var qualityrating = $('#qualityselect').val();
+    var providertype = $('#provtypeselect').val();
+    var availability = $("#optavailability").is(':checked') ? "YES" : null;
+    var specialneeds = $("#optspecialneed").is(':checked') ? "YES" : null;
 
-
-     //var enteredLocation = $("#txtName").val();
-     var arr = [];
-     var radiusinMiles = 15;
-     //  console.log(radiusinMiles);
-     //  console.log(facilitycount);
-     //   if(facilitycount!=10)
-     //   radiusinMiles = facilitycount
-     //   else
-     //   radiusinMiles = 15;
-     //  console.log(radiusinMiles);
-     var radius = radiusinMiles * 1609.34
-     var latlng = getLocationCoordinate($("#txtName").val());
-     var lat = latlng.lat;
-     var lng = latlng.lng;
-     var urlappend;
-     var mapresults;
-
-     var mapLocations;
+    $("#FilterBox").show();
 
      //defaults
      $('#list').html("");
@@ -159,73 +108,27 @@ return false;
      $('#divresults').html('<h5>' + '0 Results for ' + enteredLocation + '</h5>');
      $('#lnkFilters').hide();
 
-   var url = 'https://www.googleapis.com/fusiontables/v2/query/?sql=SELECT%20PROVIDERNAME,LICENSETYPE,PROVIDERTYPEDESCRIPTION,QUALITYRATING,PROVIDERCAPACITY,STREETADDRESS,PHYSICALCITY,PHYSICALZIPCODE,COUNTYNAME,PHONENUMBER,AVAILABILITY,SPECIALNEEDS,LOCATIONLATITUDE,LOCATIONLONGITUDE%20FROM%201LJf1_wwE143AcOetenp8utlpTielLEDvWbbGw71A%20WHERE%20LICENSETYPE%20IN(%27LICENSED%27,%27UNLICENSED%27)%20'
-
-     // WHERE%20ST_INTERSECTS(LOCATIONWITHOUTNAME,%20CIRCLE(LATLNG(' + lat + ',' + lng + '),' + radius + '))'
-    var urlorderby = '%20ORDER%20BY%20ST_DISTANCE(LOCATIONWITHOUTNAME,LATLNG(' + lat + ',' + lng + '))%20LIMIT%20' + facilitycount;
-
-
-     url = providertype != "-1" ? url + 'and PROVIDERTYPE=' + providertype + " " : url;
-     url = (qualityrating == 0 || qualityrating == "-1") ? url : url + 'and QUALITYRATING>0 ';
-
-     url = (availability != null) ? url + "and AVAILABILITY='" + availability + "' " : url;
-     url = (specialneeds != null) ? url + "and SPECIALNEEDS='" + specialneeds + "'" : url;  
-     url = url + urlorderby;
-        url = (url != null) ? url + '&key=AIzaSyAJDVkvbS5v9hknmJeJx_hVnAeIj3jjpM0' : "";
-
-     $.ajax({
-         type: 'GET',
-         url: url,
-         data: { location: enteredLocation },
-         dataType: 'json',
-         async: false,
-         success: function (data) {
-
-             mapresults = data;
-
-         },
-         error: function (jqXHR, textStatus, errorThrown) {
-             // alert(jqXHR.status + ",  " + jqXHR.statusText + ",  " + textStatus + ",  " + errorThrown);
-         }
-     });
-
-
-
-     //returning false if no results found
-     if (!mapresults || !mapresults.rows) {
-         return false;
-     }
-
-     new_rows = mapresults.rows.map(function (row) {
-
-         arr.push([row[0], row[1], row[2], row[3], row[4], row[5], row[6], row[7], row[8], row[9], row[10], row[11], row[12], row[13]]);
-
-     })
+    var arr = LoadMapsByFilters(enteredLocation,facilitycount,qualityrating,providertype,availability,specialneeds);
 
      if (arr.length > 0) {
          $('#lnkFilters').show();
          $('#divresults').html('<h5>' + arr.length + ' Results for ' + enteredLocation + '</h5>');
-
-
-
      }
      else {
          $('#lnkFilters').hide();
          $('#divresults').html('<h5>' + '0 Results for ' + enteredLocation + '</h5>');
-
      }
+
      initialize(arr);
 
+    return false;
  }
+
 
 var geocoder;
 var map;
 var bounds = new google.maps.LatLngBounds();
 
-// If we're running under Node, 
-if(typeof exports !== 'undefined') {
-    exports.LoadMapsByFilters = LoadMapsByFilters;
-}
 
 function initialize(locations) {
 
@@ -352,3 +255,4 @@ function closeInfoWindows() {
         InfoWindows[i].close();
     }
 }
+
