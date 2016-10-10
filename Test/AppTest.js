@@ -49,7 +49,7 @@ describe('Apptest', function(){
     });
 
     //Test Condition 4
-    describe('LoadMapsByFilters_WithNoResultsSet_withFilter_# of facilities', function(){
+    describe('LoadMapsByFilters_WithResultsSet_withFilter_# of facilities', function(){
         it('Test Condition 4. Should return the expected number of records set by the search filter with zip code(38632) and Number of records(15).', function(){
             // Call the exported function from the module
             var arr  = [];
@@ -59,7 +59,7 @@ describe('Apptest', function(){
     });
 
     //Test Condition 5
-    describe('LoadMapsByFilters_WithNoResultsSet_withFilter_Provider Tpe', function(){
+    describe('LoadMapsByFilters_WithResultsSet_withFilter_Provider Tpe', function(){
         it('Test Condition 5. Should filter records set by the search filter with zip code(38632) and Provider Type(Group Home).', function(){
             // Call the exported function from the module
             var arr  = [];
@@ -69,7 +69,7 @@ describe('Apptest', function(){
     });
 
     //Test Condition 6
-    describe('LoadMapsByFilters_WithNoResultsSet_withFilter_Special Needs', function(){
+    describe('LoadMapsByFilters_WithResultsSet_withFilter_Special Needs', function(){
         it('Test Condition 6. Should filter records set by the search filter with zip code(38632) and Provider Type(Group Home) and Special Needs(YES)', function(){
             // Call the exported function from the module
             var arr  = [];
@@ -79,7 +79,7 @@ describe('Apptest', function(){
     });
 
     //Test Condition 7
-    describe('LoadMapsByFilters_WithNoResultsSet_withFilter_Availability', function(){
+    describe('LoadMapsByFilters_WithResultsSet_withFilter_Availability', function(){
         it('Test Condition 7. Should filter records set by the search filter with zip code(38632) and Provider Type(Non-Relative Out of Home) and Availability(YES)', function(){
             // Call the exported function from the module
             var arr  = [];
@@ -89,7 +89,7 @@ describe('Apptest', function(){
     });
 
     //Test Condition 8
-    describe('LoadMapsByFilters_WithNoResultsSet_withFilter_rating', function(){
+    describe('LoadMapsByFilters_WithResultsSet_withFilter_Rating', function(){
         it('Test Condition 8. Should filter records set by the search filter with zip code(38632) and Provider Type(Slot Conytractor) and Rating(Rated)', function(){
             // Call the exported function from the module
             var arr  = [];
@@ -99,7 +99,7 @@ describe('Apptest', function(){
     });
 
     //Test Condition 9
-    describe('LoadMapsByFilters_WithNoResultsSet_withFilter_rating', function(){
+    describe('LoadMapsByFilters_WithResultsSet_Search by Address', function(){
         it('Test Condition 9. Should be able to search by a specific address(2391 MEMPHIS STREET HERNANDO 38632)', function(){
             // Call the exported function from the module
             var arr  = [];
