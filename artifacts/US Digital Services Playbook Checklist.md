@@ -21,39 +21,39 @@
   
   [x] As the digital service is being built, regularly test it with potential users to ensure it meets people’s needs
   
-  Human-centered Design: https://github.com/CambriaSolutions/ADPQRFI-75001/blob/master/artifacts/Human%20Centered%20Design.pdf
+  Human-centered Design: https://github.com/CambriaSolutions/MSRFP-3717/blob/master/artifacts/Human%20Centered%20Design.pdf
   
-  User Engagement: https://github.com/CambriaSolutions/ADPQRFI-75001/blob/master/artifacts/User%20Engagement.pdf
+  User Engagement: <Need to develop a document and add a hyperlink>
 
-  Usability Testing: https://github.com/CambriaSolutions/ADPQRFI-75001/blob/master/artifacts/Usability%20Testing.pdf
+  Usability Testing: <Need to develop a document and add a hyperlink>
 
   
   2. ADDRESS THE WHOLE EXPERIENCE FROM START TO FINISH
   
- We focused on creating a streamline one-stop shop that allows parents of foster kids to streamline how they access tools and also ensured that the application was easy to use on multiple devices including android, iPhone, iPad, and tablet.
+ We focused on creating a streamline one-stop shop that allows foster parents and caseworkers to streamline how they search for subsized childcare centers and also ensured that the application was easy to use on multiple devices including android, iPhone, iPad, and tablet.
   
   [x] Understand the different points at which people will interact with the service – both online and in person
   
-  [ ] Identify pain points in the current way users interact with the service, and prioritize these according to user needs
+  [x] Identify pain points in the current way users interact with the service, and prioritize these according to user needs
   
   [x] Design the digital parts of the service so that they are integrated with the offline touch points people use to interact with the service
   
-  [x] Develop metrics that will measure how well the service is meeting user needs at each step of the service
+  [ ] Develop metrics that will measure how well the service is meeting user needs at each step of the service
   
-  User Feedback: https://github.com/CambriaSolutions/ADPQRFI-75001/blob/master/artifacts/User%20Feedback.pdf
+  User Feedback: <Need to develop a document and add a hyperlink>
   
   
   3. MAKE IT SIMPLE AND INTUITIVE
   
  We understood that the style guide significantly impacts the way users feel about their interactive experience. In developing it, we prioritized the use of inspirational pictures, an empathetic tone, persona based branding, and being intuitive and relevant. We focused on consistency and flow of content for easy and intuitive reading, and created a plan that allows the user to engage with the right amount of information at the right time.
  
-  [ ] Use a simple and flexible design style guide for the service. Use the U.S. Web Design Standards as a default
+  [x] Use a simple and flexible design style guide for the service. Use the U.S. Web Design Standards as a default
   
   [x] Use the design style guide consistently for related digital services
   
   [x] Give users clear information about where they are in each step of the process
   
-  [ ] Follow accessibility best practices to ensure all people can use the service
+  [x] Follow accessibility best practices to ensure all people can use the service
   
   [x] Provide users with a way to exit and return later to complete the process
   
@@ -61,9 +61,9 @@
   
   [x] Use language and design consistently throughout the service, including online and offline touch points
   
-  Style Guide Process: https://github.com/CambriaSolutions/ADPQRFI-75001/tree/master/artifacts/Human-Centered-Design-Artifacts/Style-Guide-Process/Style%20Guide%20Process.pdf
+  Style Guide Process: https://github.com/CambriaSolutions/MSRFP-3717/tree/master/artifacts/Human-Centered-Design-Artifacts/Style-Guide-Process
 
-  Usability Testing: https://github.com/CambriaSolutions/ADPQRFI-75001/blob/master/artifacts/Usability%20Testing.pdf
+  Usability Testing: <Need to develop a document and add a hyperlink>
   
   
   4. BUILD THE SERVICE USING AGILE AND ITERATIVE PRACTICES
@@ -87,9 +87,9 @@
   
   [x] Use code reviews to ensure quality
   
-  Cambria's Agile Process: https://github.com/CambriaSolutions/ADPQRFI-75001/blob/master/artifacts/Agile%20Process.pdf
+  Cambria's Agile Process: https://github.com/CambriaSolutions/MSRFP-3717/blob/master/artifacts/Agile%20Process.pdf
 
-  Usability Testing: https://github.com/CambriaSolutions/ADPQRFI-75001/blob/master/artifacts/Usability%20Testing.pdf
+  Usability Testing: <Need to develop a document and add a hyperlink>
 
   
   5. STRUCTURE BUDGETS AND CONTRACTS TO SUPPORT DELIVERY
@@ -99,7 +99,7 @@
   
   6. ASSIGN ONE LEADER AND HOLD THAT PERSON ACCOUNTABLE
   
-  The firm leadership that decided to respond to this solicitation assigned Dhiraj Talwar to be our Product Manager and serve as our Agile Coach. In this dual role, Dhiraj had the authority to lead the prototype development utilizing agile practices. He was responsible for ensuring the quality of our submission and his role included defining roles, providing guidance, prioritization assistance, and removing barriers.
+  The firm leadership that decided to respond to this solicitation assigned Anand Adoni to be our Product Manager. In this role, Anand had the authority to priortize user stories, and lead the prototype development utilizing agile practices. He was responsible for ensuring the quality of our submission and his role included defining roles, providing guidance, prioritization assistance, and removing barriers.
   
   [x] A product owner has been identified
   
@@ -111,7 +111,7 @@
   
   [ ] The product owner has a strong relationship with the contracting officer
   
-  Technical approach; see requirement (a): https://github.com/CambriaSolutions/ADPQRFI-75001/blob/master/README.md
+  Technical approach; see requirement (a): https://github.com/CambriaSolutions/MSRFP-3717/blob/master/README.md
   
   
   7. BRING IN EXPERIENCED TEAMS
@@ -134,7 +134,7 @@
   
   [ ] The appropriate privacy, civil liberties, and/or legal advisor for the department or agency is a partner
   
-  Cambria's Team: https://github.com/CambriaSolutions/ADPQRFI-75001/blob/master/artifacts/The%20Team.pdf
+  Cambria's Team: <Need to develop a document and add a hyperlink>
   
   
   8. CHOOSE A MODERN TECHNOLOGY STACK
@@ -149,12 +149,12 @@
   
   [x] Consider open source software solutions at every layer of the stack
   
-  Technology Stack: https://github.com/CambriaSolutions/ADPQRFI-75001/blob/master/artifacts/Technology%20Stack.md
+  Technology Stack: <Need to develop a document and add a hyperlink>
   
   
   9. DEPLOY IN A FLEXIBLE HOSTING ENVIRONMENT
   
-  We used Heroku as our PaaS provider because it allows us to focus on development while conveniently configuring and managing infrastructure needs. It also hosts our web server and postgres database as well as minimizes effort without compromising control of and visibility into what's going on.
+  We used <Include service provider name> as our PaaS provider because it allows us to focus on development while conveniently configuring and managing infrastructure needs. It also hosts our web server and postgres database as well as minimizes effort without compromising control of and visibility into what's going on.
   
   [x] Resources are provisioned on demand
   
@@ -170,12 +170,12 @@
   
   [x] Application is hosted on commodity hardware
   
-  Technical approach; see requirement (j): https://github.com/CambriaSolutions/ADPQRFI-75001/blob/master/README.md
+  Technical approach; see requirement (j): https://github.com/CambriaSolutions/MSRFP-3717/blob/master/README.md
   
   
   10.	AUTOMATED TESTING AND DEPLOYMENTS
   
-  We chose to use Pytest for unit testing as it ensures logic is working as expected and regressions do not creep in. For functional tests, we used Webtest in order to simulate real user interactions with the website, which allowed us to incorporate test feedback reducing the burden on the test team.
+  We chose to use <Include testing tool> for unit testing as it ensures logic is working as expected and regressions do not creep in. For functional tests, we used Webtest in order to simulate real user interactions with the website, which allowed us to incorporate test feedback reducing the burden on the test team.
   
   [x] Create automated tests that verify all user-facing functionality
   
@@ -187,7 +187,7 @@
   
   [ ] Conduct load and performance tests at regular intervals, including before public launch
   
-  Technical approach; see requirement (k): https://github.com/CambriaSolutions/ADPQRFI-75001/blob/master/README.md
+  Technical approach; see requirement (k): https://github.com/CambriaSolutions/MSRFP-3717/blob/master/README.md
   
   
   11.	MANAGE SECURITY AND PRIVACY THROUGH REUSABLE PROCESSES
@@ -195,9 +195,9 @@
   NOT APPLICABLE
   
   
-  12.	USE DATA TO DRIVE DECISIONS
+  12.	USE DATA TO DRIVE DECISIONS (Need Technical team to review)
   
-  We used Librato for continuous monitoring because it is a complete solution that monitors and analyzes the metrics that impact the application at every level of the stack. We integrated Librato with Heroku to provide detailed information about the application’s performance. We added LogEntries to provide real-time logging, aggregated live-tail search and context views, and the ability to search events as they occur.
+  We used <Need to include name> for continuous monitoring because it is a complete solution that monitors and analyzes the metrics that impact the application at every level of the stack. We integrated Librato with Heroku to provide detailed information about the application’s performance. We added LogEntries to provide real-time logging, aggregated live-tail search and context views, and the ability to search events as they occur.
   
   [x] Monitor system-level resource utilization in real-time
   
@@ -215,7 +215,7 @@
   
   [x] Use an experimentation tool that supports multivariate testing in production
   
-  Technical approach; see requirement (n): https://github.com/CambriaSolutions/ADPQRFI-75001/blob/master/README.md
+  Technical approach; see requirement (n): https://github.com/CambriaSolutions/MSRFP-3717/blob/master/README.md
   
   
   13.	DEFAULT TO OPEN
@@ -240,11 +240,11 @@
   
   [x] When appropriate, share your development process and progress publicly
   
-  License - open source: https://github.com/CambriaSolutions/ADPQRFI-75001/blob/master/LICENSE
+  License - open source: <Need to include the license file>
   
-  Installation Instructions: https://github.com/CambriaSolutions/ADPQRFI-75001/blob/master/SETUP.md
+  Installation Instructions: https://github.com/CambriaSolutions/MSRFP-3717/blob/master/SETUP.md
   
-  Fixed Issues: https://github.com/CambriaSolutions/ADPQRFI-75001/issues?q=is%3Aissue+is%3Aclosed
+  Fixed Issues: https://github.com/CambriaSolutions/MSRFP-3717/issues?q=is%3Aissue+is%3Aclosed
   
 
 
