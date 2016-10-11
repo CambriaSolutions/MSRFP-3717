@@ -193,7 +193,7 @@ function geocodeAddress(locations, i) {
 
 
 
-   address1 = address1 + ' <a title="Send these details to Email" href="mailto:?subject=' +title+'&body=Add your Notes here....%0A%0A' + EmailAddress + '"><img src="../images/Mail-icon.png" /></a></li>'
+   address1 = address1 + ' <a title="Email these details to yourself" href="mailto:?subject=' +title+'&body=Add your Notes here....%0A%0A' + EmailAddress + '"><img src="../images/Mail-icon.png" /></a></li>'
     var markerlat = parseFloat(locations[i][12]);
     var markerlng = parseFloat(locations[i][13]);
 
