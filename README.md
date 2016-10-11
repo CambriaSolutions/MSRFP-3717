@@ -57,7 +57,7 @@ We built our solution using modern open-source tools that facilitate collaborati
 
 (j)
 
-We used Azure as our production PaaS provider.  Azure provides rapid standup and deployment of containerized apps on any platform.  Operations is built in with the ability to integrate continuous deployment, alerts and real time traffic and site monitoring. *[[Our PaaS Platform]](https://github.com/CambriaSolutions/MSRFP-3717/blob/master/artifacts/PaaS%20Platform.pdf)*
+We used Azure as our production PaaS provider.  Azure provides rapid standup and deployment of containerized apps on any platform.  Operations is built in with the ability to integrate continuous deployment, alerts and real time traffic and site monitoring. *[[Our PaaS Platform]](https://github.com/CambriaSolutions/MSRFP-3717/blob/master/artifacts/Paas%20Platform.pdf)*
 
 (k)
 
