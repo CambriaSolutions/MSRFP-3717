@@ -57,16 +57,13 @@ IF DEFINED CLEAN_LOCAL_DEPLOYMENT_TEMP (
   mkdir "%DEPLOYMENT_TEMP%"
 )
 
-IF NOT DEFINED GULP_CMD (
-  :: Install gulp
-  echo Installing Gulp
-  call npm --registry "http://registry.npmjs.org/" install gulp -g --silent
-  IF !ERRORLEVEL! NEQ 0 goto error
-
-  :: Locally just running "gulp" would also work
-  SET GULP_CMD="%appdata%\npm\gulp.cmd"
-
-)
+IF EXIST "Gulpfile.js" (
+ pushd "%DEPLOYMENT_TARGET%"
+ call .\node_modules\.bin\gulp imagemin
+ IF !ERRORLEVEL! NEQ 0 goto error
+ popd
+ 
+ )
 
 
 IF DEFINED MSBUILD_PATH goto MsbuildPathDefined
