@@ -59,8 +59,8 @@ IF DEFINED CLEAN_LOCAL_DEPLOYMENT_TEMP (
 
 
 
-IF EXIST "%DEPLOYMENT_TARGET%\Gulpfile.js" (
-  pushd "%DEPLOYMENT_TARGET%"
+IF EXIST "%DEPLOYMENT_TEMP%\gulpfile.js" (
+  pushd "%DEPLOYMENT_TEMP%"
   echo "Building web site using Gulp"
   call :ExecuteCmd ".\node_modules\.bin\gulp.cmd"
   if !ERRORLEVEL! NEQ 0 goto error
