@@ -10,5 +10,5 @@
 * [Mocha](http://pytest.org/latest/) - Unit and functional testing framework
 * [Chai](http://docs.pylonsproject.org/projects/webtest/en/latest/) - Frontend testing 
 * [VS Code](https://c9.io/) - Open Source IDE
-*[Yoeman](http://yeoman.io/) - Base scaffolding of .NET Core application
-*[Bower](https://bower.io/) - Package Manager
+* [Yoeman](http://yeoman.io/) - Base scaffolding of .NET Core application
+* [Bower](https://bower.io/) - Package Manager
