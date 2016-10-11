@@ -77,14 +77,6 @@ IF EXIST "package.json" (
   IF !ERRORLEVEL! NEQ 0 goto error
 )
 
-echo Execute Gulp
-IF EXIST "Gulpfile.js" (
-    call .\node_modules\.bin\gulp build
-    IF !ERRORLEVEL! NEQ 0 goto error
-)
-
-popd
-
 :: 2. Build and publish
 call :ExecuteCmd dotnet publish "D:\home\site\repository" --output "%DEPLOYMENT_TEMP%" --configuration Release
 IF !ERRORLEVEL! NEQ 0 goto error
@@ -94,13 +86,17 @@ call :ExecuteCmd "%KUDU_SYNC_CMD%" -v 50 -f "%DEPLOYMENT_TEMP%" -t "%DEPLOYMENT_
 IF !ERRORLEVEL! NEQ 0 goto error
 
 :: 3. Install npm packages and run gulp
-pushd "%DEPLOYMENT_SOURCE%\D:\home\site\repository"
+pushd "D:\home\site\repository"
 call :ExecuteCmd npm install
 IF !ERRORLEVEL! NEQ 0 goto error
-call :ExecuteCmd node_modules\.bin\gulp [your guld task name]
+call :ExecuteCmd node_modules\.bin\gulp run-tests 
 IF !ERRORLEVEL! NEQ 0 goto error
 popd
-
+echo Execute Gulp
+IF EXIST "Gulpfile.js" (
+    call .\node_modules\.bin\gulp build
+    IF !ERRORLEVEL! NEQ 0 goto error
+)
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 goto end
