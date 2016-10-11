@@ -77,7 +77,7 @@ We utilized Azure's App Service for containerization, a virtualization technolog
 
 (o)
 
-THe application is easily transported to other hosts.
+The application is easily transported to other hosts.
 *[[Instructions to install the prototype on another machine]](https://github.com/CambriaSolutions/MSRFP-3717/blob/master/SETUP.md)*
 
                       
