@@ -72,6 +72,19 @@ echo Handling ASP.NET Core Web Application deployment.
 call :ExecuteCmd nuget.exe restore -packagesavemode nuspec
 IF !ERRORLEVEL! NEQ 0 goto error
 
+IF EXIST "package.json" (
+  call :ExecuteCmd !NPM_CMD! install --production
+  IF !ERRORLEVEL! NEQ 0 goto error
+)
+
+echo Execute Gulp
+IF EXIST "Gulpfile.js" (
+    call .\node_modules\.bin\gulp build
+    IF !ERRORLEVEL! NEQ 0 goto error
+)
+
+popd
+
 :: 2. Build and publish
 call :ExecuteCmd dotnet publish "D:\home\site\repository" --output "%DEPLOYMENT_TEMP%" --configuration Release
 IF !ERRORLEVEL! NEQ 0 goto error
