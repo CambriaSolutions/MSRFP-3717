@@ -5,10 +5,14 @@
        if(isVisible == true)
        {
             $("#FilterBox").hide();
+            
+               $("#lnkFilters").text('More Options');
+            
        }
        else
        {
             $("#FilterBox").show();
+            $("#lnkFilters").text('Hide Options');
        }
    
    
@@ -41,6 +45,7 @@
     $(document).ready(function() {
 
         $(document).ready(function(){
+             $("#lnkFilters").text('Hide Options');
     $('[data-toggle="tooltip"]').tooltip(); 
 });
 
@@ -117,11 +122,18 @@
 
      if (arr.length > 0) {
          $('#lnkFilters').show();
+          $('#map_canvas').show();
+             $('#results-list').show();
          $('#divresults').html('<h5>' +  ' Results for ' + enteredLocation + '</h5>');
      }
      else {
-         $('#lnkFilters').hide();
-         $('#divresults').html('<h5>' + '0 Results for ' + enteredLocation + '</h5>');
+         $('#lnkFilters').hide();        
+         
+           $('#map_canvas').hide();
+             $('#results-list').hide();          
+           
+          $('#divresults').html('<h5>We could not find any Childcare providers.</h5>');
+          
      }
 
      initialize(arr);
