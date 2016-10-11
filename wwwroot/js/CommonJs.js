@@ -46,6 +46,8 @@
 
         $(document).ready(function(){
              $("#lnkFilters").text('Hide Options');
+                $('#map_canvas').hide();
+             $('#results-list').hide();     
     $('[data-toggle="tooltip"]').tooltip(); 
 });
 
