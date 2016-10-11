@@ -69,16 +69,17 @@ We chose Kudu for continuous integration, which enabled us to run tests in isola
 
 (m)
 
-Git allowed us to share and collaborate on code and assets, while GitHub hosts our git repository and has collaboration and sprint/issue tracking features. 
+Git allowed us to share and collaborate on code and assets, while GitHub hosts our git repository and has collaboration, bug and enhancement tracking and sprint/issue management features. 
 
 (n) 
 
-We utilized Heroku's "Dynos” for containerization, a virtualization technology that allows multiple isolated operating system containers to be run on a shared host. *[[Web Dyno Container]](https://github.com/CambriaSolutions/MSRFP-3717/blob/master/artifacts/Web%20Dyno%20Container.pdf)*  
+We utilized Azure's App Service for containerization, a virtualization technology that allows multiple isolated operating system containers to be run on a shared host. The application also contains a Docker file and can be packaged and deployed as Docker contatiner. *[[Web Dyno Container]](https://github.com/CambriaSolutions/MSRFP-3717/blob/master/artifacts/Web%20Dyno%20Container.pdf)*  
 
 (o)
 
+THe application is easily transported to other hosts.
 *[[Instructions to install the prototype on another machine]](https://github.com/CambriaSolutions/MSRFP-3717/blob/master/SETUP.md)*
-*[[Quick Start Guide]](https://github.com/CambriaSolutions/ADPQRFI-75001/blob/master/artifacts/Quick%20Start%20Guide.pdf)*
+
                       
 
 (p)
