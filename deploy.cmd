@@ -73,8 +73,6 @@ echo Handling ASP.NET Core Web Application deployment.
 call :ExecuteCmd nuget.exe restore -packagesavemode nuspec
 IF !ERRORLEVEL! NEQ 0 goto error
 
-
-
 :: 2. Build and publish
 call :ExecuteCmd dotnet publish "D:\home\site\repository" --output "%DEPLOYMENT_TEMP%" --configuration Release
 IF !ERRORLEVEL! NEQ 0 goto error
@@ -83,6 +81,14 @@ IF !ERRORLEVEL! NEQ 0 goto error
 call :ExecuteCmd "%KUDU_SYNC_CMD%" -v 50 -f "%DEPLOYMENT_TEMP%" -t "%DEPLOYMENT_TARGET%" -n "%NEXT_MANIFEST_PATH%" -p "%PREVIOUS_MANIFEST_PATH%" -i ".git;.hg;.deployment;deploy.cmd"
 IF !ERRORLEVEL! NEQ 0 goto error
 
+:: 4. Build the webclient
+IF EXIST "%DEPLOYMENT_TARGET%\Gulpfile.js" (
+  pushd "%DEPLOYMENT_TARGET%"
+  echo "Building web site using Gulp"
+  call :ExecuteCmd ".\node_modules\.bin\gulp.cmd"
+  if !ERRORLEVEL! NEQ 0 goto error
+  popd
+)
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 goto end
 

@@ -92,8 +92,8 @@
   },
 
   "scripts": {
-    "precompile": [ "dotnet bundle"],
-    "prepublish": [ "bower install", "gulp run-tests"  ],
+    "precompile": [ "dotnet bundle", "gulp run-tests" ],
+    "prepublish": [ "bower install" ],
     "postpublish": [ "dotnet publish-iis --publish-folder %publish:OutputPath% --framework %publish:FullTargetFramework%","dotnet ef database update" ]
   },
 
