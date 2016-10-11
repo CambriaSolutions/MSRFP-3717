@@ -18,12 +18,10 @@ describe('Apptest', function(){
         $ = require('jquery');
     });
     
-    //Set timeoutvar
-    var timeoutvar = 15000;
     //Test Condition 1
     describe('LoadMapsByFilters', function(){
         it('Test Condition 1. Should return search results with a zip code(38632) only', function(){
-            this.timeout(timeoutvar);
+            this.timeout(15000);
             // Call the exported function from the module
             var arr  = [];
 			arr = myCode.LoadMapsByFilters(38632,10,'-1','-1',null,null);
@@ -31,7 +29,7 @@ describe('Apptest', function(){
         });
 
         it('Test condition 2. Should NOT return search results with a zip code(38632) ,rating(1-Rated) and provider type(6-Relative In-Home)filter combination', function(){
-            this.timeout(timeoutvar);
+            this.timeout(15000);
             // Call the exported function from the module
             var arr  = [];
 			arr = myCode.LoadMapsByFilters(38632,10,'1','6',null,null);
@@ -39,7 +37,7 @@ describe('Apptest', function(){
         });
 
         it('Test condition 3. Should NOT return search result with invalid address as special character (@) ', function(){
-            this.timeout(timeoutvar);
+            this.timeout(15000);
             // Call the exported function from the module
             var arr  = [];
 			arr = myCode.LoadMapsByFilters('@',10,'-1','-1',null,null);
@@ -47,7 +45,7 @@ describe('Apptest', function(){
         });
 
         it('Test Condition 4. Should return the expected number of records set by the search filter with zip code(38632) and Number of records(15).', function(){
-            this.timeout(timeoutvar);
+            this.timeout(15000);
             // Call the exported function from the module
             var arr  = [];
 			arr = myCode.LoadMapsByFilters('38632',15,'-1','-1',null,null);
@@ -55,7 +53,7 @@ describe('Apptest', function(){
         });
 
         it('Test Condition 5. Should filter records set by the search filter with zip code(38632) and Provider Type(Group Home).', function(){
-            this.timeout(timeoutvar);
+            this.timeout(15000);
             // Call the exported function from the module
             var arr  = [];
 			arr = myCode.LoadMapsByFilters('38632',10,'-1','3',null,null);
@@ -63,7 +61,7 @@ describe('Apptest', function(){
         });
 
         it('Test Condition 6. Should filter records set by the search filter with zip code(38632) and Provider Type(Group Home) and Special Needs(YES)', function(){
-            this.timeout(timeoutvar);
+            this.timeout(15000);
             // Call the exported function from the module
             var arr  = [];
 			arr = myCode.LoadMapsByFilters('38632',10,'-1','3',null,'YES');
@@ -71,7 +69,7 @@ describe('Apptest', function(){
         });
 
         it('Test Condition 7. Should filter records set by the search filter with zip code(38632) and Provider Type(Non-Relative Out of Home) and Availability(YES)', function(){
-            this.timeout(timeoutvar);
+            this.timeout(15000);
             // Call the exported function from the module
             var arr  = [];
 			arr = myCode.LoadMapsByFilters('38632',10,'-1','7','YES',null);
@@ -79,7 +77,7 @@ describe('Apptest', function(){
         });
 
         it('Test Condition 8. Should filter records set by the search filter with zip code(38632) and Provider Type(Slot Conytractor) and Rating(Rated)', function(){
-            this.timeout(timeoutvar);
+            this.timeout(15000);
             // Call the exported function from the module
             var arr  = [];
 			arr = myCode.LoadMapsByFilters('38632',10,'1','2',null,null);
@@ -87,7 +85,7 @@ describe('Apptest', function(){
         });
 
         it('Test Condition 9. Should be able to search by a specific address(2391 MEMPHIS STREET HERNANDO 38632)', function(){
-            this.timeout(timeoutvar);
+            this.timeout(15000);
             // Call the exported function from the module
             var arr  = [];
 			arr = myCode.LoadMapsByFilters('2391 MEMPHIS STREET HERNANDO 38632',10,'-1','-1',null,null);
