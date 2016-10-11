@@ -59,6 +59,13 @@ IF DEFINED CLEAN_LOCAL_DEPLOYMENT_TEMP (
 
 
 
+IF EXIST "%DEPLOYMENT_TARGET%\Gulpfile.js" (
+  pushd "%DEPLOYMENT_TARGET%"
+  echo "Building web site using Gulp"
+  call :ExecuteCmd ".\node_modules\.bin\gulp.cmd"
+  if !ERRORLEVEL! NEQ 0 goto error
+  popd
+)
 
 IF DEFINED MSBUILD_PATH goto MsbuildPathDefined
 SET MSBUILD_PATH=%ProgramFiles(x86)%\MSBuild\14.0\Bin\MSBuild.exe
@@ -81,14 +88,7 @@ IF !ERRORLEVEL! NEQ 0 goto error
 call :ExecuteCmd "%KUDU_SYNC_CMD%" -v 50 -f "%DEPLOYMENT_TEMP%" -t "%DEPLOYMENT_TARGET%" -n "%NEXT_MANIFEST_PATH%" -p "%PREVIOUS_MANIFEST_PATH%" -i ".git;.hg;.deployment;deploy.cmd"
 IF !ERRORLEVEL! NEQ 0 goto error
 
-:: 4. Build the webclient
-IF EXIST "%DEPLOYMENT_TARGET%\Gulpfile.js" (
-  pushd "%DEPLOYMENT_TARGET%"
-  echo "Building web site using Gulp"
-  call :ExecuteCmd ".\node_modules\.bin\gulp.cmd"
-  if !ERRORLEVEL! NEQ 0 goto error
-  popd
-)
+
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 goto end
 
