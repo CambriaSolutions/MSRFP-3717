@@ -53,39 +53,35 @@ This prototype works on multiple devices including desktops, laptops, android an
 
 (i)
 
-We built our solution using modern open-source tools that facilitate collaboration between members of a cross-disciplinary team, as well as rapid prototyping and iteration. We used several open source technologies such as Flask, SQLite, PostgreSQL, Bootstrap, Pytest, and TravisCI. *[[Our Technology Stack]](https://github.com/CambriaSolutions/MSRFP-3717/blob/master/artifacts/Technology%20Stack.md)*
+We built our solution using modern open-source tools that facilitate collaboration between members of a cross-disciplinary team, as well as rapid prototyping and iteration. Our solution is based on .NET Core which is a fast and modular open source platform for creating server applications that run on Windows, Linux and Mac.  It leverages traditional Model/View/Controller patterns (MVC) that are already familiar to a significant pool of technologists.  In addition We used several other open source technologies such as Yoeman, Bower, Bootstrap, Mocha, Chai and Kudu. *[[Our Technology Stack]](https://github.com/CambriaSolutions/MSRFP-3717/blob/master/artifacts/Technology%20Stack.md)*
 
 (j)
 
-We used Heroku as our production PaaS provider. *[[Our PaaS Platform]](https://github.com/CambriaSolutions/MSRFP-3717/blob/master/artifacts/PaaS%20Platform.pdf)*
+We used Azure as our production PaaS provider.  Azure provides rapid standup and deployment of containerized apps on any platform.  Operations is built in with the ability to integrate continuous deployment, alerts and real time traffic and site monitoring. *[[Our PaaS Platform]](https://github.com/CambriaSolutions/MSRFP-3717/blob/master/artifacts/PaaS%20Platform.pdf)*
 
 (k)
 
-We used Pytest for unit testing as it ensures logic is working as expected and regressions do not creep in. For functional tests, we used Webtest in order to simulate real user interactions with the website, which allowed us to incorporate testing feedback reducing the burden on the test team. *[[Automated Test Results]](https://github.com/CambriaSolutions/MSRFP-3717/blob/master/artifacts/Automated%20Test%20Results.PNG)*
+We used Mocha and Chai for unit testing as it ensures logic is working as expected and regressions do not creep in.  *[[Automated Test Results]](https://github.com/CambriaSolutions/MSRFP-3717/blob/master/artifacts/Automated%20Test%20Results.PNG)*
 
 (l)
 
-We chose TravisCI for continuous integration, which enabled us to run tests in isolated container environments and deploy to Heroku all with a single 'git push' command. *[[Continuous Integration]](https://github.com/CambriaSolutions/MSRFP-3717/blob/master/artifacts/Continuous%20Integration.png)*
+We chose Kudu for continuous integration, which enabled us to run tests in isolated deployment slots and deploy to Azure all with a single 'git push' command. *[[Continuous Integration]](https://github.com/CambriaSolutions/MSRFP-3717/blob/master/artifacts/Continuous%20Integration.png)*
 
 (m)
 
 Git allowed us to share and collaborate on code and assets, while GitHub hosts our git repository and has collaboration and sprint/issue tracking features. 
 
-(n)
-
-We used Librato for continuous monitoring, integrating it with Heroku to provide detailed information about the application’s performance and system resources. We added LogEntries to provide real-time logging, aggregated live-tail search and context views, and the ability to search events as they occur. *[[Continuous Monitoring]](https://github.com/CambriaSolutions/MSRFP-3717/blob/master/artifacts/Continuous%20Monitoring.pdf)* 
-
-(o) 
+(n) 
 
 We utilized Heroku's "Dynos” for containerization, a virtualization technology that allows multiple isolated operating system containers to be run on a shared host. *[[Web Dyno Container]](https://github.com/CambriaSolutions/MSRFP-3717/blob/master/artifacts/Web%20Dyno%20Container.pdf)*  
 
-(p)
+(o)
 
 *[[Instructions to install the prototype on another machine]](https://github.com/CambriaSolutions/MSRFP-3717/blob/master/SETUP.md)*
 *[[Quick Start Guide]](https://github.com/CambriaSolutions/ADPQRFI-75001/blob/master/artifacts/Quick%20Start%20Guide.pdf)*
                       
 
-(q)
+(p)
 
 We used exclusively open source technologies and the prototype itself is also openly licensed and free of charge. *[[Open Source Technologies]](/artifacts/Technology%20Stack.md)* *[[Prototype Open Source License]](https://github.com/CambriaSolutions/MSRFP-3717/blob/master/LICENSE)*
 
