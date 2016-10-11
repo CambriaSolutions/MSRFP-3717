@@ -9,4 +9,4 @@
 * [Kudu](https://github.com/projectkudu/kudu/wiki) - Integrated continuous deployment
 * [Mocha](http://pytest.org/latest/) - Unit and functional testing framework
 * [Chai](http://docs.pylonsproject.org/projects/webtest/en/latest/) - Frontend testing 
-* [VS Code](https://c9.io/) - Collaborative web-based IDE 
+* [VS Code](https://c9.io/) - Open Source IDE
