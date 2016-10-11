@@ -59,14 +59,6 @@ IF DEFINED CLEAN_LOCAL_DEPLOYMENT_TEMP (
 
 
 
-IF EXIST "%DEPLOYMENT_TARGET%\gulpfile.js" (
-  pushd "%DEPLOYMENT_TARGET%"
-  echo "Building web site using Gulp"
-  call :ExecuteCmd ".\node_modules\.bin\gulp.cmd"
-  if !ERRORLEVEL! NEQ 0 goto error
-  popd
-)
-
 IF DEFINED MSBUILD_PATH goto MsbuildPathDefined
 SET MSBUILD_PATH=%ProgramFiles(x86)%\MSBuild\14.0\Bin\MSBuild.exe
 :MsbuildPathDefined
@@ -87,6 +79,14 @@ IF !ERRORLEVEL! NEQ 0 goto error
 :: 3. KuduSync
 call :ExecuteCmd "%KUDU_SYNC_CMD%" -v 50 -f "%DEPLOYMENT_TEMP%" -t "%DEPLOYMENT_TARGET%" -n "%NEXT_MANIFEST_PATH%" -p "%PREVIOUS_MANIFEST_PATH%" -i ".git;.hg;.deployment;deploy.cmd"
 IF !ERRORLEVEL! NEQ 0 goto error
+
+:: 3. Install npm packages and run gulp
+pushd "%DEPLOYMENT_SOURCE%\D:\home\site\repository"
+call :ExecuteCmd npm install
+IF !ERRORLEVEL! NEQ 0 goto error
+call :ExecuteCmd node_modules\.bin\gulp [your guld task name]
+IF !ERRORLEVEL! NEQ 0 goto error
+popd
 
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
