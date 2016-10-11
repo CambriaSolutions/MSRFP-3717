@@ -96,6 +96,7 @@
  });
 
  $('[id^=btnSubmit]').on('click', function (e) {
+     $('#lnkFilters').show();
     resetfilters();
     SearchProviders();
     return false;
@@ -116,7 +117,7 @@
      $('#map_canvas').html("");
      $('#divresults').html("");
      $('#divresults').html('<h5>' + '0 Results for ' + enteredLocation + '</h5>');
-     $('#lnkFilters').hide();
+    
 
     var arr = LoadMapsByFilters(enteredLocation,facilitycount,qualityrating,providertype,availability,specialneeds);
 
@@ -126,8 +127,7 @@
              $('#results-list').show();
          $('#divresults').html('<h5>' +  ' Results for ' + enteredLocation + '</h5>');
      }
-     else {
-         $('#lnkFilters').hide();        
+     else {            
          
            $('#map_canvas').hide();
              $('#results-list').hide();          
