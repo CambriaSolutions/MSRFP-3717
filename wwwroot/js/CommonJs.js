@@ -112,7 +112,7 @@
 
      if (arr.length > 0) {
          $('#lnkFilters').show();
-         $('#divresults').html('<h5>' + arr.length + ' Results for ' + enteredLocation + '</h5>');
+         $('#divresults').html('<h5>' +  ' Results for ' + enteredLocation + '</h5>');
      }
      else {
          $('#lnkFilters').hide();
