@@ -149,12 +149,12 @@
   
   [x] Consider open source software solutions at every layer of the stack
   
-  Technology Stack: <Need to develop a document and add a hyperlink>
+  Technology Stack: https://github.com/CambriaSolutions/MSRFP-3717/blob/master/README.md
   
   
   9. DEPLOY IN A FLEXIBLE HOSTING ENVIRONMENT
   
-  We used <Include service provider name> as our PaaS provider because it allows us to focus on development while conveniently configuring and managing infrastructure needs. It also hosts our web server and postgres database as well as minimizes effort without compromising control of and visibility into what's going on.
+  We used Azure as our PaaS provider because it allows us to focus on development while conveniently configuring and managing infrastructure needs. It also hosts our application service as well as minimizes effort without compromising control of and visibility into what's going on.
   
   [x] Resources are provisioned on demand
   
@@ -175,7 +175,7 @@
   
   10.	AUTOMATED TESTING AND DEPLOYMENTS
   
-  We chose to use <Include testing tool> for unit testing as it ensures logic is working as expected and regressions do not creep in. For functional tests, we used Webtest in order to simulate real user interactions with the website, which allowed us to incorporate test feedback reducing the burden on the test team.
+  We chose to use Mocha and Chai for unit testing as it ensures logic is working as expected and regressions do not creep in. 
   
   [x] Create automated tests that verify all user-facing functionality
   
