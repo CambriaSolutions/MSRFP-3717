@@ -54,7 +54,7 @@ We conducted six sprints, each sprint informing the subsequent. Each sprint cycl
 
 (h)
 
-This prototype works on multiple devices including desktops, laptops, android and iOS phones and tablets. We conducted usability testing on various devices to ensure its ease of use and responsive design. *[[Responsive-Design]](https://github.com/CambriaSolutions/MSRFP-3717/blob/master/artifacts/Responsive-Design/)*
+This prototype works on multiple devices including desktops, laptops, android and iOS phones and tablets. We conducted usability testing on various devices to ensure its ease of use and responsive design. *[[Responsive-Design]](https://github.com/CambriaSolutions/MSRFP-3717/blob/master/artifacts/Responsive%20Design.pdf)*
 
 (i)
 
