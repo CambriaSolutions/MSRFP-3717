@@ -25,7 +25,7 @@
   
   User Engagement: <Need to develop a document and add a hyperlink>
 
-  Usability Testing: <Need to develop a document and add a hyperlink>
+  Usability Testing: https://github.com/CambriaSolutions/MSRFP-3717/blob/master/artifacts/Usability%20Testing.pdf
 
   
   2. ADDRESS THE WHOLE EXPERIENCE FROM START TO FINISH
@@ -63,7 +63,7 @@
   
   Style Guide Process: https://github.com/CambriaSolutions/MSRFP-3717/tree/master/artifacts/Human-Centered-Design-Artifacts/Style-Guide-Process
 
-  Usability Testing: <Need to develop a document and add a hyperlink>
+  Usability Testing: https://github.com/CambriaSolutions/MSRFP-3717/blob/master/artifacts/Usability%20Testing.pdf
   
   
   4. BUILD THE SERVICE USING AGILE AND ITERATIVE PRACTICES
@@ -89,7 +89,7 @@
   
   Cambria's Agile Process: https://github.com/CambriaSolutions/MSRFP-3717/blob/master/artifacts/Agile%20Process.pdf
 
-  Usability Testing: <Need to develop a document and add a hyperlink>
+  Usability Testing: https://github.com/CambriaSolutions/MSRFP-3717/blob/master/artifacts/Usability%20Testing.pdf
 
   
   5. STRUCTURE BUDGETS AND CONTRACTS TO SUPPORT DELIVERY
