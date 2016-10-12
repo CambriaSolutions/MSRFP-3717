@@ -7,8 +7,8 @@
 * [Git](https://git-scm.com/) - Version control
 * [Github](https://github.com/) - Git hosting and task/issue tracking
 * [Kudu](https://github.com/projectkudu/kudu/wiki) - Integrated continuous deployment
-* [Mocha](http://pytest.org/latest/) - Unit and functional testing framework
-* [Chai](http://docs.pylonsproject.org/projects/webtest/en/latest/) - Frontend testing 
-* [VS Code](https://c9.io/) - Open Source IDE
+* [Mocha](https://mochajs.org/) - Unit and functional testing framework
+* [Chai](http://chaijs.com/) - Frontend testing 
+* [VS Code](https://code.visualstudio.com/) - IDE
 * [Yoeman](http://yeoman.io/) - Base scaffolding of .NET Core application
 * [Bower](https://bower.io/) - Package Manager
