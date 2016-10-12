@@ -50,6 +50,8 @@ Our Usability testing focused on understanding the users, their needs, and what 
 
 (g)
 
+The team assembled represented diverse backgrounds including a few resources working remotely. Those involved included developers, visual designers, business analysts, technical architects, managers, writers, users and Product Managers. The roles were assigned based on each individual’s experience, skill sets, background, interest and the specific needs of the prototype. *[[Team Structure]](https://github.com/CambriaSolutions/MSRFP-3717/blob/master/artifacts/Team%20Structure.pdf)*
+
 We conducted six sprints, each sprint informing the subsequent. Each sprint cycle began with a sprint planning meeting and ended with a sprint review and sprint retrospective meetings. We ran two-day sprints and held daily scrums to review the last 24 hours, the next 24 hours, and any impediments that the team might have had. The team started slow but soon picked up velocity and finished most of the development early with the last couple of sprints planned for addressing prioritized enhancements and issues. *[[Our Agile Process]](https://github.com/CambriaSolutions/MSRFP-3717/blob/master/artifacts/Agile%20Process.pdf)* *[[Our Agile Techniques]](https://github.com/CambriaSolutions/MSRFP-3717/blob/master/artifacts/Agile%20Techniques.md)*
 
 (h)
