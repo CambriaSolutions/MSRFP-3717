@@ -57,8 +57,6 @@ IF DEFINED CLEAN_LOCAL_DEPLOYMENT_TEMP (
   mkdir "%DEPLOYMENT_TEMP%"
 )
 
-
-
 IF DEFINED MSBUILD_PATH goto MsbuildPathDefined
 SET MSBUILD_PATH=%ProgramFiles(x86)%\MSBuild\14.0\Bin\MSBuild.exe
 :MsbuildPathDefined
@@ -76,22 +74,13 @@ IF !ERRORLEVEL! NEQ 0 goto error
 call :ExecuteCmd dotnet publish "D:\home\site\repository" --output "%DEPLOYMENT_TEMP%" --configuration Release
 IF !ERRORLEVEL! NEQ 0 goto error
 
-:: 3. KuduSync
-call :ExecuteCmd "%KUDU_SYNC_CMD%" -v 50 -f "%DEPLOYMENT_TEMP%" -t "%DEPLOYMENT_TARGET%" -n "%NEXT_MANIFEST_PATH%" -p "%PREVIOUS_MANIFEST_PATH%" -i ".git;.hg;.deployment;deploy.cmd"
+:: 3. Build and publish
+call :ExecuteCmd gulp run-tests --output "%DEPLOYMENT_TEMP%" --configuration Release
 IF !ERRORLEVEL! NEQ 0 goto error
 
-:: 3. Install npm packages and run gulp
-pushd "D:\home\site\repository"
-call :ExecuteCmd npm install
+:: 4. KuduSync
+call :ExecuteCmd "%KUDU_SYNC_CMD%" -v 50 -f "%DEPLOYMENT_TEMP%" -t "%DEPLOYMENT_TARGET%" -n "%NEXT_MANIFEST_PATH%" -p "%PREVIOUS_MANIFEST_PATH%" -i ".git;.hg;.deployment;deploy.cmd"
 IF !ERRORLEVEL! NEQ 0 goto error
-call :ExecuteCmd node_modules\.bin\gulp run-tests 
-IF !ERRORLEVEL! NEQ 0 goto error
-popd
-echo Execute Gulp
-IF EXIST "Gulpfile.js" (
-    call .\node_modules\.bin\gulp build
-    IF !ERRORLEVEL! NEQ 0 goto error
-)
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 goto end
