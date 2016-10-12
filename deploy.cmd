@@ -74,11 +74,7 @@ IF !ERRORLEVEL! NEQ 0 goto error
 call :ExecuteCmd dotnet publish "D:\home\site\repository" --output "%DEPLOYMENT_TEMP%" --configuration Release
 IF !ERRORLEVEL! NEQ 0 goto error
 
-:: 3. Build and publish
-call :ExecuteCmd gulp run-tests --output "%DEPLOYMENT_TEMP%" --configuration Release
-IF !ERRORLEVEL! NEQ 0 goto error
-
-:: 4. KuduSync
+:: 3. KuduSync
 call :ExecuteCmd "%KUDU_SYNC_CMD%" -v 50 -f "%DEPLOYMENT_TEMP%" -t "%DEPLOYMENT_TARGET%" -n "%NEXT_MANIFEST_PATH%" -p "%PREVIOUS_MANIFEST_PATH%" -i ".git;.hg;.deployment;deploy.cmd"
 IF !ERRORLEVEL! NEQ 0 goto error
 
