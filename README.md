@@ -6,6 +6,10 @@
 # The Cambria Way
 Cambria builds custom-tailored solutions using ingenuity and a distinctly humanized approach. Something we like to call HumanGenuity®. What better way for us to demonstrate how we put this into practice than by engaging in a challenge to develop a human-centered prototype while displaying our agile approach! 
 
+# Breief Description of the Project
+Cambria Solutions developed this prototype for the Mississippi Department of Human Services (MDHS) Agency using Human Centered Design principles, Agile development methodology, and Open source technologies. This tool will empower parents and caseworkers to find quality child care before and after school, during the day, or whenever it may be needed. Our goal is to provide comprehensive information needed for decision-making in an informative, easy, and helpful way. Our database is designed for parents who qualify for the Child Care Certificate Program, a federally funded program designed to provide parents with assistance for child care tuition. 
+Through feedback from actual caseworkers and foster parents, our multidisciplinary team completed the prototype over the course of six sprints. Our responsive web design is user-friendly and accessible across multiple platforms. An incremental and iterative developmental methodology allowed us to incorporate user feedback and changing requirements, allowing us to release on a scheduled deployment.
+
 # Our Agile Human-Centered Approach 
 
 We created a user experience that was intuitive to the needs of actual foster parents and case workers. We started with discovery that included interviews, research, and conducted usability testing continuously with each iteration. With this collective knowledge, we developed personas to further define and personalize the prototype's core characteristics. 
