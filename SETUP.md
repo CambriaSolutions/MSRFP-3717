@@ -19,8 +19,7 @@ git clone https://github.com/CambriaSolutions/MSRFP-3717
 Install the .NET CORE library SDK based on your deployment platform (iOS/Linux/Docker)
 [.NET Core](https://www.microsoft.com/net/core#windows):
 
-Then run the following commands to bootstrap your environment with Python 3 and
-all development requirements.
+Then run the following commands to bootstrap your environment.
 
     cd to the application root directory (ie: C:/webapp/msrfp-3717)
     dotnet restore
