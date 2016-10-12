@@ -6,7 +6,7 @@
 # The Cambria Way
 Cambria builds custom-tailored solutions using ingenuity and a distinctly humanized approach. Something we like to call HumanGenuity®. What better way for us to demonstrate how we put this into practice than by engaging in a challenge to develop a human-centered prototype while displaying our agile approach! 
 
-# Breief Description of the Project
+# Brief Description of the Project
 Cambria Solutions developed this prototype for the Mississippi Department of Human Services (MDHS) Agency using Human Centered Design principles, Agile development methodology, and Open source technologies. This tool will empower parents and caseworkers to find quality child care before and after school, during the day, or whenever it may be needed. Our goal is to provide comprehensive information needed for decision-making in an informative, easy, and helpful way. Our database is designed for parents who qualify for the Child Care Certificate Program, a federally funded program designed to provide parents with assistance for child care tuition. 
 
 Through feedback from actual caseworkers and foster parents, our multidisciplinary team completed the prototype over the course of six sprints. Our responsive web design is user-friendly and accessible across multiple platforms. An incremental and iterative developmental methodology allowed us to incorporate user feedback and changing requirements, allowing us to release on a scheduled deployment.
@@ -26,19 +26,19 @@ We followed the Digital Services Playbook and created a *[document](https://gith
 
 (a)
 
-Our executive team met and assigned Dhiraj and gave him authority to lead the prototype development and to ensure that we deliver a quality product to OSI. Dhiraj is a certified Professional Scrum Master and he also served as the Agile Coach for the team. *[[Our Team]](https://github.com/CambriaSolutions/MSRFP-3717/blob/master/artifacts/The%20Team.pdf)*
+Our executive team met and assigned Dhiraj and gave him authority to lead the prototype development and to ensure that we deliver a quality product to OSI. Dhiraj is a certified Professional Scrum Master and he also served as the Agile Coach for the team. *[[Our Team]](https://github.com/CambriaSolutions/MSRFP-3717/blob/master/artifacts/Team%20Structure.pdf)*
 
 (b)
 
-Dhiraj enlisted Anand, a Cambria executive, to help him crowdsource a multi-disciplinary team. Anand reached out to all Cambrianites via an email and they responded. The team assembled represented diverse backgrounds. Based on the experience, skills, and interests, the team quickly organized itself. Individuals aligned themselves to relevant roles. *[[Crowdsourcing]](https://github.com/CambriaSolutions/MSRFP-3717/blob/master/artifacts/Crowdsourcing.pdf)* *[[Our Team]](https://github.com/CambriaSolutions/MSRFP-3717/blob/master/artifacts/The%20Team.pdf)*
+Dhiraj enlisted Anand, a Cambria executive, to help him crowdsource a multi-disciplinary team. Anand reached out to all Cambrianites via an email and they responded. The team assembled represented diverse backgrounds. Based on the experience, skills, and interests, the team quickly organized itself. Individuals aligned themselves to relevant roles. *[[Crowdsourcing]](https://github.com/CambriaSolutions/MSRFP-3717/blob/master/artifacts/Crowdsourcing.pdf)* *[[Our Team]](https://github.com/CambriaSolutions/MSRFP-3717/blob/master/artifacts/Team%20Structure.pdf)*
 
 (c)
 
-We determined that the best product could only be developed by knowing, empathizing with, and understanding the user. We had a discovery/user interaction meeting with four users. One of our users is a subject matter expert who also has personal experience with the foster care system. *[[User Engagement]](https://github.com/CambriaSolutions/MSRFP-3717/blob/master/artifacts/User%20Engagement.pdf)* *[[Foster Parent Persona]](https://github.com/CambriaSolutions/MSRFP-3717/blob/master/artifacts/Persona%201-%20Monica.pdf)* *[[Case Worker Persona]](https://github.com/CambriaSolutions/MSRFP-3717/blob/master/artifacts/Persona%202-%20Charles.pdf)* *[[Our User Stories]](https://github.com/CambriaSolutionsMSRFP-3717/blob/master/artifacts/User%20Stories.md)*
+We determined that the best product could only be developed by knowing, empathizing with, and understanding the user. We had a discovery/user interaction meeting with four users. Two of our users are subject matter experts who also have personal experience with the tools that are currently available to find child care facilities. *[[Personas]](https://github.com/CambriaSolutions/MSRFP-3717/blob/master/artifacts/Human-Centered-Design-Artifacts/MS%20ADPQ%20Personas.pptx)* *[[Our User Stories]](https://github.com/CambriaSolutionsMSRFP-3717/blob/master/artifacts/User%20Stories.md)*
 
 (d)
 
-In developing this prototype, we utilized several human-centered design techniques: (1) user stories, (2) personas, (3) user interviews, (4) rapid prototyping using wireframes, (5) screen design sketches, and (6) usability testing. *[[Our User Stories]](https://github.com/CambriaSolutions/MSRFP-3717/blob/master/artifacts/User%20Stories.md)* *[[Foster Parent Persona]](https://github.com/CambriaSolutions/MSRFP-3717/blob/master/artifacts/Persona%201-%20Monica.pdf)* *[[Case Worker Persona]](https://github.com/CambriaSolutions/MSRFP-3717/blob/master/artifacts/Persona%202-%20Charles.pdf)* *[[Our Human Centered Design]](https://github.com/CambriaSolutions/MSRFP-3717/blob/master/artifacts/Human%20Centered%20Design.pdf)* *[[Human Centered Design Artifacts]](https://github.com/CambriaSolutions/MSRFP-3717/blob/master/artifacts/Human-Centered-Design-Artifacts)* *[[Usability Testing]](https://github.com/CambriaSolutions/MSRFP-3717/blob/master/artifacts/Usability%20Testing.pdf)*
+In developing this prototype, we utilized several human-centered design techniques: (1) user stories, (2) personas, (3) user interviews, (4) rapid prototyping using wireframes, (5) screen design sketches, and (6) usability testing. *[[Our User Stories]](https://github.com/CambriaSolutions/MSRFP-3717/blob/master/artifacts/User%20Stories.md)* *[[Personas]](https://github.com/CambriaSolutions/MSRFP-3717/blob/master/artifacts/Human-Centered-Design-Artifacts/MS%20ADPQ%20Personas.pptx)* *[[Our Human Centered Design]](https://github.com/CambriaSolutions/MSRFP-3717/blob/master/artifacts/Human%20Centered%20Design.pdf)* *[[Human Centered Design Artifacts]](https://github.com/CambriaSolutions/MSRFP-3717/blob/master/artifacts/Human-Centered-Design-Artifacts)* *[[Usability Testing]](https://github.com/CambriaSolutions/MSRFP-3717/blob/master/artifacts/Usability%20Testing.pdf)*
 
 (e)
 
@@ -74,7 +74,7 @@ We chose Kudu for continuous integration, which enabled us to run tests in isola
 
 (m)
 
-Git allowed us to share and collaborate on code and assets, while GitHub hosts our git repository and has collaboration, bug and enhancement tracking and sprint/issue management features. 
+Git allowed us to share and collaborate on code and assets, while GitHub hosts our git repository and has collaboration, bug and enhancement tracking and sprint/issue management features. *[[Bugs and Issues]](https://github.com/CambriaSolutions/MSRFP-3717/blob/master/artifacts/Bugs%20and%20Issues%20Management.pdf)*
 
 (n) 
 
