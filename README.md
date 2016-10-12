@@ -34,7 +34,7 @@ Dhiraj enlisted Anand, a Cambria executive, to help him crowdsource a multi-disc
 
 (c)
 
-We determined that the best product could only be developed by knowing, empathizing with, and understanding the user. We had a discovery/user interaction meeting with four users. Two of our users are subject matter experts who also have personal experience with the tools that are currently available to find child care facilities. *[[Personas]](https://github.com/CambriaSolutions/MSRFP-3717/blob/master/artifacts/Human-Centered-Design-Artifacts/MS%20ADPQ%20Personas.pptx)* *[[Our User Stories]](https://github.com/CambriaSolutions/MSRFP-3717/blob/master/artifacts/User%20Stories.pdf)*
+We determined that the best product could only be developed by knowing, empathizing with, and understanding the user. We had a discovery/user interaction meeting with four users. Two of our users are subject matter experts who also have personal experience with the tools that are currently available to find child care facilities. *[[Personas]](https://github.com/CambriaSolutions/MSRFP-3717/blob/master/artifacts/Human-Centered-Design-Artifacts/MS%20ADPQ%20Personas.pptx)* *[[Our User Stories]](https://github.com/CambriaSolutions/MSRFP-3717/blob/master/artifacts/User%20Stories.pdf)* *[[Research Findings]](https://github.com/CambriaSolutions/MSRFP-3717/blob/master/artifacts/User-Research/User_Research_and_Findings.pdf)* *[[Framewworks and Libraries Used]](https://github.com/CambriaSolutions/MSRFP-3717/blob/master/artifacts/Technology%20Stack.md)*
 
 (d)
 
