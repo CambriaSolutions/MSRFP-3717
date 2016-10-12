@@ -1,14 +1,17 @@
-
     function ToggleDiv() {
    var isVisible = $('#FilterBox').is(':visible');
        
        if(isVisible == true)
        {
             $("#FilterBox").hide();
+            
+               $("#lnkFilters").text('More Options');
+            
        }
        else
        {
             $("#FilterBox").show();
+            $("#lnkFilters").text('Hide Options');
        }
    
    
@@ -39,6 +42,14 @@
 
 	 var firstClick = true;
     $(document).ready(function() {
+
+        $(document).ready(function(){
+             $("#lnkFilters").text('Hide Options');
+                $('#map_canvas').hide();
+             $('#results-list').hide();     
+    $('[data-toggle="tooltip"]').tooltip(); 
+});
+
 
     var divs=$('.accordion>div').hide(); //Hide/close all containers
 
@@ -86,6 +97,7 @@
  });
 
  $('[id^=btnSubmit]').on('click', function (e) {
+     $('#lnkFilters').show();
     resetfilters();
     SearchProviders();
     return false;
@@ -106,17 +118,23 @@
      $('#map_canvas').html("");
      $('#divresults').html("");
      $('#divresults').html('<h5>' + '0 Results for ' + enteredLocation + '</h5>');
-     $('#lnkFilters').hide();
+    
 
     var arr = LoadMapsByFilters(enteredLocation,facilitycount,qualityrating,providertype,availability,specialneeds);
 
      if (arr.length > 0) {
          $('#lnkFilters').show();
-         $('#divresults').html('<h5>' + arr.length + ' Results for ' + enteredLocation + '</h5>');
+          $('#map_canvas').show();
+             $('#results-list').show();
+         $('#divresults').html('<h5>' +  ' Results for ' + enteredLocation + '</h5>');
      }
-     else {
-         $('#lnkFilters').hide();
-         $('#divresults').html('<h5>' + '0 Results for ' + enteredLocation + '</h5>');
+     else {            
+         
+           $('#map_canvas').hide();
+             $('#results-list').hide();          
+           
+          $('#divresults').html('<h5>We could not find any Childcare providers.</h5>');
+          
      }
 
      initialize(arr);
@@ -188,7 +206,7 @@ function geocodeAddress(locations, i) {
 
 
 
-    address1 = address1 + ' <a title="Send these details to Email" href="mailto:?subject=Child Care Provider&body=Add your Notes here....%0A%0A' + EmailAddress + '"><img src="../images/Mail-icon.png" /></a></li>'
+   address1 = address1 + ' <a title="Email these details to yourself" href="mailto:?subject=' +title+'&body=Add your Notes here....%0A%0A' + EmailAddress + '"><img src="../images/Mail-icon.png" /></a></li>'
     var markerlat = parseFloat(locations[i][12]);
     var markerlng = parseFloat(locations[i][13]);
 
@@ -255,4 +273,3 @@ function closeInfoWindows() {
         InfoWindows[i].close();
     }
 }
-
