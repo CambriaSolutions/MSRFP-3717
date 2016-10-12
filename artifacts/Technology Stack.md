@@ -12,3 +12,4 @@
 * [VS Code](https://code.visualstudio.com/) - Open Source IDE
 * [Yeoman](http://yeoman.io/) - Base Scaffolding of .NET Core Application
 * [Bower](https://bower.io/) - Package Manager
+* [WAVE](https://wave.webaim.org/) - Web Accessibility Evaluation Tool
