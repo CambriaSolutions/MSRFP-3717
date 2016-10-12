@@ -61,11 +61,11 @@ We used Azure as our production PaaS provider.  Azure provides rapid standup and
 
 (k)
 
-We used Mocha and Chai for unit testing as it ensures logic is working as expected and regressions do not creep in.  *[[Automated Test Results]](https://github.com/CambriaSolutions/MSRFP-3717/blob/master/artifacts/Automated%20Test%20Results.PNG)*
+We used Mocha and Chai for unit testing as it ensures logic is working as expected and regressions do not creep in.  *[[Automated Test Results]](https://github.com/CambriaSolutions/MSRFP-3717/blob/master/artifacts/Automated%20Test%20Results.png)*
 
 (l)
 
-We chose Kudu for continuous integration, which enabled us to run tests in isolated deployment slots and deploy to Azure all with a single 'git push' command. *[[Continuous Integration]](https://github.com/CambriaSolutions/MSRFP-3717/blob/master/artifacts/Continuous%20Integration.png)*
+We chose Kudu for continuous integration, which enabled us to run tests in isolated deployment slots and deploy to Azure all with a single 'git push' command. *[[Continuous Integration]](https://github.com/CambriaSolutions/MSRFP-3717/blob/master/artifacts/Paas%20Platform.pdf)*
 
 (m)
 
@@ -73,7 +73,7 @@ Git allowed us to share and collaborate on code and assets, while GitHub hosts o
 
 (n) 
 
-We utilized Azure's App Service for containerization, a virtualization technology that allows multiple isolated operating system containers to be run on a shared host. The application also contains a Docker file and can be packaged and deployed as Docker contatiner. *[[Web Dyno Container]](https://github.com/CambriaSolutions/MSRFP-3717/blob/master/artifacts/Web%20Dyno%20Container.pdf)*  
+We utilized Azure's App Service for containerization, a virtualization technology that allows multiple isolated operating system containers to be run on a shared host. The application also contains a Docker file and can be packaged and deployed as Docker contatiner. *[[App Service Container]](https://github.com/CambriaSolutions/MSRFP-3717/blob/master/artifacts/Paas%20Platform.pdf)*  
 
 (o)
 
