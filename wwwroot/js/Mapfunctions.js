@@ -1,3 +1,4 @@
+//LoadMapsByFilters : Gets the provider data and prepare a array for the further process.
 function LoadMapsByFilters(enteredLocation,facilitycount,qualityrating,providertype,availability,specialneeds) {
      
      var arr = [];
@@ -50,6 +51,7 @@ function LoadMapsByFilters(enteredLocation,facilitycount,qualityrating,providert
      }
  }
 
+//getLocationCoordinate: To get the latitude and longitude of the given address
 function getLocationCoordinate(address) {
 
     var position = {};

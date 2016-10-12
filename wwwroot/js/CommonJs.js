@@ -1,60 +1,60 @@
+//ToggleDiv : TO hide and display filter section
+function ToggleDiv() {
+    var isVisible = $('#FilterBox').is(':visible');
 
-    function ToggleDiv() {
-   var isVisible = $('#FilterBox').is(':visible');
-       
-       if(isVisible == true)
-       {
-            $("#FilterBox").hide();
-            
-               $("#lnkFilters").text('More Options');
-            
-       }
-       else
-       {
-            $("#FilterBox").show();
-            $("#lnkFilters").text('Hide Options');
-       }
-   
-   
+    if (isVisible == true) {
+        $("#FilterBox").hide();
+
+        $("#lnkFilters").text('More Options');
+
+    }
+    else {
+        $("#FilterBox").show();
+        $("#lnkFilters").text('Hide Options');
+    }
+
+
 };
 
-    function resetfilters()
-    {
-        $('#qualityselect').prop('selectedIndex',0);
-        $('#provtypeselect').prop('selectedIndex',0);
-        $('#optavailability').attr('checked', false);
-        $('#optspecialneed').attr('checked', false);
-        $('#radiusselect').val(10);      
-         $('#spnrange').html(10);
-    };
+//resetfilters :  To reset the filter option on  a new search
+function resetfilters() {
+    $('#qualityselect').prop('selectedIndex', 0);
+    $('#provtypeselect').prop('selectedIndex', 0);
+    $('#optavailability').attr('checked', false);
+    $('#optspecialneed').attr('checked', false);
+    $('#radiusselect').val(10);
+    $('#spnrange').html(10);
+};
 
-    function validateinput() {
-        var $messageDiv = $('#namerror'); // get the reference of the div
-        if ($("#txtName").val() == '') {
-            $messageDiv.show().html('<span style="color:red;">*Please enter the search criteria</span>');
-            return false;
-        }
-        else {
-            $messageDiv.hide();
-            return true;
-        }
-    };
-
-
-	 var firstClick = true;
-    $(document).ready(function() {
-
-        $(document).ready(function(){
-             $("#lnkFilters").text('Hide Options');
-                $('#map_canvas').hide();
-             $('#results-list').hide();     
-    $('[data-toggle="tooltip"]').tooltip(); 
-});
+//validateinput :  Required filed validaton for the search box
+function validateinput() {
+    var $messageDiv = $('#namerror'); // get the reference of the div
+    if ($("#txtName").val() == '') {
+        $messageDiv.show().html('<span style="color:red;">*Please enter the search criteria</span>');
+        return false;
+    }
+    else {
+        $messageDiv.hide();
+        return true;
+    }
+};
 
 
-    var divs=$('.accordion>div').hide(); //Hide/close all containers
+var firstClick = true;
+//Ready: Ready is a onload function which executes on page load.
+$(document).ready(function () {
 
-    var h2s=$('.accordion>h2').click(function () {
+    $(document).ready(function () {
+        $("#lnkFilters").text('Hide Options');
+        $('#map_canvas').hide();
+        $('#results-list').hide();
+        $('[data-toggle="tooltip"]').tooltip();
+    });
+
+
+    var divs = $('.accordion>div').hide(); //Hide/close all containers
+
+    var h2s = $('.accordion>h2').click(function () {
         h2s.not(this).removeClass('active')
         $(this).toggleClass('active')
         divs.not($(this).next()).slideUp()
@@ -62,49 +62,51 @@
         return false; //Prevent the browser jump to the link anchor
     });
 
-   $('#radiusselect').change( function() {
-    facilitycount = $('#radiusselect').val();
-    $('#spnrange').html(facilitycount);
-    //LoadMapsByFilters($("#txtName").val());
-    SearchProviders();
-    return false;
-    //alert(inputradius);
+    $('#radiusselect').change(function () {
+        facilitycount = $('#radiusselect').val();
+        $('#spnrange').html(facilitycount);
+        //LoadMapsByFilters($("#txtName").val());
+        SearchProviders();
+        return false;
+        //alert(inputradius);
     });
 
-   $('#qualityselect').change( function() {
-    //LoadMapsByFilters($("#txtName").val());
-    SearchProviders();
-    return false;
+    $('#qualityselect').change(function () {
+        //LoadMapsByFilters($("#txtName").val());
+        SearchProviders();
+        return false;
     });
 
-   $('#provtypeselect').change( function() {
-    //LoadMapsByFilters($("#txtName").val());
-    SearchProviders();
-    return false;
+    $('#provtypeselect').change(function () {
+        //LoadMapsByFilters($("#txtName").val());
+        SearchProviders();
+        return false;
     });
 
-    $('#optavailability').change( function() {
-    //LoadMapsByFilters($("#txtName").val());
-    SearchProviders();
-    return false;
+    $('#optavailability').change(function () {
+        //LoadMapsByFilters($("#txtName").val());
+        SearchProviders();
+        return false;
     });
 
-    $('#optspecialneed').change( function() {
-    //LoadMapsByFilters($("#txtName").val());
-    SearchProviders();
-    return false;
+    $('#optspecialneed').change(function () {
+        //LoadMapsByFilters($("#txtName").val());
+        SearchProviders();
+        return false;
     });
 
- });
+});
 
- $('[id^=btnSubmit]').on('click', function (e) {
-     $('#lnkFilters').show();
+//Search Button click even handler
+$('[id^=btnSubmit]').on('click', function (e) {
+    $('#lnkFilters').show();
     resetfilters();
     SearchProviders();
     return false;
- });
+});
 
- function SearchProviders(){
+//SearchProviders: Gathers the search parameters and calls a method to load the results and map.
+function SearchProviders() {
     var enteredLocation = $("#txtName").val();
     var facilitycount = $('#radiusselect').val();
     var qualityrating = $('#qualityselect').val();
@@ -114,41 +116,41 @@
 
     $("#FilterBox").show();
 
-     //defaults
-     $('#list').html("");
-     $('#map_canvas').html("");
-     $('#divresults').html("");
-     $('#divresults').html('<h5>' + '0 Results for ' + enteredLocation + '</h5>');
-    
+    //defaults
+    $('#list').html("");
+    $('#map_canvas').html("");
+    $('#divresults').html("");
+    $('#divresults').html('<h5>' + '0 Results for ' + enteredLocation + '</h5>');
 
-    var arr = LoadMapsByFilters(enteredLocation,facilitycount,qualityrating,providertype,availability,specialneeds);
 
-     if (arr.length > 0) {
-         $('#lnkFilters').show();
-          $('#map_canvas').show();
-             $('#results-list').show();
-         $('#divresults').html('<h5>' +  ' Results for ' + enteredLocation + '</h5>');
-     }
-     else {            
-         
-           $('#map_canvas').hide();
-             $('#results-list').hide();          
-           
-          $('#divresults').html('<h5>We could not find any Childcare providers.</h5>');
-          
-     }
+    var arr = LoadMapsByFilters(enteredLocation, facilitycount, qualityrating, providertype, availability, specialneeds);
 
-     initialize(arr);
+    if (arr.length > 0) {
+        $('#lnkFilters').show();
+        $('#map_canvas').show();
+        $('#results-list').show();
+        $('#divresults').html('<h5>' + ' Results for ' + enteredLocation + '</h5>');
+    }
+    else {
+
+        $('#map_canvas').hide();
+        $('#results-list').hide();
+
+        $('#divresults').html('<h5>We could not find any Childcare providers.</h5>');
+
+    }
+
+    initialize(arr);
 
     return false;
- }
+}
 
 
 var geocoder;
 var map;
 var bounds = new google.maps.LatLngBounds();
 
-
+//initialize: Gets the list of providers based on the serarch criteria and load the map with markers.
 function initialize(locations) {
 
     map = new google.maps.Map(
@@ -176,8 +178,9 @@ function initialize(locations) {
         geocodeAddress(locations, i);
     }
 }
-//google.maps.event.addDomListener(window, "load", initialize);
 
+
+//geocodeAddress : format the list of providers after the loading to display additional details.
 function geocodeAddress(locations, i) {
 
     var img = "Not Rated";
@@ -207,7 +210,7 @@ function geocodeAddress(locations, i) {
 
 
 
-   address1 = address1 + ' <a title="Email these details to yourself" href="mailto:?subject=' +title+'&body=Add your Notes here....%0A%0A' + EmailAddress + '"><img src="../images/Mail-icon.png" /></a></li>'
+    address1 = address1 + ' <a title="Email these details to yourself" href="mailto:?subject=' + title + '&body=Add your Notes here....%0A%0A' + EmailAddress + '"><img src="../images/Mail-icon.png" /></a></li>'
     var markerlat = parseFloat(locations[i][12]);
     var markerlng = parseFloat(locations[i][13]);
 
@@ -243,9 +246,10 @@ function geocodeAddress(locations, i) {
 
 }
 
+//infoWindowOnItemClick: onclick event for items click in the search results to dispay/highlight the details of the provider on the map/marker.
 function infoWindowOnItemClick(marker, map, title, address, url) {
     closeInfoWindows();
-    var html = "<div ><h3>" + title + "</h3><p>" + address + "<br></div><a target='_blank' href='https://www.google.com/maps/place/" +  address + "'>View location</a></p></div>";
+    var html = "<div ><h3>" + title + "</h3><p>" + address + "<br></div><a target='_blank' href='https://www.google.com/maps/place/" + address + "'>View location</a></p></div>";
     iw = new google.maps.InfoWindow({
         content: html,
         maxWidth: 350
@@ -254,6 +258,7 @@ function infoWindowOnItemClick(marker, map, title, address, url) {
     iw.open(map, marker);
 }
 
+//infoWindowOnItemClick: onclick event for the map marker to dispay the details of the provider
 function infoWindow(marker, map, title, address, url) {
 
     google.maps.event.addListener(marker, 'click', function () {
@@ -268,7 +273,10 @@ function infoWindow(marker, map, title, address, url) {
 
     });
 }
+
+//closeInfoWindows :  to close the previously opened infoWindow
 var InfoWindows = [];
+
 function closeInfoWindows() {
     for (i = 0; i < InfoWindows.length; i++) {
         InfoWindows[i].close();
