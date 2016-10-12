@@ -58,7 +58,7 @@ We conducted six sprints, each sprint informing the subsequent. Each sprint cycl
 
 (i)
 
-This prototype works on multiple devices including desktops, laptops, android and iOS phones and tablets. We conducted usability testing on various devices to ensure its ease of use and responsive design. *[[Responsive-Design]](https://github.com/CambriaSolutions/MSRFP-3717/blob/master/artifacts/Responsive%20Design.pdf)*
+This prototype works on multiple devices including desktops, laptops, android and iOS phones and tablets. We conducted usability testing on various devices to ensure its ease of use and responsive design. *[[Responsive-Design]](https://github.com/CambriaSolutions/MSRFP-3717/blob/master/artifacts/Responsive%20Design.pdf)* *[[Style Guide]](https://github.com/CambriaSolutions/MSRFP-3717/blob/master/artifacts/Style%20Guide.pdf)*  *[[Quick Start Guide]](https://github.com/CambriaSolutions/MSRFP-3717/blob/master/artifacts/Quick%20Start%20Guide.pdf)*  *[[Spanish and Vietnamese Translation Feedback]](https://github.com/CambriaSolutions/MSRFP-3717/blob/master/artifacts/Language%20Translation.pdf)*
 
 (j)
 
