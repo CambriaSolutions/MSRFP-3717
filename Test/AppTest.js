@@ -21,7 +21,7 @@ describe('Apptest', function(){
     //Set timeoutvar
     var timeoutvar = 15000;
     //Test Condition 1
-    describe('LoadMapsByFilters', function(){
+    describe('Run Automated Unit Tests for MSRFP-3717', function(){
         it('Test Condition 1. Should return search results with a zip code(38632) only', function(){
             this.timeout(timeoutvar);
             // Call the exported function from the module

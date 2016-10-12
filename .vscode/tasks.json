@@ -5,6 +5,16 @@
     "args": [],
     "tasks": [
         {
+            "taskName": "run-tests",
+            "args": [
+                "${workspaceRoot}\\project.json"
+            ],
+            "isBuildCommand": true,
+                "command": "gulp",
+            "isTestCommand": true
+        },
+        
+        {
             "taskName": "build",
             "args": [
                 "${workspaceRoot}\\project.json"
