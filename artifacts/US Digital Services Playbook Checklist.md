@@ -23,7 +23,7 @@
   
   Human-centered Design: https://github.com/CambriaSolutions/MSRFP-3717/blob/master/artifacts/Human%20Centered%20Design.pdf
   
-  User Engagement: <Need to develop a document and add a hyperlink>
+  User Engagement: https://github.com/CambriaSolutions/MSRFP-3717/tree/master/artifacts/User-Research
 
   Usability Testing: https://github.com/CambriaSolutions/MSRFP-3717/blob/master/artifacts/Usability%20Testing.pdf
 
@@ -40,7 +40,7 @@
   
   [ ] Develop metrics that will measure how well the service is meeting user needs at each step of the service
   
-  User Feedback: <Need to develop a document and add a hyperlink>
+  User Feedback: https://github.com/CambriaSolutions/MSRFP-3717/tree/master/artifacts/User-Research
   
   
   3. MAKE IT SIMPLE AND INTUITIVE
@@ -111,7 +111,7 @@
   
   [ ] The product owner has a strong relationship with the contracting officer
   
-  Technical approach; see requirement (a): https://github.com/CambriaSolutions/MSRFP-3717/blob/master/README.md
+  Team Structure: https://github.com/CambriaSolutions/MSRFP-3717/blob/master/artifacts/Team%20Structure.pdf
   
   
   7. BRING IN EXPERIENCED TEAMS
@@ -134,7 +134,7 @@
   
   [ ] The appropriate privacy, civil liberties, and/or legal advisor for the department or agency is a partner
   
-  Cambria's Team: <Need to develop a document and add a hyperlink>
+  Cambria's Team: https://github.com/CambriaSolutions/MSRFP-3717/blob/master/artifacts/Team%20Structure.pdf
   
   
   8. CHOOSE A MODERN TECHNOLOGY STACK
@@ -149,7 +149,7 @@
   
   [x] Consider open source software solutions at every layer of the stack
   
-  Technology Stack: https://github.com/CambriaSolutions/MSRFP-3717/blob/master/README.md
+  Technology Stack: https://github.com/CambriaSolutions/MSRFP-3717/blob/master/artifacts/Technology%20Stack.md
   
   
   9. DEPLOY IN A FLEXIBLE HOSTING ENVIRONMENT
@@ -170,7 +170,7 @@
   
   [x] Application is hosted on commodity hardware
   
-  Technical approach; see requirement (j): https://github.com/CambriaSolutions/MSRFP-3717/blob/master/README.md
+  Hosting Environment: https://github.com/CambriaSolutions/MSRFP-3717/blob/master/artifacts/Paas%20Platform.pdf
   
   
   10.	AUTOMATED TESTING AND DEPLOYMENTS
@@ -187,7 +187,8 @@
   
   [ ] Conduct load and performance tests at regular intervals, including before public launch
   
-  Technical approach; see requirement (k): https://github.com/CambriaSolutions/MSRFP-3717/blob/master/README.md
+  Automated Testing: https://github.com/CambriaSolutions/MSRFP-3717/blob/master/artifacts/Automated%20Testing.pdf
+  Automated Deployment: https://github.com/CambriaSolutions/MSRFP-3717/blob/master/artifacts/Paas%20Platform.pdf
   
   
   11.	MANAGE SECURITY AND PRIVACY THROUGH REUSABLE PROCESSES
@@ -195,7 +196,7 @@
   NOT APPLICABLE
   
   
-  12.	USE DATA TO DRIVE DECISIONS (Need Technical team to review)
+  12.	USE DATA TO DRIVE DECISIONS
   
   We used <Need to include name> for continuous monitoring because it is a complete solution that monitors and analyzes the metrics that impact the application at every level of the stack. We integrated Librato with Heroku to provide detailed information about the application’s performance. We added LogEntries to provide real-time logging, aggregated live-tail search and context views, and the ability to search events as they occur.
   
@@ -215,7 +216,7 @@
   
   [x] Use an experimentation tool that supports multivariate testing in production
   
-  Technical approach; see requirement (n): https://github.com/CambriaSolutions/MSRFP-3717/blob/master/README.md
+  Hosting Environment: https://github.com/CambriaSolutions/MSRFP-3717/blob/master/artifacts/Paas%20Platform.pdf
   
   
   13.	DEFAULT TO OPEN
