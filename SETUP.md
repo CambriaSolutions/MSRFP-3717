@@ -22,8 +22,8 @@ Install the .NET CORE library SDK based on your deployment platform (iOS/Linux/D
 Then run the following commands to bootstrap your environment.
 
     cd to the application root directory (ie: C:/webapp/msrfp-3717)
-    dotnet restore
-    dotnet run
+    >dotnet restore
+    >dotnet run
 
 The server will start and be accessible on the localhost environment on port 5000
 [Your Localhost](http://localhost:5000) http://localhost:500
@@ -31,7 +31,13 @@ The server will start and be accessible on the localhost environment on port 500
 Running Tests
 -------------
 
-Need to add this section
+To run automated unit tests install [Mocha](http://mochajs.org/) and [Chai](http://chaijs.com) using the Node.js install manager or NPM.  They can be executed at the command line 
+
+    >mocha test.  
+
+If [Gulp](http://gulpjs.com) is installed they can will be executed in the build path by executing the command 
+
+    >dotnet build
 
 Deployment
 ----------
@@ -39,5 +45,5 @@ Deployment
 After committing your changes, simply push them to Github and Mocha will re-run the tests in a sandbox and deploy them to Azure if 
 successful:
 
-    git commit -m "Some new changes"
-    git push origin head:master
+    >git commit -m "Some new changes"
+    >git push origin head:master
