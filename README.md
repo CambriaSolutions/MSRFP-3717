@@ -21,7 +21,9 @@ Cambria Solutions developed the prototype for the Mississippi Department of Chil
 
 Through feedback from actual caseworkers and foster parents, our multidisciplinary team completed the prototype over the course of six sprints. Our responsive web design is user-friendly and accessible across multiple platforms. An incremental and iterative developmental methodology allowed us to incorporate user feedback and changing requirements, allowing us to do multiple product releases.
 
-Cambria Solutions utilized both traditional practices and Human-Centered Design methodologies in conducting its research. This research formed the basis for understanding features and the usability of the solution in creating a helpful and informative search for child care providers. *[[Research Findings]](https://github.com/CambriaSolutions/MSRFP-3717/blob/master/artifacts/User-Research/User_Research_and_Findings.pdf)*
+The narrative in this README.md summarizes this amazing journey, from a goal (a user story) to a working product. In describing it, we have included links to working documents and other artifacts that provide additional information on the milestones along the way.   
+
+Cambria Solutions utilized both traditional practices and Human-Centered Design methodologies in conducting its user research. This research formed the basis for understanding features and the usability of the solution in creating a helpful and informative search for child care providers. *[[Research Findings]](https://github.com/CambriaSolutions/MSRFP-3717/blob/master/artifacts/User-Research/User_Research_and_Findings.pdf)*
 
 We utilized techniques such as (1) user stories, (2) personas, (3) user interviews, (4) rapid prototyping using wireframes, (5) screen design sketches, and (6) usability testing. We started developing our first user story within a couple of days of development kickoff. *[[Initial User Stories]](https://github.com/CambriaSolutions/MSRFP-3717/blob/master/artifacts/Human-Centered-Design-Artifacts/User%20Stories%20(Spreadsheet).xlsx)* *[[User Stories]](https://github.com/CambriaSolutions/MSRFP-3717/blob/master/artifacts/User%20Stories.pdf)*
 
@@ -65,16 +67,14 @@ Our Usability testing focused on understanding the users, their needs, and what 
 
 # Prototype (Technical Test)
 
-This prototype works on multiple devices including desktops, laptops, android and iOS phones and tablets. We conducted usability testing on various devices to ensure its ease of use and responsive design. Cambria team used ‘Google Translate’ to translate the application to multiple languages. The objective was to ensure we can showcase the capability of reusing existing translation mechanisms rather than building custom objects for different languages as part of the prototype. *[[Responsive-Design]](https://github.com/CambriaSolutions/MSRFP-3717/blob/master/artifacts/Responsive%20Design.pdf)* *[[Spanish and Vietnamese Translation Feedback]](https://github.com/CambriaSolutions/MSRFP-3717/blob/master/artifacts/Language%20Translation.pdf)*  *[[Wireframes]](https://github.com/CambriaSolutions/MSRFP-3717/tree/master/artifacts/Human-Centered-Design-Artifacts/Wireframes)* 
-
-While the unit testing was coducted by the representative users, the prototype was reviewed by the actual users for feedback. 
+Our working prototype works on multiple devices including desktops, laptops, Android and iOS phones and tablets. We conducted usability testing on various devices to ensure its ease of use and responsive design. Cambria team used ‘Google Translate’ to translate the application to multiple languages. The objective was to ensure we can showcase the capability of reusing existing translation mechanisms rather than building custom objects for different languages as part of the prototype. *[[Responsive-Design]](https://github.com/CambriaSolutions/MSRFP-3717/blob/master/artifacts/Responsive%20Design.pdf)* *[[Spanish and Vietnamese Translation Feedback]](https://github.com/CambriaSolutions/MSRFP-3717/blob/master/artifacts/Language%20Translation.pdf)*  *[[Wireframes]](https://github.com/CambriaSolutions/MSRFP-3717/tree/master/artifacts/Human-Centered-Design-Artifacts/Wireframes)* 
 
 We used exclusively open source technologies and the prototype itself is also openly licensed and free of charge. *[[Open Source Technologies, Frameworks, and Libraries Used]](/artifacts/Technology%20Stack.md)* *[[Prototype Open Source License]](https://github.com/CambriaSolutions/MSRFP-3717/blob/master/LICENSE)*
 
+We developed automated unit tests for the code with adequate test coverage. We used Mocha and Chai for unit testing as it ensures logic is working as expected and regressions do not creep in. The test scripts for the coverage and the results for successful deployments are stated here. *[[Automated Test Results]](https://github.com/CambriaSolutions/MSRFP-3717/blob/master/artifacts/Automated%20Testing.pdf)*
+
+We chose Kudu for continuous integration, which enabled us to run tests in isolated deployment slots and deploy to Azure all with a single 'git push' command. *[[Continuous Integration]](https://github.com/CambriaSolutions/MSRFP-3717/blob/master/artifacts/Paas%20Platform.pdf)*
+
 We used Azure as our production PaaS provider.  Azure provides rapid standup and deployment of containerized apps on any platform.  Operations is built in with the ability to integrate continuous deployment, alerts and real time traffic and site monitoring. *[[Our PaaS Platform]](https://github.com/CambriaSolutions/MSRFP-3717/blob/master/artifacts/Paas%20Platform.pdf)*
 
-We developed automated unit tests for the code with adequate test coverage. The test scripts for the coverage and the results for successful deployments are stated here. *[[Automated Test Results]](https://github.com/CambriaSolutions/MSRFP-3717/blob/master/artifacts/Automated%20Testing.pdf)*
-
-We used Mocha and Chai for unit testing as it ensures logic is working as expected and regressions do not creep in. We chose Kudu for continuous integration, which enabled us to run tests in isolated deployment slots and deploy to Azure all with a single 'git push' command. *[[Continuous Integration]](https://github.com/CambriaSolutions/MSRFP-3717/blob/master/artifacts/Paas%20Platform.pdf)*
-
-We also listed all the information necessary to install and run the prototype on another target, if needed. *[[Instructions to install the prototype on another machine]](https://github.com/CambriaSolutions/MSRFP-3717/blob/master/SETUP.md)*
+We also describe all the steps necessary to install and run the prototype on another target, if needed. *[[Instructions to install the prototype in another environment]](https://github.com/CambriaSolutions/MSRFP-3717/blob/master/SETUP.md)*
