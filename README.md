@@ -13,15 +13,15 @@ Cambria builds custom-tailored solutions using ingenuity and a distinctly humani
 # U.S. Digital Services Playbook
 We followed the Digital Services Playbook and created a *[checklist](https://github.com/CambriaSolutions/MSRFP-3717/blob/master/artifacts/US%20Digital%20Services%20Playbook%20Checklist.md)* describing how we used the plays. 
 
-# Documentation
-
 # Brief Description of the Project
 
 Cambria Solutions developed the prototype for the Mississippi Department of Child Protection Services (CPS) using Human-Centered Design principles, Agile development methodology, and Open source technologies. This tool will empower parents and caseworkers to find quality child care before and after school, during the day, or whenever it may be needed. Our goal is to provide comprehensive information needed for decision-making in an informative, intuitive, and helpful way. Our data service is designed for parents who qualify for the Child Care Certificate Program, a federally funded program designed to provide parents with assistance for child care tuition. 
 
 Through feedback from actual caseworkers and foster parents, our multidisciplinary team completed the prototype over the course of six sprints. Our responsive web design is user-friendly and accessible across multiple platforms. An incremental and iterative developmental methodology allowed us to incorporate user feedback and changing requirements, allowing us to do multiple product releases.
 
-The narrative in this README.md summarizes this amazing journey, from a goal (a user story) to a working product. In describing it, we have included links to working documents and other artifacts that provide additional information on the milestones along the way.   
+# Documentation
+
+The narrative in this README.md summarizes the amazing journey of building the prototype, from a goal (a user story) to a working product. In describing it below, we have included links to working documents and other artifacts that provide additional information on the milestones along the way.   
 
 Cambria Solutions utilized both traditional practices and Human-Centered Design methodologies in conducting its user research. This research formed the basis for understanding features and the usability of the solution in creating a helpful and informative search for child care providers. *[[Research Findings]](https://github.com/CambriaSolutions/MSRFP-3717/blob/master/artifacts/User-Research/User_Research_and_Findings.pdf)*
 
