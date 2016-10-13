@@ -63,13 +63,21 @@ Through small group discussions and follow-up research, the team iteratively def
 
 Cambria used a very simple and flexible design style guide for the development of the prototype. We developed our style guide keeping in mind its significant impact on the way users perceive and feel about their interactive experience and the brand itself. We prioritized the following objectives: the use of inspirational pictures, friendly and empathetic tone, persona-based branding, being intuitive and relevant, conversational nature, and presentation of the Cambria brand. *[[Style Guide]](https://github.com/CambriaSolutions/MSRFP-3717/blob/master/artifacts/Style%20Guide.pdf)* *[[Style Guide Process]](https://github.com/CambriaSolutions/MSRFP-3717/blob/master/artifacts/Human-Centered-Design-Artifacts/Style-Guide-Process/Style%20Guide%20Process.pdf)*
 
+The quick start guide contains clear inforamtion about the different pages in the applciation. This document also contains a description of the functional components available on the web page. *[[Quick Start Guide]](https://github.com/CambriaSolutions/MSRFP-3717/blob/master/artifacts/Quick%20Start%20Guide.pdf)*
 
+Our Usability testing focused on understanding the users, their needs, and what they value. Our representative users became our testers. Utilizing a variety of devices, they tested across all sprints. Based on their feedback, we noted enhancements as issues for every sprint, and used the information collected to evaluate the usability of the application, and recommended improvements with each successive sprint. We also conducted accessibility testing using WAVE open-source tool. This tool automatically checked for accessibility of the prototype. The results are embedded in the Usability Testing document. *[[Usability Testing]](https://github.com/CambriaSolutions/MSRFP-3717/blob/master/artifacts/Usability%20Testing.pdf)* 
 
+# Prototype (Technical Test)
 
+This prototype works on multiple devices including desktops, laptops, android and iOS phones and tablets. We conducted usability testing on various devices to ensure its ease of use and responsive design. *[[Responsive-Design]](https://github.com/CambriaSolutions/MSRFP-3717/blob/master/artifacts/Responsive%20Design.pdf)* *[[Spanish and Vietnamese Translation Feedback]](https://github.com/CambriaSolutions/MSRFP-3717/blob/master/artifacts/Language%20Translation.pdf)*  *[[Wireframes]](https://github.com/CambriaSolutions/MSRFP-3717/tree/master/artifacts/Human-Centered-Design-Artifacts/Wireframes)* 
 
+We used exclusively open source technologies and the prototype itself is also openly licensed and free of charge. *[[Open Source Technologies]](/artifacts/Technology%20Stack.md)* *[[Prototype Open Source License]](https://github.com/CambriaSolutions/MSRFP-3717/blob/master/LICENSE)* *[[Frameworks and Libraries Used]](https://github.com/CambriaSolutions/MSRFP-3717/blob/master/artifacts/Technology%20Stack.md)*
 
+We used Azure as our production PaaS provider.  Azure provides rapid standup and deployment of containerized apps on any platform.  Operations is built in with the ability to integrate continuous deployment, alerts and real time traffic and site monitoring. *[[Our PaaS Platform]](https://github.com/CambriaSolutions/MSRFP-3717/blob/master/artifacts/Paas%20Platform.pdf)*
 
+We developed automated unit tests for the code with adequate test coverage. The test scripts for the coverage and the results for successful deployments are stated here. *[[Automated Test Results]](https://github.com/CambriaSolutions/MSRFP-3717/blob/master/artifacts/Automated%20Testing.pdf)*
 
+We used Mocha and Chai for unit testing as it ensures logic is working as expected and regressions do not creep in. We chose Kudu for continuous integration, which enabled us to run tests in isolated deployment slots and deploy to Azure all with a single 'git push' command. *[[Continuous Integration]](https://github.com/CambriaSolutions/MSRFP-3717/blob/master/artifacts/Paas%20Platform.pdf)*
 
 
 
@@ -122,7 +130,6 @@ We conducted six sprints, each sprint informing the subsequent. Each sprint cycl
 
 (i)
 
-This prototype works on multiple devices including desktops, laptops, android and iOS phones and tablets. We conducted usability testing on various devices to ensure its ease of use and responsive design. *[[Responsive-Design]](https://github.com/CambriaSolutions/MSRFP-3717/blob/master/artifacts/Responsive%20Design.pdf)* *[[Style Guide]](https://github.com/CambriaSolutions/MSRFP-3717/blob/master/artifacts/Style%20Guide.pdf)*  *[[Quick Start Guide]](https://github.com/CambriaSolutions/MSRFP-3717/blob/master/artifacts/Quick%20Start%20Guide.pdf)*  *[[Spanish and Vietnamese Translation Feedback]](https://github.com/CambriaSolutions/MSRFP-3717/blob/master/artifacts/Language%20Translation.pdf)*  *[[Wireframes]](https://github.com/CambriaSolutions/MSRFP-3717/tree/master/artifacts/Human-Centered-Design-Artifacts/Wireframes)* 
 
 (j)
 
@@ -130,15 +137,15 @@ This prototype works on multiple devices including desktops, laptops, android an
 
 (k)
 
-We used Azure as our production PaaS provider.  Azure provides rapid standup and deployment of containerized apps on any platform.  Operations is built in with the ability to integrate continuous deployment, alerts and real time traffic and site monitoring. *[[Our PaaS Platform]](https://github.com/CambriaSolutions/MSRFP-3717/blob/master/artifacts/Paas%20Platform.pdf)*
+
 
 (l)
 
-We used Mocha and Chai for unit testing as it ensures logic is working as expected and regressions do not creep in.  *[[Automated Test Results]](https://github.com/CambriaSolutions/MSRFP-3717/blob/master/artifacts/Automated%20Test%20Results.png)* *[[Automated Test Script]](https://github.com/CambriaSolutions/MSRFP-3717/blob/master/artifacts/Automated_Test_Script.txt)*
+
 
 (m)
 
-We chose Kudu for continuous integration, which enabled us to run tests in isolated deployment slots and deploy to Azure all with a single 'git push' command. *[[Continuous Integration]](https://github.com/CambriaSolutions/MSRFP-3717/blob/master/artifacts/Paas%20Platform.pdf)*
+
 
 (n)
 
@@ -156,6 +163,6 @@ We utilized Azure's App Service for containerization, a virtualization technolog
 
 (q)
 
-We used exclusively open source technologies and the prototype itself is also openly licensed and free of charge. *[[Open Source Technologies]](/artifacts/Technology%20Stack.md)* *[[Prototype Open Source License]](https://github.com/CambriaSolutions/MSRFP-3717/blob/master/LICENSE)*
+
 
 
