@@ -1,7 +1,7 @@
 # MSRFP-3717
 
 # Submission Requirements
-Cambria developed a working prototype using Human-Centered design principles and agile practices. It is hosted at a publicly-available URL.
+Cambria's working prototype, developed using Human-Centered design principles and agile practices, is hosted at a publicly-available URL.
 *[[Click here for our working prototype.]](http://msrfp-3717.azurewebsites.net/)*
 
 While the prototype is intuitive, we provide a quick start guide that describes the features of the prototype. 
