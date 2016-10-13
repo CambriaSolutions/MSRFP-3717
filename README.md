@@ -1,13 +1,17 @@
 # MSRFP-3717
 
+# The Cambria Way
+Cambria builds custom-tailored solutions using ingenuity and a distinctly humanized approach. Something we like to call HumanGenuity®. What better way for us to demonstrate how we put this into practice than by engaging in a challenge to develop a human-centered prototype while displaying our agile approach! 
+
 # Submission Requirements
+
 Cambria developed a working prototype using Human-Centered design principles and hosted at a publicly-available URL.
 [Click here for our working prototype](http://msrfp-3717.azurewebsites.net/)
 
+The quick start guide contains all the instructions needed to access the applicaion
 [Quick Start Guide](https://github.com/CambriaSolutions/MSRFP-3717/blob/master/artifacts/Quick%20Start%20Guide.pdf)
 
-# The Cambria Way
-Cambria builds custom-tailored solutions using ingenuity and a distinctly humanized approach. Something we like to call HumanGenuity®. What better way for us to demonstrate how we put this into practice than by engaging in a challenge to develop a human-centered prototype while displaying our agile approach! 
+
 
 # Brief Description of the Project
 Cambria Solutions developed this prototype for the Mississippi Department of Human Services (MDHS) Agency using Human Centered Design principles, Agile development methodology, and Open source technologies. This tool will empower parents and caseworkers to find quality child care before and after school, during the day, or whenever it may be needed. Our goal is to provide comprehensive information needed for decision-making in an informative, easy, and helpful way. Our database is designed for parents who qualify for the Child Care Certificate Program, a federally funded program designed to provide parents with assistance for child care tuition. 
@@ -89,8 +93,7 @@ We utilized Azure's App Service for containerization, a virtualization technolog
 
 (p)
 
-The application is easily transported to other hosts.
-*[[Instructions to install the prototype on another machine]](https://github.com/CambriaSolutions/MSRFP-3717/blob/master/SETUP.md)*
+
 
                       
 
