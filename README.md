@@ -41,7 +41,7 @@ Git allowed us to share and collaborate on code and assets, while GitHub hosts o
 
 Cambria assembled a mutidisciplinary and collaborative team that represented diverse backgrounds including few resources working remotely. Those involved included developers, visual designers, business analysts, technical architects, managers, writers, users and Product Managers. The roles were assigned based on each individual’s experience, skill sets, background, interest and the specific needs of the prototype. The Team structure document contains the roles, responsibilites, corresponding Agile Labor categories, and the total number of hours utilized to build the prototype. *[[Team Structure]](https://github.com/CambriaSolutions/MSRFP-3717/blob/master/artifacts/Team%20Structure.pdf)*
 
-Our executive team met and assigned Anand and gave him authority to lead the prototype development and to ensure that we deliver a quality product to MDHS. Anand has over 18 years of technology integration expereince and led multi-disciplinary teams related to enterprise transformation. He also has experience in creating the foster care prototype for CA Agile Development Pre-Qualified Challenge. *[[Our Team]](https://github.com/CambriaSolutions/MSRFP-3717/blob/master/artifacts/Team%20Structure.pdf)*
+Our executive team met and assigned Anand and gave him authority to lead the prototype development and to ensure that we deliver a quality product to MDHS. Anand has over 18 years of technology integration expereince and led multi-disciplinary teams related to enterprise transformation. He also has experience in creating the foster care prototype for CA Agile Development Pre-Qualified Challenge.
 
 # Research and Discovery
 
