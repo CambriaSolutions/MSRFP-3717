@@ -93,12 +93,6 @@ We utilized Azure's App Service for containerization, a virtualization technolog
 
 (p)
 
-
-
-                      
-
-(q)
-
 We used exclusively open source technologies and the prototype itself is also openly licensed and free of charge. *[[Open Source Technologies]](/artifacts/Technology%20Stack.md)* *[[Prototype Open Source License]](https://github.com/CambriaSolutions/MSRFP-3717/blob/master/LICENSE)*
 
 
