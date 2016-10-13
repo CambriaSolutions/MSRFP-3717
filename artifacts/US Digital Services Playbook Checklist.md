@@ -198,7 +198,7 @@
   
   12.	USE DATA TO DRIVE DECISIONS
   
-  We used <Need to include name> for continuous monitoring because it is a complete solution that monitors and analyzes the metrics that impact the application at every level of the stack. We integrated Librato with Heroku to provide detailed information about the application’s performance. We added LogEntries to provide real-time logging, aggregated live-tail search and context views, and the ability to search events as they occur.
+  We used Application Insights for continuous monitoring because it is a complete solution that monitors and analyzes the metrics that impact the application at every level of the stack. It also provides detailed information about the application’s performance and provides real-time logging, aggregated live-tail search and context views, and the ability to search events as they occur. It is included as a service in Azure. 
   
   [x] Monitor system-level resource utilization in real-time
   
@@ -241,7 +241,7 @@
   
   [x] When appropriate, share your development process and progress publicly
   
-  License - open source: <Need to include the license file>
+  License - open source: https://github.com/CambriaSolutions/MSRFP-3717/blob/master/LICENSE
   
   Installation Instructions: https://github.com/CambriaSolutions/MSRFP-3717/blob/master/SETUP.md
   
