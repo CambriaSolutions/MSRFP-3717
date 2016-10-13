@@ -77,7 +77,7 @@ We used Azure as our production PaaS provider.  Azure provides rapid standup and
 
 (l)
 
-We used Mocha and Chai for unit testing as it ensures logic is working as expected and regressions do not creep in.  *[[Automated Test Results]](https://github.com/CambriaSolutions/MSRFP-3717/blob/master/artifacts/Automated%20Test%20Results.png)* *[[Automated Test Script]](https://github.com/CambriaSolutions/MSRFP-3717/blob/master/artifacts/Automated_Test_Script.txt)*
+We used Mocha and Chai for unit testing as it ensures logic is working as expected and regressions do not creep in.  *[[Automated Test Scripts and Results]](https://github.com/CambriaSolutions/MSRFP-3717/blob/master/artifacts/Automated%20Testing.pdf)*
 
 (m)
 
