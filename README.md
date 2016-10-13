@@ -79,8 +79,8 @@ We developed automated unit tests for the code with adequate test coverage. The 
 
 We used Mocha and Chai for unit testing as it ensures logic is working as expected and regressions do not creep in. We chose Kudu for continuous integration, which enabled us to run tests in isolated deployment slots and deploy to Azure all with a single 'git push' command. *[[Continuous Integration]](https://github.com/CambriaSolutions/MSRFP-3717/blob/master/artifacts/Paas%20Platform.pdf)*
 
-We also listed all the information necessary to install and run the prototype on another target, if needed. 
-
+We also listed all the information necessary to install and run the prototype on another target, if needed. *[[Instructions to install the prototype on another machine]](https://github.com/CambriaSolutions/MSRFP-3717/blob/master/SETUP.md)*
+__________________________
 
 
 
