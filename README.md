@@ -1,17 +1,16 @@
 # MSRFP-3717
 
-# The Cambria Way
-Cambria builds custom-tailored solutions using ingenuity and a distinctly humanized approach. Something we like to call HumanGenuity®. What better way for us to demonstrate how we put this into practice than by engaging in a challenge to develop a human-centered prototype while displaying our agile approach! 
-
 # Submission Requirements
-
 Cambria developed a working prototype using Human-Centered design principles and agile practices. It is hosted at a publicly-available URL.
-[Click here for our working prototype](http://msrfp-3717.azurewebsites.net/)
+[[Click here for our working prototype.]](http://msrfp-3717.azurewebsites.net/)
 
 While the prototype is intuitive, we provide a quick start guide that describes the features of the prototype. 
-[Quick Start Guide](https://github.com/CambriaSolutions/MSRFP-3717/blob/master/artifacts/Quick%20Start%20Guide.pdf)
+[[Quick Start Guide]](https://github.com/CambriaSolutions/MSRFP-3717/blob/master/artifacts/Quick%20Start%20Guide.pdf)
 
 Cambria team followed the intuitive approach of Agile process and Human-Centered Design to develop the prototype that led the need to add more data elements and relevant data. Based on the user research and additional user stories, Cambria saw the need for additional attributes *[[Additional Dataset]](https://github.com/CambriaSolutions/MSRFP-3717/blob/master/artifacts/Provider-Data/MS%20ITS%20RFP%203717-Vendor%20Challenge%20Dataset%20(FT).xlsx)*  *[[Additional Dataset Process]](https://github.com/CambriaSolutions/MSRFP-3717/blob/master/artifacts/Provider-Data/Extended%20Provider%20Data%20Service.pdf)* 
+
+# The Cambria Way
+Cambria builds custom-tailored solutions using ingenuity and a distinctly humanized approach. Something we like to call HumanGenuity®. What better way for us to demonstrate how we put this into practice than by engaging in a challenge to develop a human-centered prototype while displaying our agile approach! 
 
 # U.S. Digital Services Playbook
 We followed the Digital Services Playbook and created a *[document](https://github.com/CambriaSolutions/MSRFP-3717/blob/master/artifacts/US%20Digital%20Services%20Playbook%20Checklist.md)* describing how we used the plays.
