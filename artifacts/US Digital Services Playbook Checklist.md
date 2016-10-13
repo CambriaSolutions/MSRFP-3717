@@ -175,7 +175,7 @@
   
   10.	AUTOMATED TESTING AND DEPLOYMENTS
   
-  We chose to use Mocha and Chai for unit testing as it ensures logic is working as expected and regressions do not creep in. 
+  We chose to use Mocha and Chai for unit testing as it ensures logic is working as expected and regressions do not creep in. We chose Kudu for automated deployment. Kudu integrates with Git and Azure for deployments. 
   
   [x] Create automated tests that verify all user-facing functionality
   
@@ -244,6 +244,8 @@
   License - open source: <Need to include the license file>
   
   Installation Instructions: https://github.com/CambriaSolutions/MSRFP-3717/blob/master/SETUP.md
+  
+  Dataset: https://github.com/CambriaSolutions/MSRFP-3717/blob/master/artifacts/Provider-Data/Extended%20Provider%20Data%20Service.pdf
   
   Fixed Issues: https://github.com/CambriaSolutions/MSRFP-3717/issues?q=is%3Aissue+is%3Aclosed
   
