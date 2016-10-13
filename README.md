@@ -17,7 +17,7 @@ Cambria team followed the intuitive approach of Agile process and Human-Centered
 We followed the Digital Services Playbook and created a *[document](https://github.com/CambriaSolutions/MSRFP-3717/blob/master/artifacts/US%20Digital%20Services%20Playbook%20Checklist.md)* describing how we used the plays.
 
 
-In developing this prototype, we utilized several human-centered design techniques. These techniques created an understanding of user needs, behaviors, and goals that were incorporated into the functional components of our prototype. The functional description document contains the design decisions and assumptions made, with corresponding rationale. *[[Design Decisions]](https://github.com/CambriaSolutions/MSRFP-3717/blob/master/artifacts/Funtional_Component_Rationale_Description.pdf)*
+In developing this prototype, we utilized several human-centered design techniques. These techniques created an understanding of user needs, behaviors, and goals that were incorporated into the functional components of our prototype. The functional description document contains the design decisions and assumptions made, with corresponding rationale. *[[Design Decisions]](https://github.com/CambriaSolutions/MSRFP-3717/blob/master/artifacts/Functional%20Description.pdf)*
 
 # Documentation
 
