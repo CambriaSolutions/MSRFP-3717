@@ -61,7 +61,7 @@
   
   [x] Use language and design consistently throughout the service, including online and offline touch points
   
-  Style Guide Process: https://github.com/CambriaSolutions/MSRFP-3717/blob/master/artifacts/Human-Centered-Design-Artifacts/Style-Guide-Process/Style%20Guide%20Process.pdf
+  Style Guide Process: https://github.com/CambriaSolutions/MSRFP-3717/tree/master/artifacts/Human-Centered-Design-Artifacts/Style-Guide-Process
 
   Usability Testing: https://github.com/CambriaSolutions/MSRFP-3717/blob/master/artifacts/Usability%20Testing.pdf
   
