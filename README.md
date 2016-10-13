@@ -5,10 +5,10 @@ Cambria builds custom-tailored solutions using ingenuity and a distinctly humani
 
 # Submission Requirements
 
-Cambria developed a working prototype using Human-Centered design principles and hosted at a publicly-available URL.
+Cambria developed a working prototype using Human-Centered design principles and agile practices. It is hosted at a publicly-available URL.
 [Click here for our working prototype](http://msrfp-3717.azurewebsites.net/)
 
-The quick start guide contains all the summary of all the different functions of the application
+While the prototype is intuitive, we provide a quick start guide that describes the features of the prototype. 
 [Quick Start Guide](https://github.com/CambriaSolutions/MSRFP-3717/blob/master/artifacts/Quick%20Start%20Guide.pdf)
 
 Cambria team followed the intuitive approach of Agile process and Human-Centered Design to develop the prototype that led the need to add more data elements and relevant data. Based on the user research and additional user stories, Cambria saw the need for additional attributes *[[Additional Dataset]](https://github.com/CambriaSolutions/MSRFP-3717/blob/master/artifacts/Provider-Data/MS%20ITS%20RFP%203717-Vendor%20Challenge%20Dataset%20(FT).xlsx)*  *[[Additional Dataset Process]](https://github.com/CambriaSolutions/MSRFP-3717/blob/master/artifacts/Provider-Data/Extended%20Provider%20Data%20Service.pdf)* 
