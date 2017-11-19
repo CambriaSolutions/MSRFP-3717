@@ -1,55 +1,102 @@
 //LoadMapsByFilters : Gets the provider data and prepare a array for the further process.
-function LoadMapsByFilters(enteredLocation,facilitycount,qualityrating,providertype,availability,specialneeds) {
-     
-     var arr = [];
-     var latlng = getLocationCoordinate(enteredLocation);
-     var lat = latlng.lat;
-     var lng = latlng.lng;
-     var mapresults;
-
-   var url = 'https://www.googleapis.com/fusiontables/v2/query/?sql=SELECT%20PROVIDERNAME,LICENSETYPE,PROVIDERTYPEDESCRIPTION,QUALITYRATING,PROVIDERCAPACITY,STREETADDRESS,PHYSICALCITY,PHYSICALZIPCODE,COUNTYNAME,PHONENUMBER,AVAILABILITY,SPECIALNEEDS,LOCATIONLATITUDE,LOCATIONLONGITUDE%20FROM%201LJf1_wwE143AcOetenp8utlpTielLEDvWbbGw71A%20WHERE%20LICENSETYPE%20IN(%27LICENSED%27,%27UNLICENSED%27)%20'
-
-     // WHERE%20ST_INTERSECTS(LOCATIONWITHOUTNAME,%20CIRCLE(LATLNG(' + lat + ',' + lng + '),' + radius + '))'
-    var urlorderby = '%20ORDER%20BY%20ST_DISTANCE(LOCATIONWITHOUTNAME,LATLNG(' + lat + ',' + lng + '))%20LIMIT%20' + facilitycount;
-
-
-     url = providertype != "-1" ? url + 'and PROVIDERTYPE=' + providertype + " " : url;
-     url = (qualityrating == 0 || qualityrating == "-1") ? url : url + 'and QUALITYRATING>0 ';
-
-     url = (availability != null) ? url + "and AVAILABILITY='" + availability + "' " : url;
-     url = (specialneeds != null) ? url + "and SPECIALNEEDS='" + specialneeds + "'" : url;  
-     url = url + urlorderby;
-        url = (url != null) ? url + '&key=AIzaSyAJDVkvbS5v9hknmJeJx_hVnAeIj3jjpM0' : "";
-
-      $.ajax({
-         type: 'GET',
-         url: url,
-         data: { location: enteredLocation },
-         dataType: 'json',
-         async: false,
-         success: function (data) {
-
-             mapresults = data;
-
-         },
-         error: function (jqXHR, textStatus, errorThrown) {
-             // alert(jqXHR.status + ",  " + jqXHR.statusText + ",  " + textStatus + ",  " + errorThrown);
-         }
-     });
-    
+function LoadMapsByFilters(enteredLocation, facilitycount, qualityrating, providertype, availability, specialneeds) {
+ 
+    var arr     = [];
+    var latlng  = getLocationCoordinate(enteredLocation);
+    var lat     = latlng.lat;
+    var lon     = latlng.lng;
+    var url     = 'http://13.82.25.218:9200/al/provider/_search';
+ 
+    var mapresults;
+    var matchQuery = {
+        "bool": {
+            "must": [ ]
+          }
+        };
+ 
+    if(specialneeds){
+        matchQuery.bool.must.push(
+            {
+                'match': {
+                    'special_needs' : 'YES'
+                }
+            }
+        );
+    }
+    if(availability){
+        matchQuery.bool.must.push(
+            {
+                'match': {
+                    'availability' : 'YES'
+                }
+            }
+        );
+    }
+    if(providertype > -1){
+        matchQuery.bool.must.push(
+            {
+                'match': {
+                    'provider_type' : providertype
+                }
+            }
+        );
+    }
+    if(qualityrating > 0){
+        matchQuery.bool.must.push(
+            {
+                'range': {
+                    'quality_rating' : { "gt" : 0}
+                }
+            }
+        );
+    }
+ 
+    var es_query = {
+        "sort": [
+            {
+                "_geo_distance": {
+                    "location": [lat, lon],
+                    "order": "asc",
+                    "unit": "mi",
+                    "mode": "min",
+                    "distance_type": "arc"
+                }
+            }
+        ],
+        "from" : 0, "size" : facilitycount,
+        "query" : matchQuery
+    }
+ 
+    $.ajax({
+        type: 'POST',
+        url: url,
+        data: JSON.stringify(es_query),
+        dataType: 'json',
+        async: false,
+        success: function (data) {
+            if (data && data.hits && data.hits.hits) {
+                mapresults = data.hits.hits;
+            }
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            // alert(jqXHR.status + ",  " + jqXHR.statusText + ",  " + textStatus + ",  " + errorThrown);
+        }
+    });
+ 
     //returning false if no results found
-     if (!mapresults || !mapresults.rows) {
-         return arr;
-     }
-     else{
-        new_rows = mapresults.rows.map(function (row) {
-
-            arr.push([row[0], row[1], row[2], row[3], row[4], row[5], row[6], row[7], row[8], row[9], row[10], row[11], row[12], row[13]]);
-
+    if (!mapresults) {
+        return arr;
+    }
+    else {
+        new_rows = mapresults.map(function (row) {
+            var _row = row._source;
+            arr.push([_row.provider_name, _row.license_type, _row.provider_type_description, _row.quality_rating, _row.provider_capacity,
+            _row.street_address, _row.physical_city, _row.physical_zip_code, _row.county_name, _row.phone_number, _row.availability,
+            _row.special_needs, _row.location.lat, _row.location.lon]);
         })
         return arr;
-     }
- }
+    }
+}
 
 //getLocationCoordinate: To get the latitude and longitude of the given address
 function getLocationCoordinate(address) {
