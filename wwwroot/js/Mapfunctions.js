@@ -55,11 +55,9 @@ function LoadMapsByFilters(enteredLocation, facilitycount, qualityrating, provid
         "sort": [
             {
                 "_geo_distance": {
-                    "location": [lat, lon],
+                    "location": [lon, lat],
                     "order": "asc",
-                    "unit": "mi",
-                    "mode": "min",
-                    "distance_type": "arc"
+                    "unit": "mi"
                 }
             }
         ],
